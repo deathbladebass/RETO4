@@ -29,21 +29,7 @@ p {
     width: 100%;
   }
 
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
 
 .icon-block {
   padding: 0 15px;
@@ -65,7 +51,7 @@ footer.page-footer {
 
 .background-contacto{
 	background-image: url("../img/bgContacto.png");
- 	background-size: cover; 	
+ 	
 }
 
 .grid-container{
@@ -77,9 +63,10 @@ footer.page-footer {
     'submit submit submit submit submit submit';
     border-radius:10px;
     margin:75px;
+    margin-top:0;
     padding:15px;
-background: rgb(14,73,208);
-background: linear-gradient(0deg, rgba(14,73,208,0) 0%, rgba(68,110,242,0.4542191876750701) 53%, rgba(52,104,231,0.7371323529411764) 100%);
+	background: rgb(13,71,161);
+	background: linear-gradient(0deg, rgba(13,71,161,0) 0%, rgba(13,71,161,0.3113620448179272) 53%, rgba(36,72,159,0.6194852941176471) 100%);
 }
 
 .grid-nombre{
@@ -120,11 +107,45 @@ background: linear-gradient(0deg, rgba(14,73,208,0) 0%, rgba(68,110,242,0.454219
 	}
 	
 textarea {
-height:100%;
+	height:84%;
+	border: none;
+	border-bottom: 1px solid lightgray;
+	resize: none;
 }
 .grid-submit{
 	grid-area: submit;
 	margin-top:50px;
 	text-align:center;
-	}
+}
+	
+.iconosrrss {
+	margin-right:20px;
+}
+	
+.tituloContacto{
+	font-family: 'Teko', sans-serif;
+	font-size:80px;
+}
 
+
+/* Media Query */
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+  
+  .grid-container{	
+    margin:30px;
+  }
+}

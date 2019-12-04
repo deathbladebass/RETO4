@@ -9,12 +9,15 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Teko:300&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="img/paradox.png">
 </head>
 <body>
 <div class="background-contacto">
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><img src="img/paradox.png" width="13%"></a>
+      <a id="logo-container" href="../index.php" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#" class="white-text">Navbar Link</a></li>
       </ul>
@@ -25,7 +28,7 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-  <h1 class="center-align">FORMULARIO DE CONTACTO</h1>
+  <h1 class="center-align tituloContacto">FORMULARIO DE CONTACTO</h1>
   <div class="grid-container">
     <div class="grid-nombre">      
 		<strong>Nombre: </strong><input type="text" name="fnombre">
@@ -56,34 +59,31 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">Sobre Nosotros</h5>
+          <p class="grey-text text-lighten-4">
+          	Paradox es un club de deportes electronicos de alta categoria, nos dedicamos a gestionar equipos en diferentes plataformas y videojuegos.
+          	Forjamos nuestras victorias.
+          
+          
+          </p>
 
 
         </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
+        <div class="col l6 s12">
+          <h5 class="white-text">RRSS</h5>
           <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
+            <a class="white-text iconosrrss" href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.facebook.es/"><i class="fab fa-facebook-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.twitter.com/"><i class="fab fa-twitter-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.youtube.es/"><i class="fab fa-youtube-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://twitch.tv/"><i class="fab fa-twitch fa-2x"></i></a>
           </ul>
         </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    <div class="footer-copyright blue darken-4">
+      <div class="container center-align">
+      <i class="far fa-copyright"></i>Grupo 1 2019
       </div>
     </div>
   </footer>
