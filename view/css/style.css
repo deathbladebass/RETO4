@@ -55,8 +55,16 @@ p {
 footer.page-footer {
   margin: 0;
 }
-.imageJumbotron{
-	background-size:cover;
-	background-position:center;
-	background-image:url(../world.jpg);
+.tamanoImagen{
+	background-position:center !important;
+	background-size: cover !important;
+	height:100%;
+}
+.dropdown-content{
+	width: 50px;
+}
+.dropdown-trigger{
+	width: 130px;
+}
+}
 }
