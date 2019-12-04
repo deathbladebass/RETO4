@@ -1,10 +1,9 @@
 <?php
-class jugadorClass{
+class equipoClass{
     protected $idEquipo;
     protected $nombreEquipo
     protected $idCategoria;
     protected $idCuerpoTecnico;
-    protected $liga;
 
     public function getIdEquipo(){
         return $this->idEquipo;
@@ -33,13 +32,6 @@ class jugadorClass{
 
     public function setIdCuerpoTecnico($idCuerpoTecnico){
         $this->idCuerpoTecnico = $idCuerpoTecnico;
-    }
-    public function getLiga(){
-        return $this->liga;
-    }
-
-    public function setLiga($liga){
-        $this->liga = $liga;
     }
 
 

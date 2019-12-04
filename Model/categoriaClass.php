@@ -4,6 +4,7 @@
 class categoriaClass{
     protected $idCategoria;
     protected $nombreCategoria;
+    protected $abreviatura;
 
     public function getIdCategoria(){
         return $this->idCategoria;
@@ -20,5 +21,14 @@ class categoriaClass{
     public function setNombreCategoria($idCategoria){
         $this->nombreCategoria = $nombreCategoria;
     }
+
+    public function getAbreviatura(){
+        return $this->abreviatura;
+    }
+
+    public function setAbreviatura($abreviatura){
+        $this->abreviatura = $abreviatura;
+    }
+
 
 }
