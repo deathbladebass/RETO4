@@ -60,3 +60,56 @@ footer.page-footer {
 	background-position:center;
 	background-image:url(../world.jpg);
 }
+
+/* Contacto.php */
+
+.background-contacto{
+	background-image: url("../img/bgContacto.png");
+ 	background-size: cover; 	
+}
+
+.grid-container{
+	display: grid;
+	grid-template-areas:
+    'nombre nombre nombre email email email'
+    'tipo tipo asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
+    border-radius:10px;
+    margin:75px;
+    padding:15px;
+    background: rgb(14,73,208);
+	background: linear-gradient(0deg, rgba(14,73,208,0) 0%, rgba(18,64,209,0.17970938375350143) 53%, rgba(13,71,213,0.3533788515406162) 100%);
+}
+
+.grid-nombre{
+	grid-area: nombre;
+	margin:10px;
+}
+.grid-email{
+	grid-area: email;
+	margin:10px;
+	}
+.grid-tipo{
+	grid-area: tipo;
+	margin:10px;
+	}
+.grid-asunto{
+	grid-area: asunto;
+	margin:10px;
+	}
+.grid-mensaje{
+	grid-area: mensaje;
+	margin:10px;
+	height:200px;
+	}
+	
+textarea {
+height:100%;
+}
+.grid-submit{
+	grid-area: submit;
+	margin-top:50px;
+	text-align:center;
+	}
+
