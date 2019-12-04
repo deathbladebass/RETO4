@@ -78,30 +78,45 @@ footer.page-footer {
     border-radius:10px;
     margin:75px;
     padding:15px;
-    background: rgb(14,73,208);
-	background: linear-gradient(0deg, rgba(14,73,208,0) 0%, rgba(18,64,209,0.17970938375350143) 53%, rgba(13,71,213,0.3533788515406162) 100%);
+background: rgb(14,73,208);
+background: linear-gradient(0deg, rgba(14,73,208,0) 0%, rgba(68,110,242,0.4542191876750701) 53%, rgba(52,104,231,0.7371323529411764) 100%);
 }
 
 .grid-nombre{
 	grid-area: nombre;
 	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
 }
 .grid-email{
 	grid-area: email;
 	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
 	}
 .grid-tipo{
 	grid-area: tipo;
 	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
 	}
 .grid-asunto{
 	grid-area: asunto;
 	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
 	}
 .grid-mensaje{
 	grid-area: mensaje;
 	margin:10px;
 	height:200px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
 	}
 	
 textarea {
