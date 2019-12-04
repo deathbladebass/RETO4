@@ -77,6 +77,7 @@
             <a class="white-text iconosrrss" href="https://www.twitter.com/"><i class="fab fa-twitter-square fa-2x"></i></a>
             <a class="white-text iconosrrss" href="https://www.youtube.es/"><i class="fab fa-youtube-square fa-2x"></i></a>
             <a class="white-text iconosrrss" href="https://twitch.tv/"><i class="fab fa-twitch fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://discordapp.com/"><i class="fab fa-discord fa-2x"></i></a>
           </ul>
         </div>
       </div>
