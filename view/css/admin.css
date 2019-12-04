@@ -1,7 +1,20 @@
 .header{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+.header>*{
+    align-self: flex-end;
+}
+.tabla{
+    display: flex;
+    justify-content: center;
+}
+table{
+    width: 1250px;
+
+    overflow: scroll;
+}
+
 
 
