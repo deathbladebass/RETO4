@@ -11,6 +11,7 @@ class jugadorClass{
     protected $direccionJugador;
     protected $emailJugador;
     protected $activo;
+    protected $nickname;
 
 
 
@@ -101,6 +102,13 @@ class jugadorClass{
 
     public function setActivo($activo){
         $this->activo = $activo;
+    }
+    public function getNickname(){
+        return $this->nickname;
+    }
+
+    public function setNickname($nickname){
+        $this->nickname = $nickname;
     }
 
 }
