@@ -9,10 +9,11 @@
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link rel="stylesheet" href="css/admin.css">
     <script src="lib/angular.min.js" type="text/javascript"></script>
+    <script src="js/admin.js" type="text/javascript"></script>
     <title>Document</title>
 </head>
 
-<body ng-controller="mainController">
+<body  ng-controller="informacion">
     <nav class="blue darken-4" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">Logo</a>
@@ -38,17 +39,17 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+        <table class="striped" >
             <thead>
                 <tr>
                     <td>nombre</td>
                     <td>Categoría</td>
                 </tr>
             </thead>
-            <tbody>
+            <tbody ng-repeat="item in equipo">
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>item.nombre</td>
+                    <td>item.categoria</td>
                     <td><input type="button" value="borrar"></td>
                     <td><input type="button" value="modificar"></td>
                 </tr>

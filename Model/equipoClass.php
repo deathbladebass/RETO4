@@ -1,9 +1,10 @@
 <?php
 class equipoClass{
     protected $idEquipo;
-    protected $nombreEquipo
+    protected $nombreEquipo;
     protected $idCategoria;
-    protected $idCuerpoTecnico;
+    protected $imagen;
+    protected $objCategoria;
 
     public function getIdEquipo(){
         return $this->idEquipo;
@@ -26,13 +27,23 @@ class equipoClass{
     public function setIdCategoria($idCategoria){
         $this->idCategoria = $idCategoria;
     }
-    public function getIdCuerpoTecnico(){
-        return $this->idCuerpoTecnico;
+    public function getImagen(){
+        return $this->imagen;
+    }
+    public function setImagen($imagen){
+        $this->imagen=$imagen;
     }
 
-    public function setIdCuerpoTecnico($idCuerpoTecnico){
-        $this->idCuerpoTecnico = $idCuerpoTecnico;
+    public function getObjCategoria(){
+        return $this->getObjCategoria;
     }
-
+    public function setObjCategoria($objCategoria){
+        $this->objCategoria=$objCategoria;
+    }
+    function getObjectVars()
+    {
+        //$vars = get_object_vars($this);
+        return  $vars;
+    }
 
 }

@@ -162,6 +162,13 @@ textarea {
   }
   
   .grid-container{	
-    margin:30px;
+    margin:10px;
+    grid-template-areas:
+    'nombre nombre nombre nombre nombre nombre'
+    'email email email email email email'
+    'tipo tipo tipo tipo tipo tipo'
+    'asunto asunto asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
   }
 }

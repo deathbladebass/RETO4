@@ -1,75 +1,75 @@
 <?php
 class jugadorClass{
-    protected $idJugador;
-    protected $nombreJugador;
-    protected $apellidoJugador;
-    protected $dniJugador
-    protected $fechaNacimientoJugador;
-    protected $numTelJugador;
-    protected $rolJugador;
+    protected $id;
+    protected $nombre;
+    protected $apellido;
+    protected $dni;
+    protected $fechaNacimiento;
+    protected $numTel;
+    protected $rol;
     protected $idEquipo;
-    protected $direccionJugador;
-    protected $emailJugador;
+    protected $direccion;
+    protected $email;
     protected $activo;
     protected $nickname;
+    protected $imagen;
 
 
 
-
-    public function getIdJugador(){
-        return $this->idJugador;
+    public function getId(){
+        return $this->id;
     }
 
-    public function setIdJugador($idJugador){
-        $this->idJugador = $idJugador;
+    public function setId($id){
+        $this->id = $id;
     }
 
-    public function getNombreJugador(){
-        return $this->nombreJugador;
+    public function getNombre(){
+        return $this->nombre;
     }
 
-    public function setNombreJugador($nombreJugador){
-        $this->nombreJugador = $nombreJugador;
+    public function setNombre($nombre){
+        $this->nombre = $nombre;
     }
 
-    public function getApellidoJugador(){
-        return $this->apellidoJugador;
+    public function getApellido(){
+        return $this->apellido;
     }
 
-    public function setApellidoJugador($ApellidoJugador){
-        $this->ApellidoJugador = $ApellidoJugador;
+    public function setApellido($Apellido){
+        $this->Apellido = $Apellido;
     }
 
-    public function getDniJugador(){
-        return $this->dniJugador;
+    public function getDni(){
+        return $this->dni;
     }
 
-    public function setDniJugador($dniJugador){
-        $this->dniJugador = $dniJugador;
+    public function setDni($dni){
+        $this->dni = $dni;
     }
 
-    public function getFechaNacimientoJugador(){
-        return $this->fechaNacimientoJugador;
+    public function getFechaNacimiento(){
+        return $this->fechaNacimiento;
     }
 
-    public function setFechaNacimientoJugador($fechaNacimientoJugador){
-        $this->fechaNacimientoJugador = $fechaNacimientoJugador;
+    public function setFechaNacimiento($fechaNacimiento){
+        $this->fechaNacimiento = $fechaNacimiento;
     }
 
-    public function getNumTelJugador(){
-        return $this->numTelJugador;
+    public function getNumTel(){
+        return $this->numTel;
     }
 
-    public function setNumTelJugador($numTelJugador){
-        $this->numTelJugador = $numTelJugador;
+    public function setNumTel($numTel){
+        $this->numTel = $numTel;
     }
 
-    public function getRolJugador(){
-        return $this->rolJugador;
+    public function getRol(){
+        return $this->rol;
     }
 
-    public function setRolJugador($rolJugador){
-        $this->rolJugador = $rolJugador;
+    public function setRol($rol){
+        $this->rol = $rol;
     }
 
     public function getIdEquipo(){
@@ -80,20 +80,20 @@ class jugadorClass{
         $this->idEquipo = $idEquipo;
     }
 
-    public function getDireccionJugador(){
-        return $this->direccionJugador;
+    public function getDireccion(){
+        return $this->direccion;
     }
 
-    public function setDireccionJugador($direccionJugador){
-        $this->direccionJugador = $direccionJugador;
+    public function setDireccion($direccion){
+        $this->direccion = $direccion;
     }
 
-    public function getEmailJugador(){
-        return $this->emailJugador;
+    public function getEmail(){
+        return $this->email;
     }
 
-    public function setEmailJugador($emailJugador){
-        $this->emailJugador = $emailJugador;
+    public function setEmail($email){
+        $this->email = $email;
     }
 
     public function getActivo(){
@@ -109,6 +109,12 @@ class jugadorClass{
 
     public function setNickname($nickname){
         $this->nickname = $nickname;
+    }
+    public function getImagen(){
+        return $this->imagen;
+    }
+    public function setImagen($imagen){
+        $this->imagen=$imagen;
     }
 
 }

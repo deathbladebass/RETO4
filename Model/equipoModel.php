@@ -2,9 +2,12 @@
 include_once 'connect_data.php';
 include_once 'categoriaModel.php';
 include_once 'equipoClass.php';
+
 class equipoModel extends equipoClass{
+
     private $link;
-    private $list;
+    private $link;  
+    
     public function OpenConnect()
     {
         $konDat=new connect_data();
@@ -25,47 +28,64 @@ class equipoModel extends equipoClass{
         mysqli_close ($this->link);
         
     }
+    
     public function getList()
     {
         return $this->list;
     }
     public function getLink()
-    {
-        return $this->link;
-    }
-    
-    /**
-     * @param mysqli $link
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-    }
-    
-    //Funcion para recivir los datos de los equipos
+     {
+         return $this->link;
+     }
+ 
+     /**
+      * @param mysqli $link
+      */
+     public function setLink($link)
+     {
+         $this->link = $link;
+     }
+
     public function setList()
     {
-        
+        return $this->link;
         $this->OpenConnect();
+
         //$sql="call spSelectEquipos()";
         $sql="select * from equipos";
         $result=$this->link->query($sql);
-        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
-            $new=new equipoModel();
-            $new->setIdEquipo($row['idEquipo']);
-            $new->setNombreEquipo($row['nombreEquipo']);
-            $new->setImagen($row['imagenEquipo']);
-            $categoria = new categoriaModel();
-            $categoria->setIdCategoria($row['idCategoria']);
-            $temp=$categoria->findIdCategoria();
-            $new->setObjCategoria($temp);
-            print_r($new);
-            array_push($this->list, $new);
-        }
-        mysqli_free_result($result);
-        $this->CloseConnect();
+
+       while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+        $new=new equipoModel();
+        $new->setIdEquipo($row['idEquipo']);
+        $new->setNombreEquipo($row['nombreEquipo']);
+        $new->setImagen($row['imagenEquipo']);
+        $new->setIdCategoria($row['idCategoria']);
+
+        $categoria = new categoriaModel();
+        $categoria->setIdCategoria($row['idCategoria']);
+        $temp=$categoria->findIdCategoria();
+
+        $new->setObjCategoria($temp);
+        print_r($new);
+        array_push($this->list, $new);
     }
-    
+    mysqli_free_result($result);
+    $this->CloseConnect();
+    }
+    public function getListString(){
+        $arr=array();
+        foreach ($this->list as $object)
+        {
+        $vars = get_object_vars($object);
+        $objCategoria=$object->getObjCategoria()->getObjectVars();
+            $vars['objCategoria']=$objCategoria; 
+        array_push($arr, $vars);
+        }
+        //echo(json_encode($arr));
+        //print_r($arr);
+        return json_encode($arr);
+    }
     
     public function setEquipos(){
         
