@@ -101,7 +101,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/pcW4u_lfmGg?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <video class="responsive-video" controls>
+    		<source src="view/video/eSportTournament.mp4" type="video/mp4">
+  		</video>
         </div>
       </div>
     </div>
@@ -113,7 +115,7 @@
 
       <div class="row">
       
-        <div class="col s6 center">
+        <div class="col s12 m4 center">
           <div class="row">
     		<div class="col s12">
       			<div class="card">
@@ -133,7 +135,7 @@
           </p>
         </div>
         
-          <div class="col s6 center">
+          <div class="col s12 m4 center">
           <div class="row">
     		<div class="col s12">
       			<div class="card">
