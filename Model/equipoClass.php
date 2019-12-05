@@ -4,6 +4,7 @@ class equipoClass{
     protected $nombreEquipo;
     protected $idCategoria;
     protected $imagen;
+    protected $objCategoria;
 
     public function getIdEquipo(){
         return $this->idEquipo;
@@ -33,5 +34,16 @@ class equipoClass{
         $this->imagen=$imagen;
     }
 
+    public function getObjCategoria(){
+        return $this->getObjCategoria;
+    }
+    public function setObjCategoria($objCategoria){
+        $this->objCategoria=$objCategoria;
+    }
+    function getObjectVars()
+    {
+        //$vars = get_object_vars($this);
+        return  $vars;
+    }
 
 }

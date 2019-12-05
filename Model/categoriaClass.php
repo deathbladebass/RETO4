@@ -1,6 +1,4 @@
 <?php
-
-
 class categoriaClass{
     protected $idCategoria;
     protected $nombreCategoria;
@@ -18,10 +16,14 @@ class categoriaClass{
         return $this->nombreCategoria;
     }
 
-    public function setNombreCategoria($idCategoria){
+    public function setNombreCategoria($nombreCategoria){
         $this->nombreCategoria = $nombreCategoria;
     }
-
+    function getObjectVars()
+    {
+        //$vars = get_object_vars($this);
+        return  $vars;
+    }
     public function getAbreviatura(){
         return $this->abreviatura;
     }

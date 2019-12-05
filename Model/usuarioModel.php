@@ -1,6 +1,6 @@
 <?php
-require_once 'connect_data.php';
-require_once 'usuarioClass.php';
+include_once 'connect_data.php';
+include_once 'usuarioClass.php';
 
 class usuarioModel extends usuarioClass{
     

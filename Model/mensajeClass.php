@@ -3,6 +3,7 @@ class mensajeClass{
     
     protected $idMensaje;
     protected $tipo;
+
     protected $nombre;
     protected $mensaje;
     protected $email;
@@ -13,6 +14,7 @@ class mensajeClass{
     {
         return $this->idMensaje;
     }
+
 
     public function getTipo()
     {
@@ -52,6 +54,7 @@ class mensajeClass{
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
+
     }
 
     public function setNombre($nombre)
@@ -80,3 +83,4 @@ class mensajeClass{
     }
 
 }
+
