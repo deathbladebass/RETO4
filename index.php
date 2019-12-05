@@ -27,7 +27,7 @@
         <ul id='dropdown1' class='dropdown-content'>
     		<li><a href="#!">Jugadores</a></li>
     		<li><a href="#!">Categorias</a></li>		
-    		<li><a href="#!">Sugerencias</a></li>
+    		<li><a href="view/contacto.php">Sugerencias</a></li>
       	</ul>
 
       <ul id="nav-mobile" class="sidenav">
@@ -120,12 +120,12 @@
         			<div class="card-image">
           			<img src="view/img/paradoxNexus.png">
         		</div>
-        	<div class="card-content">
-          		<p>I am a very simple card. I am good at containing small bits of information.
+        	<div class="card-content ">
+          		<p >I am a very simple card. I am good at containing small bits of information.
           		I am convenient because I require little markup to use effectively.</p>
         	</div>
-        	<div class="card-action">
-          		<a href="#">This is a link</a>
+        	<div>
+          		<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a>
         	</div>
       			</div>
     		</div>
@@ -144,8 +144,8 @@
           		<p>I am a very simple card. I am good at containing small bits of information.
           		I am convenient because I require little markup to use effectively.</p>
         	</div>
-        	<div class="card-action">
-          		<a href="#">This is a link</a>
+        	<div>
+          		<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a>
         	</div>
       			</div>
     		</div>

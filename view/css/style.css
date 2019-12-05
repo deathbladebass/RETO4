@@ -43,7 +43,12 @@ footer.page-footer {
 .dropdown-trigger{
 	width: 130px;
 }
-
+.card-action{
+	border-radius:5px !important;
+}
+.cardTamano{
+	heigth: 25% !important;
+}
 
 /* Contacto.php */
 
@@ -157,6 +162,13 @@ textarea {
   }
   
   .grid-container{	
-    margin:30px;
+    margin:10px;
+    grid-template-areas:
+    'nombre nombre nombre nombre nombre nombre'
+    'email email email email email email'
+    'tipo tipo tipo tipo tipo tipo'
+    'asunto asunto asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
   }
 }
