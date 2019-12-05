@@ -43,7 +43,12 @@ footer.page-footer {
 .dropdown-trigger{
 	width: 130px;
 }
-
+.card-action{
+	border-radius:5px !important;
+}
+.cardTamano{
+	heigth: 25% !important;
+}
 
 /* Contacto.php */
 
