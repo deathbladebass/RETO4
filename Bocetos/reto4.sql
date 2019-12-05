@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2019 a las 08:44:39
+-- Tiempo de generación: 05-12-2019 a las 09:16:12
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.1.32
 
@@ -58,18 +58,16 @@ CREATE TABLE `cuerpostecnicos` (
   `id` int(11) NOT NULL,
   `Nombre` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `Apellido` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `Rol` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `Rol` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `idEquipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `cuerpostecnicos`
 --
 
-INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`) VALUES
-(1, 'Pablo', 'Sobrado', 'Coach'),
-(2, 'Paco', 'Rabaco', 'Analista'),
-(3, 'Luigi', 'Mario', 'Coach'),
-(4, 'Carlos', 'Islandia', 'Analista');
+INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`, `idEquipo`) VALUES
+(5, 'Francisco', 'Fran', 'Entrenador', 1);
 
 -- --------------------------------------------------------
 
@@ -80,17 +78,17 @@ INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`) VALUES
 CREATE TABLE `equipos` (
   `idEquipo` int(11) NOT NULL,
   `nombreEquipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `idCategoria` int(11) NOT NULL,
-  `idCuerpoTecnico` int(11) NOT NULL
+  `imagenEquipo` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `idCategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `equipos`
 --
 
-INSERT INTO `equipos` (`idEquipo`, `nombreEquipo`, `idCategoria`, `idCuerpoTecnico`) VALUES
-(1, 'Paradox Nexus', 4, 4),
-(2, 'Paradox Strike', 6, 2);
+INSERT INTO `equipos` (`idEquipo`, `nombreEquipo`, `imagenEquipo`, `idCategoria`) VALUES
+(1, 'Paradox Nexus', 'img/paradoxNexus.png', 4),
+(2, 'Paradox Strike', 'img/paradoxStrike.png', 6);
 
 -- --------------------------------------------------------
 
@@ -110,26 +108,27 @@ CREATE TABLE `jugadores` (
   `idEquipo` int(11) NOT NULL,
   `direccion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL,
+  `img` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `jugadores`
 --
 
-INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNacimiento`, `dni`, `numeroTelefono`, `rol`, `idEquipo`, `direccion`, `email`, `activo`) VALUES
-(1, 'Rekkles', 'Martin', 'Larsson', '1996-09-20', '123456789A', 656111111, 'Bot Laner', 1, 'Avenida del backdoor', 'mLarsson@gmail.com', 1),
-(2, 'Razork', 'Ivan', 'Martin', '2000-10-07', '64987321A', 656222222, 'Jungler', 1, 'Calle del Baron', 'iMartin@gmail.com', 1),
-(3, 'Deadly', 'Matthew', 'Smith', '1999-08-28', '654258951E', 656333333, 'Bot Lane', 1, 'Calle del Blue', 'mSmith@gmail.com', 0),
-(4, 'Denyk', 'Petr', 'Haramach', '1995-04-30', '753651489P', 656444444, 'Bot Lane', 1, 'Plaza del teamfight', 'pHaramach@gmail.com', 1),
-(5, 'Miniduke', 'Ismael', 'Martinez', '1997-06-11', '795365142G', 656555555, 'Mid Lane', 1, 'Calle del Red', 'iMartinez', 1),
-(6, 'Th3Antonio', 'Antonio', 'Espinosa', '1999-04-12', '985125354O', 656666666, 'Top Lane', 1, 'Plaza de la Torre', 'aEspinosa', 1),
-(7, 'Milicua', 'Aitor', 'Fernandez', '1992-11-12', '758695152E', 656777777, 'Rifle', 2, 'Calle del Terrorismo', 'aFernandez@gmail.com', 1),
-(8, 'bysTaXx', 'Frank', 'Garnes', '1992-08-18', '985475632P', 656888888, 'AWPer', 2, 'Calle del Sniper', 'fGarnes@gmail.com', 1),
-(9, 'S1mple', 'Oleksandr', 'Kostyliev', '1997-10-02', '125647895E', 656999999, 'Rifle', 2, 'Plaza Molotov', 'oKostyliev@gmail.com', 1),
-(10, 'Guardian', 'Ladislav', 'Kovacs', '1991-07-09', '658748985T', 656111222, 'Rifle', 2, 'Plaza Kalasnikov', 'lKovacs@gmail.com', 1),
-(11, 'Glalve', 'Lukas', 'Rossander', '1995-06-07', '987548621I', 656111333, 'Rifle', 2, 'Calle Gaben', 'gLukas@gmail.com', 1),
-(12, 'Xyp9x', 'Andreas', 'Hojsleth', '1995-09-11', '125478695T', 656111444, 'Rifle', 2, 'Avenida Steam', 'aHojsleth', 0);
+INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNacimiento`, `dni`, `numeroTelefono`, `rol`, `idEquipo`, `direccion`, `email`, `activo`, `img`) VALUES
+(1, 'Rekkles', 'Martin', 'Larsson', '1996-09-20', '123456789A', 656111111, 'Bot Laner', 1, 'Avenida del backdoor', 'mLarsson@gmail.com', 1, ''),
+(2, 'Razork', 'Ivan', 'Martin', '2000-10-07', '64987321A', 656222222, 'Jungler', 1, 'Calle del Baron', 'iMartin@gmail.com', 1, ''),
+(3, 'Deadly', 'Matthew', 'Smith', '1999-08-28', '654258951E', 656333333, 'Bot Lane', 1, 'Calle del Blue', 'mSmith@gmail.com', 0, ''),
+(4, 'Denyk', 'Petr', 'Haramach', '1995-04-30', '753651489P', 656444444, 'Bot Lane', 1, 'Plaza del teamfight', 'pHaramach@gmail.com', 1, ''),
+(5, 'Miniduke', 'Ismael', 'Martinez', '1997-06-11', '795365142G', 656555555, 'Mid Lane', 1, 'Calle del Red', 'iMartinez', 1, ''),
+(6, 'Th3Antonio', 'Antonio', 'Espinosa', '1999-04-12', '985125354O', 656666666, 'Top Lane', 1, 'Plaza de la Torre', 'aEspinosa', 1, ''),
+(7, 'Milicua', 'Aitor', 'Fernandez', '1992-11-12', '758695152E', 656777777, 'Rifle', 2, 'Calle del Terrorismo', 'aFernandez@gmail.com', 1, ''),
+(8, 'bysTaXx', 'Frank', 'Garnes', '1992-08-18', '985475632P', 656888888, 'AWPer', 2, 'Calle del Sniper', 'fGarnes@gmail.com', 1, ''),
+(9, 'S1mple', 'Oleksandr', 'Kostyliev', '1997-10-02', '125647895E', 656999999, 'Rifle', 2, 'Plaza Molotov', 'oKostyliev@gmail.com', 1, ''),
+(10, 'Guardian', 'Ladislav', 'Kovacs', '1991-07-09', '658748985T', 656111222, 'Rifle', 2, 'Plaza Kalasnikov', 'lKovacs@gmail.com', 1, ''),
+(11, 'Glalve', 'Lukas', 'Rossander', '1995-06-07', '987548621I', 656111333, 'Rifle', 2, 'Calle Gaben', 'gLukas@gmail.com', 1, ''),
+(12, 'Xyp9x', 'Andreas', 'Hojsleth', '1995-09-11', '125478695T', 656111444, 'Rifle', 2, 'Avenida Steam', 'aHojsleth', 0, '');
 
 -- --------------------------------------------------------
 
@@ -141,7 +140,9 @@ CREATE TABLE `mensajes` (
   `idMensaje` int(11) NOT NULL,
   `tipo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `mensaje` varchar(200) COLLATE utf8_unicode_ci NOT NULL
+  `mensaje` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -183,15 +184,15 @@ ALTER TABLE `categorias`
 -- Indices de la tabla `cuerpostecnicos`
 --
 ALTER TABLE `cuerpostecnicos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idEquipo` (`idEquipo`);
 
 --
 -- Indices de la tabla `equipos`
 --
 ALTER TABLE `equipos`
   ADD PRIMARY KEY (`idEquipo`),
-  ADD KEY `idCategoria` (`idCategoria`),
-  ADD KEY `idCuerpoTecnico` (`idCuerpoTecnico`);
+  ADD KEY `idCategoria` (`idCategoria`);
 
 --
 -- Indices de la tabla `jugadores`
@@ -220,7 +221,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `cuerpostecnicos`
 --
 ALTER TABLE `cuerpostecnicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `equipos`
@@ -245,11 +246,16 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- Filtros para la tabla `cuerpostecnicos`
+--
+ALTER TABLE `cuerpostecnicos`
+  ADD CONSTRAINT `cuerpostecnicos_ibfk_1` FOREIGN KEY (`idEquipo`) REFERENCES `equipos` (`idEquipo`);
+
+--
 -- Filtros para la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`idCategoria`),
-  ADD CONSTRAINT `equipos_ibfk_2` FOREIGN KEY (`idCuerpoTecnico`) REFERENCES `cuerpostecnicos` (`id`);
+  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`idCategoria`);
 
 --
 -- Filtros para la tabla `jugadores`

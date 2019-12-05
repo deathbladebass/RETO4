@@ -4,7 +4,9 @@ require_once 'categoriaClass.php';
 
 class categoriaModel extends categoriaClass{
     
-    private $list;
+    private $list=array();
+    private $listEquipos=array();
+    
 
     public function getList()
     {
