@@ -31,27 +31,27 @@
   <h1 class="center-align tituloContacto">FORMULARIO DE CONTACTO</h1>
   <div class="grid-container">
     <div class="grid-nombre">      
-		<strong>Nombre: </strong><input type="text" name="fnombre">
+		<strong>Nombre: </strong><input type="text" id="fnombre" required >
     </div>
     <div class="grid-email">      
-		<strong>Email: </strong><input type="text" name="femail">
+		<strong>Email: </strong><input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="femail" required >
     </div>
     <div class="grid-tipo">      
 		<strong>Tipo:</strong> 
-		<select name="ftipo">
+		<select id="ftipo">
   			<option value="sugerencia">Sugerencia</option>
   			<option value="queja">Queja</option>
   			<option value="comentario">Comentario</option>
 		</select>
     </div>
     <div class="grid-asunto">      
-		<strong>Asunto:</strong> <input type="text" name="fasunto">
+		<strong>Asunto:</strong> <input type="text" id="fasunto" required >
     </div>
     <div class="grid-mensaje">      
-		<strong>Mensaje:</strong><br> <textarea name="fmensaje"></textarea>
+		<strong>Mensaje:</strong><br> <textarea id="fmensaje" maxlength="200" required></textarea>
     </div>
     <div class="grid-submit">      
-		<button name="fsubmit" class="waves-effect waves-light btn blue darken-4">Enviar</button>
+		<button id="fsubmit" class="waves-effect waves-light btn blue darken-4">Enviar</button>
     </div>
   </div>
 
