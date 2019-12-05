@@ -29,21 +29,7 @@ p {
     width: 100%;
   }
 
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
 
 .icon-block {
   padding: 0 15px;
@@ -60,9 +46,114 @@ footer.page-footer {
 	background-size: cover !important;
 	height:100%;
 }
+
 .dropdown-content{
 	width: 50px;
 }
 .dropdown-trigger{
 	width: 130px;
+}
+
+
+/* Contacto.php */
+
+.background-contacto{
+	background-image: url("../img/bgContacto.png");
+ 	
+}
+
+.grid-container{
+	display: grid;
+	grid-template-areas:
+    'nombre nombre nombre email email email'
+    'tipo tipo asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
+    border-radius:10px;
+    margin:75px;
+    margin-top:0;
+    padding:15px;
+	background: rgb(13,71,161);
+	background: linear-gradient(0deg, rgba(13,71,161,0) 0%, rgba(13,71,161,0.3113620448179272) 53%, rgba(36,72,159,0.6194852941176471) 100%);
+}
+
+.grid-nombre{
+	grid-area: nombre;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+}
+.grid-email{
+	grid-area: email;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	}
+.grid-tipo{
+	grid-area: tipo;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	}
+.grid-asunto{
+	grid-area: asunto;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	}
+.grid-mensaje{
+	grid-area: mensaje;
+	margin:10px;
+	height:200px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	}
+	
+textarea {
+	height:84%;
+	border: none;
+	border-bottom: 1px solid lightgray;
+	resize: none;
+}
+.grid-submit{
+	grid-area: submit;
+	margin-top:50px;
+	text-align:center;
+}
+	
+.iconosrrss {
+	margin-right:20px;
+}
+	
+.tituloContacto{
+	font-family: 'Teko', sans-serif;
+	font-size:80px;
+}
+
+
+/* Media Query */
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+  
+  .grid-container{	
+    margin:30px;
+  }
 }
