@@ -1,10 +1,3 @@
-/* Custom Stylesheet */
-/**
- * Use this file to override Materialize files so you can update
- * the core Materialize files in the future
- *
- * Made By MaterializeCSS.com
- */
 
 nav ul a,
 nav .brand-logo {
@@ -25,9 +18,128 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
+.parallax-container .section {
     width: 100%;
-  }
+ }
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+.tamanoImagen{
+	background-position:center !important;
+	background-size: cover !important;
+	height:100%;
+}
+
+.dropdown-content{
+	width: 50px;
+}
+.dropdown-trigger{
+	width: 130px;
+}
+
+
+/* Contacto.php */
+
+.background-contacto{
+	background-image: url("../img/bgContacto.png");
+ 	
+}
+
+.grid-container{
+	display: grid;
+	grid-template-areas:
+    'nombre nombre nombre email email email'
+    'tipo tipo asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
+    border-radius:10px;
+    margin:75px;
+    margin-top:0;
+    padding:15px;
+	background: rgb(13,71,161);
+	background: linear-gradient(0deg, rgba(13,71,161,0) 0%, rgba(13,71,161,0.3113620448179272) 53%, rgba(36,72,159,0.6194852941176471) 100%);
+}
+
+.grid-nombre{
+	grid-area: nombre;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+}
+.grid-email{
+	grid-area: email;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-tipo{
+	grid-area: tipo;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-asunto{
+	grid-area: asunto;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-mensaje{
+	grid-area: mensaje;
+	margin:10px;
+	height:200px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+	
+textarea {
+	height:84%;
+	border: none;
+	border-bottom: 1px solid lightgray;
+	resize: none;
+	
+}
+.grid-submit{
+	grid-area: submit;
+	margin-top:50px;
+	text-align:center;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+}
+	
+.iconosrrss {
+	margin-right:20px;
+}
+	
+.tituloContacto{
+	font-family: 'Teko', sans-serif;
+	font-size:80px;
+}
+
+
+/* Media Query */
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -43,20 +155,8 @@ p {
   #index-banner .section {
     top: 0;
   }
-}
-
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
-}
-.imageJumbotron{
-	background-size:cover;
-	background-position:center;
-	background-image:url(../world.jpg);
+  
+  .grid-container{	
+    margin:30px;
+  }
 }
