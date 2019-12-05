@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2019 a las 09:16:12
+-- Tiempo de generación: 05-12-2019 a las 10:27:40
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.1.32
 
@@ -59,15 +59,20 @@ CREATE TABLE `cuerpostecnicos` (
   `Nombre` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `Apellido` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `Rol` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `idEquipo` int(11) NOT NULL
+  `idEquipo` int(11) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `direccion` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `numTel` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
+  `dni` varchar(12) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `cuerpostecnicos`
 --
 
-INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`, `idEquipo`) VALUES
-(5, 'Francisco', 'Fran', 'Entrenador', 1);
+INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`, `idEquipo`, `fechaNacimiento`, `direccion`, `email`, `numTel`, `dni`) VALUES
+(5, 'Francisco', 'Fran', 'Entrenador', 1, '0000-00-00', '', '', '', '');
 
 -- --------------------------------------------------------
 
