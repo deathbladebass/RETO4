@@ -1,7 +1,7 @@
 <?php
-require_once 'connect_data.php';
-require_once 'jugadorClass.php';
-require_once 'equipoClass.php';
+include_once 'connect_data.php';
+include_once 'jugadorClass.php';
+include_once 'equipoClass.php';
 
 class jugadorModel extends jugadorClass{
     

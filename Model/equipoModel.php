@@ -1,12 +1,11 @@
 <?php
-require_once 'connect_data.php';
-require_once 'cuerpoTecnicoClass.php';
-require_once 'equipoClass.php';
+include_once 'connect_data.php';
+include_once 'categoriaModel.php';
+include_once 'equipoClass.php';
 
 class equipoModel extends equipoClass{
-    
+    private $link;  
     private $list;
-
     public function OpenConnect()
     {
         $konDat=new connect_data();
@@ -48,16 +47,24 @@ class equipoModel extends equipoClass{
     public function setList()
     {
         $this->OpenConnect();
+
         //$sql="call spSelectEquipos()";
         $sql="select * from equipos";
         $result=$this->link->query($sql);
+
        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
         $new=new equipoModel();
         $new->setIdEquipo($row['idEquipo']);
         $new->setNombreEquipo($row['nombreEquipo']);
-        $new->setIdCategoria($row['idCategoria']);
         $new->setImagen($row['imagenEquipo']);
-        
+
+
+        $categoria = new categoriaModel();
+        $categoria->setIdCategoria($row['idCategoria']);
+        $temp=$categoria->findIdCategoria();
+
+        $new->setObjCategoria($temp);
+        print_r($new);
         array_push($this->list, $new);
     }
     mysqli_free_result($result);
@@ -68,6 +75,8 @@ class equipoModel extends equipoClass{
         foreach ($this->list as $object)
         {
         $vars = get_object_vars($object);
+        $objCategoria=$object->getObjCategoria()->getObjectVars();
+            $vars['objCategoria']=$objCategoria; 
         array_push($arr, $vars);
         }
         //echo(json_encode($arr));

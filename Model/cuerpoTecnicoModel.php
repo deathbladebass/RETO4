@@ -1,6 +1,6 @@
 <?php
-require_once 'connect_data.php';
-require_once 'cuerpoTecnicoClass.php';
+include_once 'connect_data.php';
+include_once 'cuerpoTecnicoClass.php';
 
 class cuerpoTecnicoModel extends cuerpoTecnicoClass{
     

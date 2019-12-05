@@ -6,5 +6,5 @@ $equipo = new equipoModel();
 $equipo->setList();
 
 $equipoLista=$equipo->getListString();
-echo ($equipoLista);
+echo $equipoLista;
 ?>
