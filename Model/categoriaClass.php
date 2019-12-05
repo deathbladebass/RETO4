@@ -16,7 +16,7 @@ class categoriaClass{
         return $this->nombreCategoria;
     }
 
-    public function setNombreCategoria($idCategoria){
+    public function setNombreCategoria($nombreCategoria){
         $this->nombreCategoria = $nombreCategoria;
     }
     function getObjectVars()

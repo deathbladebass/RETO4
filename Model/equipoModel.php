@@ -57,7 +57,7 @@ class equipoModel extends equipoClass{
         $new->setIdEquipo($row['idEquipo']);
         $new->setNombreEquipo($row['nombreEquipo']);
         $new->setImagen($row['imagenEquipo']);
-
+        $new->setIdCategoria($row['idCategoria']);
 
         $categoria = new categoriaModel();
         $categoria->setIdCategoria($row['idCategoria']);

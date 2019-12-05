@@ -17,11 +17,11 @@ class cuerpoTecnicoClass{
     public function setIdCuerpoTecnico($idCuerpoTecnico){
         $this->idCuerpoTecnico = $idCuerpoTecnico;
     }
-    public function getnombre(){
+    public function getNombre(){
         return $this->nombre;
     }
 
-    public function setnombre($nombre){
+    public function setNombre($nombre){
         $this->nombre = $nombre;
     }
     public function getApellido(){
@@ -67,7 +67,7 @@ class cuerpoTecnicoClass{
         $this->direccion = $direccion;
     }
     public function getEmail(){
-        return $this->idEquipo;
+        return $this->email;
     }
 
     public function setEmail($email){
