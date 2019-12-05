@@ -162,7 +162,7 @@ textarea {
   }
   
   .grid-container{	
-    margin:30px;
+    margin:10px;
     grid-template-areas:
     'nombre nombre nombre nombre nombre nombre'
     'email email email email email email'
