@@ -47,9 +47,10 @@ class equipoModel extends equipoClass{
 
     public function setList()
     {
-       $this->OpenConnect();
-       $sql='Select * from equipo';
-       $result=$this->link->query($sql);
+        $this->OpenConnect();
+        //$sql="call spSelectEquipos()";
+        $sql="select * from equipos";
+        $result=$this->link->query($sql);
        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
         $new=new equipoModel();
         $new->setIdEquipo($row['idEquipo']);

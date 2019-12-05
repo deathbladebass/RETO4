@@ -3,7 +3,7 @@ class mensajeClass{
     protected $idUsuario;
     protected $nombre;
     protected $tipo;
-    protected $mennasaje;
+    protected $mensaje;
 
     public function getIdUsuario(){
         return $this->idUsuario;
@@ -27,9 +27,9 @@ class mensajeClass{
         $this->tipo = $tipo;
     }
     public function getMensaje(){
-        return $this->mennasaje;
+        return $this->mensaje;
     }
 
-    public function setMensaje($mennasaje){
-        $this->mennasaje = $mennasaje;
+    public function setMensaje($mensaje){
+        $this->mensaje = $mensaje;
     }}
