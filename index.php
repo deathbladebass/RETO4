@@ -19,7 +19,7 @@
       <ul class="right hide-on-med-and-down">
         <li><a class="white-text" href="#!">Registrarse</a></li>
         <li><a class="white-text"href="#!">Log in</a></li>
-    	        <li>
+    	<li>
         <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
         </li>
         </ul>
@@ -101,7 +101,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/pcW4u_lfmGg?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -112,9 +112,8 @@
     <p class="col s12 "><h4 class="center-align light">Nuestros equipos</h4></p>
 
       <div class="row">
+      
         <div class="col s6 center">
-
-          
           <div class="row">
     		<div class="col s12">
       			<div class="card">
@@ -166,7 +165,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="view/img/background3.jpg" alt="Unsplashed background img 3"></div>
+    <div class="parallax"><img src="view/img/world.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
   <footer class="page-footer blue darken-4">
