@@ -54,7 +54,7 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><img src="view/img/iconoGamepad.svg" width="50px"></h2>
+            <h2 class="center brown-text"><img src="view/img/iconoGamepad.png" width="50px"></h2>
             <h5 class="center">¿Qué son los E-sports?</h5>
 
             <p class="light">
@@ -81,8 +81,8 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><img src="view/img/iconoCS.svg"></h2>
-            <h5 class="center">¿Qué es el Counter-Strike: Global Offensive?</h5>
+            <h2 class="center brown-text"><img class="iconoColor" src="view/img/iconoCS.svg"></h2>
+            <h5 class="center">¿Qué es el CS:GO?</h5>
 
             <p class="light">Counter-Strike: Global Offensive (CS:GO) es un videojuego de disparos en primera persona
              desarrollado por Valve Corporation en cooperación con Hidden Path Entertainment, y es el cuarto juego 
@@ -125,14 +125,16 @@
         	<div class="card-content ">
           		<p >I am a very simple card. I am good at containing small bits of information.
           		I am convenient because I require little markup to use effectively.</p>
+          		<br>
+          		<div>
+          			<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a>
+        		</div>
         	</div>
-        	<div>
-          		<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a>
-        	</div>
+        	
       			</div>
     		</div>
   		</div>
-          </p>
+         
         </div>
         
           <div class="col s12 m4 center">
@@ -145,9 +147,10 @@
         	<div class="card-content">
           		<p>I am a very simple card. I am good at containing small bits of information.
           		I am convenient because I require little markup to use effectively.</p>
-        	</div>
-        	<div>
-          		<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a>
+          		<br>
+        		<div>
+          			<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a>
+        		</div>
         	</div>
       			</div>
     		</div>

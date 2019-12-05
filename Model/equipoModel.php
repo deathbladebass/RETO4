@@ -6,7 +6,7 @@ include_once 'equipoClass.php';
 class equipoModel extends equipoClass{
 
     private $link;
-    private $link;  
+    private $list=array();  
     
     public function OpenConnect()
     {
