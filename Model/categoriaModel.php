@@ -45,8 +45,7 @@ class categoriaModel extends categoriaClass{
         $sql="select * from categorias where idCategoria=$id";
         $result=$this->link->query($sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        
-       mysqli_free_result($result);
+       //mysqli_free_result($result);
        $this->CloseConnect();
 
        return $row;

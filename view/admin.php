@@ -33,7 +33,7 @@
                 <form class="col s12 ">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="search" class="validate" placeholder="buscar...">
+                            <input type="search" class="validate" placeholder="buscar Equipo...">
                         </div>
                     </div>
                 </form>
@@ -44,12 +44,14 @@
                 <tr>
                     <td>nombre</td>
                     <td>Categoría</td>
+                    <td>abreviatura</td>
                 </tr>
             </thead>
             <tbody ng-repeat="item in equipo">
                 <tr>
-                    <td>item.nombre</td>
-                    <td>item.categoria</td>
+                    <td>{{item.nombreEquipo}}</td>
+                    <td>{{item.objCategoria.nombre}}</td>
+                    <td>{{item.objCategoria.abreviatura}}</td>
                     <td><input type="button" value="borrar"></td>
                     <td><input type="button" value="modificar"></td>
                 </tr>

@@ -3,6 +3,7 @@ class categoriaClass{
     protected $idCategoria;
     protected $nombreCategoria;
     protected $abreviatura;
+    
 
     public function getIdCategoria(){
         return $this->idCategoria;
