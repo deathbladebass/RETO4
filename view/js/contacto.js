@@ -38,7 +38,24 @@
     	  }
     	  
     	  if(contador==4){
-    		  alert("enviar datos")
+    		  $.ajax({
+    		       	type:"GET",
+    		       	data:{'nombre':fnombre, 'email':femail, 'tipo':ftipo, 'asunto':fasunto, 'mensaje':fmensaje},
+    		       	url: "../controller/cMensaje.php", 
+    		    	dataType: "text",  //type of the result
+    		       	
+    		    	success: function(result){  
+    		    		
+    		       		alert(result)
+    		       		location.reload();
+    		    		
+    				},
+    		       	error : function(xhr) {
+    		   			alert("An error occured: " + xhr.status + " " + xhr.statusText);
+    		   		}
+    			});
+    		  
+    		  	
     	  }else{
     		  alert("Rellena todos los datos por favor")
     	  }
