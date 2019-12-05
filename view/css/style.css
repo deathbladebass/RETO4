@@ -78,6 +78,8 @@ footer.page-footer {
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius:10px;
 	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 }
 .grid-email{
 	grid-area: email;
@@ -85,6 +87,8 @@ footer.page-footer {
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius:10px;
 	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 	}
 .grid-tipo{
 	grid-area: tipo;
@@ -92,6 +96,8 @@ footer.page-footer {
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius:10px;
 	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 	}
 .grid-asunto{
 	grid-area: asunto;
@@ -99,6 +105,8 @@ footer.page-footer {
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius:10px;
 	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 	}
 .grid-mensaje{
 	grid-area: mensaje;
@@ -107,6 +115,8 @@ footer.page-footer {
 	background-color: rgba(255, 255, 255, 0.3);
 	border-radius:10px;
 	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 	}
 	
 textarea {
@@ -114,11 +124,14 @@ textarea {
 	border: none;
 	border-bottom: 1px solid lightgray;
 	resize: none;
+	
 }
 .grid-submit{
 	grid-area: submit;
 	margin-top:50px;
 	text-align:center;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
 }
 	
 .iconosrrss {
