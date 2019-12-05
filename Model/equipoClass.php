@@ -1,9 +1,9 @@
 <?php
 class equipoClass{
     protected $idEquipo;
-    protected $nombreEquipo
+    protected $nombreEquipo;
     protected $idCategoria;
-    protected $idCuerpoTecnico;
+    protected $imagen;
 
     public function getIdEquipo(){
         return $this->idEquipo;
@@ -26,12 +26,11 @@ class equipoClass{
     public function setIdCategoria($idCategoria){
         $this->idCategoria = $idCategoria;
     }
-    public function getIdCuerpoTecnico(){
-        return $this->idCuerpoTecnico;
+    public function getImagen(){
+        return $this->imagen;
     }
-
-    public function setIdCuerpoTecnico($idCuerpoTecnico){
-        $this->idCuerpoTecnico = $idCuerpoTecnico;
+    public function setImagen($imagen){
+        $this->imagen=$imagen;
     }
 
 
