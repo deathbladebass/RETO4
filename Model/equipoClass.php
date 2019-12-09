@@ -42,7 +42,7 @@ class equipoClass{
     }
     function getObjectVars()
     {
-        //$vars = get_object_vars($this);
+        $vars = get_object_vars($this);
         return  $vars;
     }
 

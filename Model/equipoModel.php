@@ -45,7 +45,7 @@ class equipoModel extends equipoClass{
      {
          $this->link = $link;
      }
-
+    //Datos para el admin.php
     public function setList()
     {
         return $this->link;
@@ -73,13 +73,16 @@ class equipoModel extends equipoClass{
     mysqli_free_result($result);
     $this->CloseConnect();
     }
+    
     public function getListString(){
         $arr=array();
         foreach ($this->list as $object)
         {
         $vars = get_object_vars($object);
         $objCategoria=$object->getObjCategoria()->getObjectVars();
+        
             $vars['objCategoria']=$objCategoria; 
+            
         array_push($arr, $vars);
         }
         //echo(json_encode($arr));
@@ -87,27 +90,37 @@ class equipoModel extends equipoClass{
         return json_encode($arr);
     }
     
+    //Datos para el index
     public function setEquipos(){
         
         $this->OpenConnect();
         
-        $sql="spEquipos()";
+        $sql="call spEquipos()";
         $result=$this->link->query($sql);
         
+        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+            $equipoNuevo= new equipoModel();
+            $equipoNuevo->setIdEquipo($row['idEquipo']);
+            $equipoNuevo->setNombreEquipo($row['nombreEquipo']);
+            $equipoNuevo->setImagen($row['imagenEquipo']);
             
+            //print_r($equipoNuevo);
+            
+            array_push($this->list, $equipoNuevo);
+        }
         $this->CloseConnect();
     }
-    public function getListString(){
+    
+    public function getListStringEquipos(){
+           
         $arr=array();
+        
         foreach ($this->list as $object)
         {
-            $vars = get_object_vars($object);
-            $objCategoria=$object->getObjCategoria()->getObjectVars();
-            $vars['objCategoria']=$objCategoria;
+            $vars = $object->getObjectVars();
+            
             array_push($arr, $vars);
         }
-        //echo(json_encode($arr));
-        //print_r($arr);
         return json_encode($arr);
     }
 }

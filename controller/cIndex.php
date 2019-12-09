@@ -6,4 +6,8 @@ $equipos=new equipoModel();
 
 $equipos->setEquipos();
 
-echo $equipos;
+$listaEquiposJson=$equipos->getListStringEquipos();
+
+echo $listaEquiposJson;
+
+unset ($equipos);
