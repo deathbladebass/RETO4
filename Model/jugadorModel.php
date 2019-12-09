@@ -1,7 +1,7 @@
 <?php
-include_once 'connect_data.php';
-include_once 'jugadorClass.php';
-include_once 'equipoClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/jugadorClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/equipoClass.php';
 
 class jugadorModel extends jugadorClass{
     
