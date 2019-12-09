@@ -37,7 +37,7 @@ class jugadorClass{
     }
 
     public function setApellido($Apellido){
-        $this->Apellido = $Apellido;
+        $this->apellido = $Apellido;
     }
 
     public function getDni(){
