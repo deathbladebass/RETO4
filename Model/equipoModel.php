@@ -111,6 +111,10 @@ class equipoModel extends equipoClass{
         $this->CloseConnect();
     }
     
+    //Insert Equipo
+    
+    
+    
     public function getListStringEquipos(){
            
         $arr=array();

@@ -1,6 +1,6 @@
 <?php
 
-include_once '../Model/equipoModel.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/Model/equipoModel.php';
 
 $equipos=new equipoModel();
 

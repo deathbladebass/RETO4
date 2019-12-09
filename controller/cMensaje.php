@@ -1,5 +1,5 @@
 <?php
-include_once '../Model/mensajeModel.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/Model/mensajeModel.php';
 
 $nuevoMensaje=new mensajeModel();
 
