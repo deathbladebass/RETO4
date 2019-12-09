@@ -116,5 +116,10 @@ class jugadorClass{
     public function setImagen($imagen){
         $this->imagen=$imagen;
     }
+    function getObjectVars()
+    {
+        $vars = get_object_vars($this);
+        return  $vars;
+    }
 
 }

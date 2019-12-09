@@ -1,5 +1,5 @@
 var miAplicacion = angular.module('miAplicacion', []);
-miAplicacion.controller('informacion', function ($scope, $http) {
+miAplicacion.controller('equipo', function ($scope, $http) {
     $scope.equipo = [];
     $http({
         method: "get",
@@ -10,15 +10,20 @@ miAplicacion.controller('informacion', function ($scope, $http) {
     }, function myError(response) {
         $scope.equipo = response.statusText;
     });
+    
+
+});
+miAplicacion.controller('jugador', function ($scope, $http) {
     $scope.jugador = [];
     $http({
         method: "get",
         url: "../controller/cAdminJugador.php",
     }).then(function mySucces(result) {
         console.log(result);
+        //alert(result.data);
         $scope.jugador = result.data;
     }, function myError(response) {
         $scope.jugador = response.statusText;
-     
+
+    });
 });
-})

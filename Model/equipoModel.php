@@ -73,7 +73,7 @@ class equipoModel extends equipoClass{
         $arr=array();
         foreach ($this->list as $object)
         {
-           Vars($object);
+           $Vars= $object->getObjectVars($object);
         
         array_push($arr, $vars);
         }

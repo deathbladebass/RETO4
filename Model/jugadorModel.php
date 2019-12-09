@@ -74,9 +74,13 @@ class jugadorModel extends jugadorClass{
     }
     public function getListString(){
         $arr=array();
-        
-        //echo(json_encode($arr));
-        //print_r($arr);
+
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            array_push($arr, $vars);
+        }
         return json_encode($arr);
     }
 
