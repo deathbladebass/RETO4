@@ -48,9 +48,14 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
 <!-- trigger sidenav -->
-<div class="container"></div>
-  <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+
+  <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
+  
+<!--   contenido -->
+	<div class="container">
 	
+	
+	</div>
 	
   <footer class="page-footer blue darken-4">
     <div class="container">
