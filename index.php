@@ -16,6 +16,7 @@ session_start();
   <link href="view/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
   <link rel="shortcut icon" type="image/png" href="view/img/paradox.png"/>
+  
 </head>
 <body>
   <nav class="blue darken-4" role="navigation">
