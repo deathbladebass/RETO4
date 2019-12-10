@@ -1,10 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/connect_data.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/usuarioClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
 
 class usuarioModel extends usuarioClass{
     
-    private $list;
+    private $list=array();
+    private $link;
 
     public function getList()
     {

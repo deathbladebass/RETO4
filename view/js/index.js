@@ -1,27 +1,29 @@
-//Materialize
-//Hace que el carrousel se mueva
-$('.carousel').carousel({
-    padding: 200    
-});
-autoplay();
 
-function autoplay() {
-    $('.carousel').carousel('next');
-    setTimeout(autoplay, 6000);
-}
-
-//Hace que el dropdown de opciones se despliegue
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
-  // Or with jQuery
-  $('.dropdown-trigger').dropdown();
-  
-  
 //Jquery
   $(document).ready(function(){
+	//Materialize
+	//Hace que el carrousel se mueva
+	$('.carousel').carousel({
+	    padding: 200    
+	});
+	autoplay();
+
+	function autoplay() {
+	    $('.carousel').carousel('next');
+	    setTimeout(autoplay, 6000);
+	}
+
+	//Hace que el dropdown de opciones se despliegue
+	document.addEventListener('DOMContentLoaded', function() {
+	    var elems = document.querySelectorAll('.dropdown-trigger');
+	    var instances = M.Dropdown.init(elems, options);
+	  });
+	  // Or with jQuery
+	  $('.dropdown-trigger').dropdown();
+	  
+	  //Muestra todos los modales
 	  $('.modal').modal();
+	  
 	//Llama al controlador para recivir los datos de los equipos
 	$.ajax({
 		 type:"GET",
@@ -87,9 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
 					 
 					 alert(result);
 					 
-					 });
+					 }
 					 
-				 }
-		  		});
-		}
+				 });
+		  	}
+		});
+	
 	});

@@ -19,8 +19,7 @@ foreach ($usuarios as $object){
     }else{
         $resultado="Usuario o Contraseña incorrectos";
     }
-    
-    
+   
 }
 
 echo $resultado;
