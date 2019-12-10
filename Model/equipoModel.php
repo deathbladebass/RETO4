@@ -7,7 +7,7 @@ class equipoModel extends equipoClass{
 
     private $link;
     private $list=array();  
-    
+
     public function OpenConnect()
     {
         $konDat=new connect_data();
@@ -45,6 +45,7 @@ class equipoModel extends equipoClass{
      {
          $this->link = $link;
      }
+
     //Datos para el admin.php
     public function setList()
     {
@@ -67,12 +68,12 @@ class equipoModel extends equipoClass{
         $temp=$categoria->findIdCategoria();
 
         $new->setObjCategoria($temp);
-        print_r($new);
         array_push($this->list, $new);
     }
     mysqli_free_result($result);
     $this->CloseConnect();
     }
+    
     
     public function getListString(){
         $arr=array();
@@ -83,10 +84,11 @@ class equipoModel extends equipoClass{
         
             $vars['objCategoria']=$objCategoria; 
             
+           $Vars= $object->getObjectVars($object);
+        
         array_push($arr, $vars);
         }
-        //echo(json_encode($arr));
-        //print_r($arr);
+        
         return json_encode($arr);
     }
     

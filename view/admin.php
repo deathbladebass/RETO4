@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 
-<body  ng-controller="informacion">
+<body >
     <nav class="blue darken-4" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">Logo</a>
@@ -33,23 +33,25 @@
                 <form class="col s12 ">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="search" class="validate" placeholder="buscar...">
+                            <input type="search" class="validate" placeholder="buscar Equipo...">
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-        <table class="striped" >
+        <table class="striped"  ng-controller="equipo">
             <thead>
                 <tr>
                     <td>nombre</td>
                     <td>Categoría</td>
+                    <td>abreviatura</td>
                 </tr>
             </thead>
             <tbody ng-repeat="item in equipo">
                 <tr>
-                    <td>item.nombre</td>
-                    <td>item.categoria</td>
+                    <td>{{item.nombreEquipo}}</td>
+                    <td>{{item.objCategoria.nombre}}</td>
+                    <td>{{item.objCategoria.abreviatura}}</td>
                     <td><input type="button" value="borrar"></td>
                     <td><input type="button" value="modificar"></td>
                 </tr>
@@ -67,7 +69,7 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+        <table class="striped"  ng-controller="jugador">
             <thead>
                 <tr>
                     <td>Nombre</td>
@@ -82,18 +84,18 @@
                     <td>activo</td>
                 </tr>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in jugador">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.nickname}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.dni}}</td>
+                    <td>{{item.fechaNacimiento}}</td>
+                    <td>{{item.numTel}}</td>
+                    <td>{{item.rol}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.activo}}</td>
                     <td><input type="button" value="borrar"></td>
                     <td><input type="button" value="modificar"></td>
                 </tr>

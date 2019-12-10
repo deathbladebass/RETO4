@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
   $('.dropdown-trigger').dropdown();
   
   
-  //Jquery
+//Jquery
   $(document).ready(function(){
 	  
 	//Llama al controlador para recivir los datos de los equipos
@@ -62,6 +62,5 @@ document.addEventListener('DOMContentLoaded', function() {
 			 });
 			 $("#equipos").append(newRow);
 		 }
-	
   		});
   });
