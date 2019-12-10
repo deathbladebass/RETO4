@@ -9,11 +9,6 @@ p {
   text-align:justify;
 }
 
-footer{
-	position: sticky; 
-     bottom: 0;
-}
-
 .parallax-container {
   min-height: 380px;
   line-height: 0;
