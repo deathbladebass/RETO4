@@ -37,7 +37,7 @@ class jugadorClass{
     }
 
     public function setApellido($Apellido){
-        $this->Apellido = $Apellido;
+        $this->apellido = $Apellido;
     }
 
     public function getDni(){
@@ -115,6 +115,11 @@ class jugadorClass{
     }
     public function setImagen($imagen){
         $this->imagen=$imagen;
+    }
+    function getObjectVars()
+    {
+        $vars = get_object_vars($this);
+        return  $vars;
     }
 
 }
