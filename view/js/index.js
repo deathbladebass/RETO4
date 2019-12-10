@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 //Jquery
   $(document).ready(function(){
-	  
+	  $('.modal').modal();
 	//Llama al controlador para recivir los datos de los equipos
 	$.ajax({
 		 type:"GET",

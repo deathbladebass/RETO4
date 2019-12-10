@@ -18,7 +18,7 @@
       <a id="logo-container" href="#" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
         <li><a class="white-text" href="#!">Registrarse</a></li>
-        <li><a class="white-text"href="#!">Log in</a></li>
+        <li><a class="white-text waves-effect waves-light btn modal-trigger" href="#modalLogin">Log in</a></li>
     	<li>
         <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
         </li>
@@ -50,6 +50,8 @@
 <!-- trigger sidenav -->
 
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
+  
+ 
   
 <!--   contenido -->
 	<div class="container">
