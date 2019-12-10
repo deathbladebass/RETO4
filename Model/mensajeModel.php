@@ -1,6 +1,6 @@
 <?php
-include_once 'connect_data.php';
-include_once 'mensajeClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/mensajeClass.php';
 
 class mensajeModel extends mensajeClass{
     

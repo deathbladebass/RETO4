@@ -1,6 +1,6 @@
 <?php
-include_once 'connect_data.php';
-include_once 'cuerpoTecnicoClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/cuerpoTecnicoClass.php';
 
 class cuerpoTecnicoModel extends cuerpoTecnicoClass{
     
