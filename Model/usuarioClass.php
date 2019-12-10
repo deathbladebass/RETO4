@@ -5,7 +5,7 @@ class usuarioClass{
     protected $apellido;
     protected $nick;
     protected $contrasena;
-    protected $admin;
+    protected $tipo;
     protected $email;
     
     public function getIdUsuario()
@@ -53,14 +53,14 @@ class usuarioClass{
     {
         $this->contrasena = $contrasena;
     }
-    public function getAdmin()
+    public function getTipo()
     {
-        return $this->admin;
+        return $this->tipo;
     }
 
-    public function setAdmin($admin)
+    public function setTipo($tipo)
     {
-        $this->admin = $admin;
+        $this->tipo = $tipo;
     }
     public function getEmail()
     {

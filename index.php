@@ -1,3 +1,8 @@
+<?php 
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +22,10 @@
     <div class="nav-wrapper container ">
       <a id="logo-container" href="#" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="white-text" href="#!">Registrarse</a></li>
-        <li><a class="white-text"href="#!">Log in</a></li>
+        <li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>
+        <li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>
     	<li>
-        <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
+        <a class="white-text dropdown-trigger waves-effect waves-light " href="#" data-target='dropdown1'>Opciones</a>
         </li>
         </ul>
         <!-- Dropdown Menu -->
@@ -36,6 +41,79 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+	
+	 <!-- Modal Login -->
+
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <h4>LOGIN</h4>
+      <p>Introduzca su usuario y contraseña</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuario" type="text" class="validate">
+          <label for="usuario">Usuario</label>
+        </div>
+      </div>
+      <!--  contrasena -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="pass" type="password" class="validate">
+          <label for="pass">Contraseña</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnLogin" class="modal-close waves-effect waves-green btn-flat">Login</button>
+    </div>
+  </div>
+  <!-- Modal Register -->
+  <div id="modalRegistrar" class="modal">
+    <div class="modal-content">
+      <h4>REGISTRO</h4>
+      <p>Introduzca sus datos</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuarioReg" type="text" class="validate">
+          <label for="usuario">Usuario</label>
+        </div>
+      </div>
+      <!--  nombre -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="nombreReg" type="text" class="validate">
+          <label for="nombreReg">Nombre</label>
+        </div>
+      </div>
+      <!--  apellido -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apellidoReg" type="text" class="validate">
+          <label for="apellidoReg">Apellido</label>
+        </div>
+      </div>
+      <!--  contraseña -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="passReg" type="password" class="validate">
+          <label for="passReg">Contraseña</label>
+        </div>
+      </div>
+      <!--  email -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="emailReg" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="validate">
+          <label for="emailReg">Email</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnRegistrar" class="modal-close waves-effect waves-green btn-flat">Registrar</button>
+    </div>
+  </div>
+  
+  
 	
 	<div class="container">
  		<div class="carousel carousel-slider">
