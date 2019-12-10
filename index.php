@@ -114,50 +114,6 @@
     <p class="col s12 "><h4 class="center-align light">Nuestros equipos</h4></p>
 
       <div id="equipos" class="row">
-      
-<!--         <div class="col s12 m4 center"> -->
-<!--           <div class="row"> -->
-<!--     		<div class="col s12"> -->
-<!--       			<div class="card"> -->
-<!--         			<div class="card-image"> -->
-<!--           			<img src="view/img/paradoxNexus.png"> -->
-<!--         		</div> -->
-<!--         	<div class="card-content "> -->
-<!--           		<p >I am a very simple card. I am good at containing small bits of information. -->
-<!--           		I am convenient because I require little markup to use effectively.</p> -->
-<!--           		<br> -->
-<!--           		<div> -->
-<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a> -->
-<!--         		</div> -->
-<!--         	</div> -->
-        	
-<!--       			</div> -->
-<!--     		</div> -->
-<!--   		</div> -->
-         
-<!--         </div> -->
-        
-<!--           <div class="col s12 m4 center"> -->
-<!--           <div class="row"> -->
-<!--     		<div class="col s12"> -->
-<!--       			<div class="card"> -->
-<!--         			<div class="card-image"> -->
-<!--           			<img src="view/img/paradoxStrike.png"> -->
-<!--         		</div> -->
-<!--         	<div class="card-content"> -->
-<!--           		<p>I am a very simple card. I am good at containing small bits of information. -->
-<!--           		I am convenient because I require little markup to use effectively.</p> -->
-<!--           		<br> -->
-<!--         		<div> -->
-<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a> -->
-<!--         		</div> -->
-<!--         	</div> -->
-<!--       			</div> -->
-<!--     		</div> -->
-<!--   		</div> -->
-<!--           </p> -->
-<!--       </div> -->
-
     </div>
   </div>
 
@@ -166,7 +122,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h3 class="header col s12 text-pink darken-4">¡En Paradox Forjamos las victorias!</h3>
         </div>
       </div>
     </div>

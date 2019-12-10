@@ -61,6 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			 
 			 });
 			 $("#equipos").append(newRow);
-		 }
+		 },
   		});
   });
