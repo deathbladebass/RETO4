@@ -9,8 +9,9 @@ p {
   text-align:justify;
 }
 
-.sidenav-trigger {
-  color: #26a69a;
+footer{
+	position: sticky; 
+     bottom: 0;
 }
 
 .parallax-container {
@@ -153,6 +154,15 @@ textarea {
 	font-size:80px;
 }
 
+/* Jugadores Categorias */
+.sidenavBoton{
+	margin:20px;
+	float:left;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
 
 /* Media Query */
 

@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
 //Jquery
   $(document).ready(function(){
-	  
+	  $('.modal').modal();
 	//Llama al controlador para recivir los datos de los equipos
 	$.ajax({
 		 type:"GET",
@@ -63,4 +63,34 @@ document.addEventListener('DOMContentLoaded', function() {
 			 $("#equipos").append(newRow);
 		 },
   		});
+	
+	
+	$('#btnLogin').click(function(){
+		var usu=$('#usuario').val();
+		var pass=$('#pass').val();
+		
+		if (usu=="") {
+			alert("Rellena el usuario")
+		}else if (pass==""){
+			alert("Rellena la contraseña")
+		}else{
+			/* Comprobar usu y contraseña*/
+			$.ajax({
+				 type:"GET",
+				 data:{'usuario':usu, 'pass':pass},
+				 url: "../reto4/controller/cLogin.php", 
+				 dataType: "json",  //type of the result
+				    
+				 success: function(result){
+					 
+					 console.log(result);
+					 
+					 alert(result);
+					 
+					 });
+					 
+				 }
+		  		});
+		}
+	});
   });
