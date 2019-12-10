@@ -54,7 +54,7 @@
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><img src="view/img/iconoGamepad.svg" width="50px"></h2>
+            <h2 class="center brown-text"><img src="view/img/iconoGamepad.png" width="50px"></h2>
             <h5 class="center">¿Qué son los E-sports?</h5>
 
             <p class="light">
@@ -81,8 +81,8 @@
 
         <div class="col s12 m4">
           <div class="icon-block">
-            <h2 class="center brown-text"><img src="view/img/iconoCS.svg"></h2>
-            <h5 class="center">¿Qué es el Counter-Strike: Global Offensive?</h5>
+            <h2 class="center brown-text"><img class="iconoColor" src="view/img/iconoCS.svg"></h2>
+            <h5 class="center">¿Qué es el CS:GO?</h5>
 
             <p class="light">Counter-Strike: Global Offensive (CS:GO) es un videojuego de disparos en primera persona
              desarrollado por Valve Corporation en cooperación con Hidden Path Entertainment, y es el cuarto juego 
@@ -101,7 +101,9 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/pcW4u_lfmGg?start=5" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <video class="responsive-video" controls>
+    		<source src="view/video/eSportTournament.mp4" type="video/mp4">
+  		</video>
         </div>
       </div>
     </div>
@@ -111,47 +113,50 @@
   <div class="container">
     <p class="col s12 "><h4 class="center-align light">Nuestros equipos</h4></p>
 
-      <div class="row">
+      <div id="equipos" class="row">
       
-        <div class="col s6 center">
-          <div class="row">
-    		<div class="col s12">
-      			<div class="card">
-        			<div class="card-image">
-          			<img src="view/img/paradoxNexus.png">
-        		</div>
-        	<div class="card-content ">
-          		<p >I am a very simple card. I am good at containing small bits of information.
-          		I am convenient because I require little markup to use effectively.</p>
-        	</div>
-        	<div>
-          		<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a>
-        	</div>
-      			</div>
-    		</div>
-  		</div>
-          </p>
-        </div>
+<!--         <div class="col s12 m4 center"> -->
+<!--           <div class="row"> -->
+<!--     		<div class="col s12"> -->
+<!--       			<div class="card"> -->
+<!--         			<div class="card-image"> -->
+<!--           			<img src="view/img/paradoxNexus.png"> -->
+<!--         		</div> -->
+<!--         	<div class="card-content "> -->
+<!--           		<p >I am a very simple card. I am good at containing small bits of information. -->
+<!--           		I am convenient because I require little markup to use effectively.</p> -->
+<!--           		<br> -->
+<!--           		<div> -->
+<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a> -->
+<!--         		</div> -->
+<!--         	</div> -->
+        	
+<!--       			</div> -->
+<!--     		</div> -->
+<!--   		</div> -->
+         
+<!--         </div> -->
         
-          <div class="col s6 center">
-          <div class="row">
-    		<div class="col s12">
-      			<div class="card">
-        			<div class="card-image">
-          			<img src="view/img/paradoxStrike.png">
-        		</div>
-        	<div class="card-content">
-          		<p>I am a very simple card. I am good at containing small bits of information.
-          		I am convenient because I require little markup to use effectively.</p>
-        	</div>
-        	<div>
-          		<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a>
-        	</div>
-      			</div>
-    		</div>
-  		</div>
-          </p>
-      </div>
+<!--           <div class="col s12 m4 center"> -->
+<!--           <div class="row"> -->
+<!--     		<div class="col s12"> -->
+<!--       			<div class="card"> -->
+<!--         			<div class="card-image"> -->
+<!--           			<img src="view/img/paradoxStrike.png"> -->
+<!--         		</div> -->
+<!--         	<div class="card-content"> -->
+<!--           		<p>I am a very simple card. I am good at containing small bits of information. -->
+<!--           		I am convenient because I require little markup to use effectively.</p> -->
+<!--           		<br> -->
+<!--         		<div> -->
+<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a> -->
+<!--         		</div> -->
+<!--         	</div> -->
+<!--       			</div> -->
+<!--     		</div> -->
+<!--   		</div> -->
+<!--           </p> -->
+<!--       </div> -->
 
     </div>
   </div>
@@ -204,7 +209,9 @@
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="view/js/materialize.js"></script>
   <script src="view/js/init.js"></script>
   <script src="view/js/index.js"></script>
