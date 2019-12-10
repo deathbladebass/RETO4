@@ -66,6 +66,7 @@ class jugadorModel extends jugadorClass{
             $new->setDireccion($row['direccion']);
             $new->setEmail($row['email']);
             $new->setActivo($row['activo']);
+            
             array_push($this->list, $new);
         }
         mysqli_free_result($result);
