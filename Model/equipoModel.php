@@ -79,13 +79,16 @@ class equipoModel extends equipoClass{
         $arr=array();
         foreach ($this->list as $object)
         {
-        $vars = get_object_vars($object);
+
+           
+
+        
         $objCategoria=$object->getObjCategoria()->getObjectVars();
         
             $vars['objCategoria']=$objCategoria; 
             
-           $Vars= $object->getObjectVars($object);
-        
+           $vars= $object->getObjectVars($object);
+
         array_push($arr, $vars);
         }
         
