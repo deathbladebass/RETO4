@@ -17,7 +17,7 @@ $userContr=filter_input(INPUT_GET, 'pass');
 echo "Insertado: ".$user;
 echo "Insertado: ".$userContr;
 foreach ($usuarios as $object){
-
+    
     echo " Contraseña ".$object->getContrasena();
     echo " USuario ". $object->getUsuario();
     //print_r( $object);
@@ -32,7 +32,7 @@ foreach ($usuarios as $object){
     }else{
         $resultado="Usuario o Contraseña incorrectos";
     }
-   
+    
 }
 
 echo $resultado;

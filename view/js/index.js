@@ -40,7 +40,7 @@
 			 
 			 $.each(equipos,function(index,info) {
 			
-			 newRow +='<div class="col s12 m4 center">';
+			 newRow +='<div class="col s12 m6 l4 center">';
 			 	newRow +='<div class="row">';
 			 		newRow +='<div class="col s12">';
 			 			newRow +='<div class="card">';
@@ -81,17 +81,16 @@
 				 type:"GET",
 				 data:{'usuario':usu, 'pass':pass},
 				 url: "../reto4/controller/cLogin.php", 
-				 dataType: "json",  //type of the result
+				 dataType: "text",  //type of the result
 				    
 				 success: function(result){
 					 
 					 console.log(result);
-					 
-					 alert(result);
-					 
+				 
 					 }
 					 
 				 });
+			window.location.reload();
 		  	}
 		});
 	

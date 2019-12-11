@@ -19,6 +19,7 @@ session_start();
   
 </head>
 <body>
+<!-- <h1><?php echo $_SESSION["username"]; ?></h1> -->
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
       <a id="logo-container" href="#" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
@@ -68,7 +69,10 @@ session_start();
       <button id="btnLogin" class="modal-close waves-effect waves-green btn-flat">Login</button>
     </div>
   </div>
-  <!-- Modal Register -->
+  
+  
+  <!--              Modal Register                  -->
+  
   <div id="modalRegistrar" class="modal">
     <div class="modal-content">
       <h4>REGISTRO</h4>
@@ -113,9 +117,9 @@ session_start();
       <button id="btnRegistrar" class="modal-close waves-effect waves-green btn-flat">Registrar</button>
     </div>
   </div>
+  <!--              Fin Modal Register                  -->
   
-  
-	
+	<!--              Carrousel                  -->
 	<div class="container">
  		<div class="carousel carousel-slider">
     		<a class="carousel-item" href="#one!"><img class="tamanoImagen" src="view/img/carrousel1.jpg" ></a>
@@ -124,8 +128,9 @@ session_start();
     		<a class="carousel-item" href="#four!"><img class="tamanoImagen" src="view/img/carrousel4.jpg"></a>
   		</div>
   	</div>
+	<!--             Fin  Carrousel                  -->
 
-
+     <!--             Cards datos                  -->
   <div class="container">
     <div class="section">
 
@@ -174,8 +179,9 @@ session_start();
 
     </div>
   </div>
+  <!--             Fin Cards datos                  -->
 
-
+	<!--             Imagen Con video                  -->
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -188,15 +194,18 @@ session_start();
     </div>
     <div class="parallax"><img src="view/img/world.jpg" alt="Unsplashed background img 2"></div>
   </div>
+  <!--             Fin Imagen Con video                  -->
 
+	<!--             Nuestros equipos                  -->
   <div class="container">
     <p class="col s12 "><h4 class="center-align light">Nuestros equipos</h4></p>
 
       <div id="equipos" class="row">
     </div>
   </div>
+	<!--             Fin Nuestros equipos                  -->
 
-
+    <!--             Slogan                  -->
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -207,7 +216,10 @@ session_start();
     </div>
     <div class="parallax"><img src="view/img/world.jpg" alt="Unsplashed background img 3"></div>
   </div>
+  <!--             Fin Slogan                  -->
 
+
+<!--             Footer                  -->
   <footer class="page-footer blue darken-4">
     <div class="container">
       <div class="row">
@@ -241,6 +253,7 @@ session_start();
       </div>
     </div>
   </footer>
+  <!--             Fin Footer                  -->
 
 
   <!--  Scripts-->

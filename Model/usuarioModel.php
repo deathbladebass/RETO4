@@ -48,7 +48,7 @@ class usuarioModel extends usuarioClass{
         return $this->list;
     }
 
-    public function setList($list){
+    public function setList(){
         $this->OpenConnect();
         
         $sql="call spUsuarios()";
@@ -60,11 +60,12 @@ class usuarioModel extends usuarioClass{
             $newUser->setIdUsuario($row['idUsuario']);
             $newUser->setNombre($row['nombre']);
             $newUser->setApellido($row['apellido']);
-            $newUser->setNick($row['usuario']);
-            $newUser->setContrasena($row['contraseña']);
+            $newUser->setUsuario($row['usuario']);
+            $newUser->setContrasena($row['contrasenia']);
             $newUser->setTipo($row['tipo']);
             $newUser->setEmail($row['email']);
             
+            //print_r($newUser);
             array_push($this->list, $newUser);
         }
         mysqli_free_result($result);

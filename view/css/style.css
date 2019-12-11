@@ -55,6 +55,10 @@ footer.page-footer {
 		display: none;
 	}
 }
+.card .card-action{
+	
+white-space: nowrap;
+}
 
 /* --------- Contacto.php ------------ */
 
