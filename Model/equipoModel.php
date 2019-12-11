@@ -123,7 +123,7 @@ class equipoModel extends equipoClass{
         
         foreach ($this->list as $object)
         {
-            $vars = $object->getObjectVars();
+            $vars = $object->getObjectVarsEquipo();
             
             array_push($arr, $vars);
         }

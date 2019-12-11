@@ -1,27 +1,29 @@
-//Materialize
-//Hace que el carrousel se mueva
-$('.carousel').carousel({
-    padding: 200    
-});
-autoplay();
 
-function autoplay() {
-    $('.carousel').carousel('next');
-    setTimeout(autoplay, 6000);
-}
-
-//Hace que el dropdown de opciones se despliegue
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
-  // Or with jQuery
-  $('.dropdown-trigger').dropdown();
-  
-  
 //Jquery
   $(document).ready(function(){
+	//Materialize
+	//Hace que el carrousel se mueva
+	$('.carousel').carousel({
+	    padding: 200    
+	});
+	autoplay();
+
+	function autoplay() {
+	    $('.carousel').carousel('next');
+	    setTimeout(autoplay, 6000);
+	}
+
+	//Hace que el dropdown de opciones se despliegue
+	document.addEventListener('DOMContentLoaded', function() {
+	    var elems = document.querySelectorAll('.dropdown-trigger');
+	    var instances = M.Dropdown.init(elems, options);
+	  });
+	  // Or with jQuery
+	  $('.dropdown-trigger').dropdown();
+	  
+	  //Muestra todos los modales
 	  $('.modal').modal();
+	  
 	//Llama al controlador para recivir los datos de los equipos
 	$.ajax({
 		 type:"GET",
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			 
 			 $.each(equipos,function(index,info) {
 			
-			 newRow +='<div class="col s12 m4 center">';
+			 newRow +='<div class="col s12 m6 l4 center">';
 			 	newRow +='<div class="row">';
 			 		newRow +='<div class="col s12">';
 			 			newRow +='<div class="card">';
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			 
 			 });
 			 $("#equipos").append(newRow);
-		 }
+		 },
   		});
 	
 	
@@ -79,18 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
 				 type:"GET",
 				 data:{'usuario':usu, 'pass':pass},
 				 url: "../reto4/controller/cLogin.php", 
-				 dataType: "json",  //type of the result
+				 dataType: "text",  //type of the result
 				    
 				 success: function(result){
 					 
 					 console.log(result);
+				 
+					 }
 					 
-					 alert(result);
-					 
-					 });
-					 
-				 }
-		  		});
-		}
+				 });
+			window.location.reload();
+		  	}
+		});
+	
 	});
-  });

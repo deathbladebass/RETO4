@@ -46,5 +46,9 @@ class equipoClass{
         $vars = get_object_vars($object);
         return  $vars;
     }
+    function getObjectVarsEquipo(){
+        $vars = get_object_vars($this);
+        return  $vars;
+    }
 
 }
