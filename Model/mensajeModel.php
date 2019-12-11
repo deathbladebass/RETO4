@@ -4,16 +4,36 @@ include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/mensajeClass.php';
 
 class mensajeModel extends mensajeClass{
     
-    private $list;
+    private $list=array();
+    private $link;
 
     public function getList()
     {
         return $this->list;
     }
 
-    public function setList($list)
+    public function setList()
     {
-        $this->list = $list;
+        $this->OpenConnect();
+        $sql='select * from mensajes';
+        $result=$this->link->query($sql);
+
+        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+         $new=new equipoModel();
+         $new->setIdMensaje($row['idMensaje']);
+         $new->setTipo($row['tipo']);
+         $new->setNombre($row['nombre']);
+         $new->setMensaje($row['mensaje']);
+         $new->setEmail($row['email']);
+         $new->setFecha($row['fecha']);
+         //$new->setAsunto($row['asunto']);
+ 
+        
+         array_push($this->list, $new);
+     }
+     
+     mysqli_free_result($result);
+        $this->CloseConnect();
     }
     
     public function OpenConnect() {
