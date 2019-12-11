@@ -72,4 +72,12 @@ class usuarioModel extends usuarioClass{
         $this->CloseConnect();
         }
         
+        public function insertUser($nombre, $apellido, $contrasenia,$usuario, $email, $tipo) {
+         $this->OpenConnect();
+         
+         $sql="call spInsertUser($nombre, $apellido, $contrasenia,$usuario, $email, $tipo)";
+         $result=$this->link->query($sql);
+         
+     }
+        
     }

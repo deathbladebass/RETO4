@@ -1,8 +1,3 @@
-<?php 
-session_start();
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +14,7 @@ session_start();
   
 </head>
 <body>
-<!-- <h1><?php echo $_SESSION["username"]; ?></h1> -->
+<h1 id="username"></h1>
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
       <a id="logo-container" href="#" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
