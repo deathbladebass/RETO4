@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/connect_data.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'Reto4/model/mensajeClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/mensajeClass.php';
 
 class mensajeModel extends mensajeClass{
     
@@ -74,6 +74,18 @@ class mensajeModel extends mensajeClass{
         }
         
         $this->CloseConnect();
+    }
+
+    public function getListString(){
+        $arr=array();
+
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            array_push($arr, $vars);
+        }
+        return json_encode($arr);
     }
     
 }
