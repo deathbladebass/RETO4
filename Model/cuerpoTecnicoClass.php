@@ -6,6 +6,7 @@ class cuerpoTecnicoClass{
     protected $dni;
     protected $fechaNacimiento;
     protected $numTel;
+    protected $idEquipo;
     protected $rol;
     protected $direccion;
     protected $email;
@@ -72,5 +73,17 @@ class cuerpoTecnicoClass{
 
     public function setEmail($email){
         $this->email = $email;
+    }
+    public function getIdEquipo(){
+        return $this->idEquipo;
+    }
+
+    public function setIdEquipo($idEquipo){
+        $this->idEquipo = $idEquipo;
+    }
+    function getObjectVars()
+    {
+        $vars = get_object_vars($this);
+        return  $vars;
     }
 }

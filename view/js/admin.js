@@ -60,3 +60,35 @@ miAplicacion.controller('categoria', function ($scope, $http) {
 
     });
 });
+
+miAplicacion.controller('mensaje', function ($scope, $http) {
+   
+    $scope.mensaje = [];
+    $http({
+        method: "get",
+        url: "../controller/cAdminMensaje.php",
+    }).then(function mySucces(result) {
+        console.log(result);
+        //alert(result.data);
+        $scope.mensaje = result.data;
+    }, function myError(response) {
+        $scope.mensaje = response.statusText;
+
+    });
+});
+
+miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
+   
+    $scope.cuerpoTecnico = [];
+    $http({
+        method: "get",
+        url: "../controller/cAdminCuerpoTecnico.php",
+    }).then(function mySucces(result) {
+        console.log(result);
+        //alert(result.data);
+        $scope.cuerpoTecnico = result.data;
+    }, function myError(response) {
+        $scope.cuerpoTecnico = response.statusText;
+
+    });
+});
