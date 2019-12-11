@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -10,6 +10,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
+  <script src="lib/angular.min.js" type="text/javascript"></script>
   <link rel="shortcut icon" type="image/png" href="view/img/paradox.png"/>
 </head>
 <body>
@@ -48,7 +49,11 @@
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
 <!-- trigger sidenav -->
-<div class="container"></div>
+<div class="container" ng-app="miAplicacion">
+<div class="jugadores" ng-controller="jugadores">
+
+</div> 
+</div>
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
 	
 	
