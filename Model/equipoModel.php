@@ -66,10 +66,11 @@ class equipoModel extends equipoClass{
         $categoria = new categoriaModel();
         $categoria->setIdCategoria($row['idCategoria']);
         $temp=$categoria->findIdCategoria();
-
+        print_r ($new);
         $new->setObjCategoria($temp);
         array_push($this->list, $new);
     }
+    
     mysqli_free_result($result);
     $this->CloseConnect();
     }
@@ -84,8 +85,8 @@ class equipoModel extends equipoClass{
         
             $vars['objCategoria']=$objCategoria; 
             
-           $Vars= $object->getObjectVars($object);
-        
+           $vars= $object->getObjectVars($object);
+        echo ($arr);
         array_push($arr, $vars);
         }
         
