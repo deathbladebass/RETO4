@@ -81,9 +81,6 @@ class equipoModel extends equipoClass{
         foreach ($this->list as $object)
         {
 
-           
-
-        
         $objCategoria=$object->getObjCategoria()->getObjectVars();
         
             $vars['objCategoria']=$objCategoria; 
@@ -127,9 +124,6 @@ class equipoModel extends equipoClass{
         foreach ($this->list as $object)
         {
             $vars = $object->getObjectVars();
-            $objCategoria=$object->getObjCategoria()->getObjectVars();
-        
-            $vars['objCategoria']=$objCategoria; 
             
             array_push($arr, $vars);
         }

@@ -139,7 +139,7 @@
             </div>
         </div>
 </div>
-        <table class="striped">
+        <table class="striped" ng-controller="cuerpoTecnico">
             <thead>
                 <td>nombre</td>
                 <td>apellido</td>
@@ -150,16 +150,16 @@
                 <td>dirección</td>
                 <td>email</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in cuerpoTecnico">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.dni}}</td>
+                    <td>{{item.fechaNacimiento}}</td>
+                    <td>{{item.numTel}}</td>
+                    <td>{{item.rol}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.email}}</td>
                     <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
                     <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
@@ -207,13 +207,13 @@
             </div>
         </div>
 </div>
-        <table class="striped">
+        <table class="striped" ng-controller="mensaje">
             <thead>
                 <td>tipo</td>
                 <td>nombre</td>
                 <td>mensaje</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in mensaje">
                 <tr>
                     <td></td>
                     <td></td>
