@@ -29,7 +29,6 @@
     </nav>
     <div class="container">
         <div class="header"><label>Equipo</label>
-            <div class="buscador ">
                 <form class="col s12 ">
                     <div class="row">
                         <div class="input-field col s12">
@@ -37,7 +36,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
         </div>
         <table class="striped"  ng-controller="equipo">
             <thead>
@@ -47,19 +45,21 @@
                     <td>abreviatura</td>
                 </tr>
             </thead>
-            <tbody ng-repeat="item in equipo">
+            <tbody >
                 <tr>
                     <td>{{item.nombreEquipo}}</td>
                     <td>{{item.objCategoria.nombre}}</td>
                     <td>{{item.objCategoria.abreviatura}}</td>
-                    <td><input type="button" value="borrar"></td>
-                    <td><input type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
-
+<div ng-controller="jugador">
         <div class="header"><label>Jugadores</label>
-            <div class="row">
+        <input class="waves-effect waves-light btn blue darken-4" type="button" value="añadir jugador" ng-click="btnAniadir()">
+        <div class="buscador">   
+        <div class="row">
                 <form class="col s12 ">
                     <div class="row">
                         <div class="input-field col s12">
@@ -69,7 +69,8 @@
                 </form>
             </div>
         </div>
-        <table class="striped"  ng-controller="jugador">
+</div>
+        <table class="striped"  >
             <thead>
                 <tr>
                     <td>Nombre</td>
@@ -96,13 +97,37 @@
                     <td>{{item.direccion}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.activo}}</td>
-                    <td><input type="button" value="borrar"></td>
-                    <td><input type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
-
+        <div ng-show="aniadirJugador" class="anadirJugador">
+            <input type="text" id="nombre" placeholder="nombre..." ng-model="nombre">
+            <input type="text" id="nickname" placeholder="nickname..." ng-model="nickname">
+            <input type="text" id="apellido" placeholder="apellido..." ng-model="apellido">
+            <input type="text" id="dni" placeholder="DNI..." ng-model="dni">
+            <div class="fecha">
+                <label>Fecha de Nacimiento</label>
+                <input type="date" id="fecha" name="trip-start" ng-model="fechaNacimiento">
+            </div>
+            <input type="text" id="numTel" placeholder="número teléfono..." ng-model="numTel">
+            <select ng-model="rol" id="rol">
+                <option value="Top laner">Top laner</option>
+                <option value="Jungler">Jungler</option>
+                <option value="Mid laner">Mid laner</option>
+                <option value="Bot Laner">Bot laner</option>
+                <option value="Support">Support</option>
+                <option value="Rifle">Rifle</option>
+                <option value="AWPer">AWPer</option>
+                </select>
+            <input type="text" placeholder="dirección..." ng-model="direccion" id="direccion">
+            <input type="text" placeholder="email..." ng-model="email" id="email">
+            <input type="button" value="Añadir jugador" ng-click="aniadir()" class="waves-effect waves-light btn blue darken-4" id="boton">
+        </div>
+    </div>
         <div class="header"><label>cuerpo técnico</label>
+        <div class="buscador">   
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -113,7 +138,8 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+</div>
+        <table class="striped" ng-controller="cuerpoTecnico">
             <thead>
                 <td>nombre</td>
                 <td>apellido</td>
@@ -124,23 +150,24 @@
                 <td>dirección</td>
                 <td>email</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in cuerpoTecnico">
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><input type="button" value="borrar"></td>
-                    <td><input type="button" value="modificar"></td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.dni}}</td>
+                    <td>{{item.fechaNacimiento}}</td>
+                    <td>{{item.numTel}}</td>
+                    <td>{{item.rol}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.email}}</td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
 
         <div class="header"><label>Categorías</label>
+        <div class="buscador">   
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -151,20 +178,24 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+</div>
+        <table class="striped" ng-controller="categoria">
             <thead>
                 <td>nombre</td>
+                <td>abreviatura</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in categoria">
                 <tr>
-                    <td></td>
-                    <td><input type="button" value="borrar"></td>
-                    <td><input type="button" value="modificar"></td>
+                    <td>{{item.nombreCategoria}}</td>
+                    <td>{{item.abreviatura}}</td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
 
         <div class="header"><label>Comentarios</label>
+        <div class="buscador">   
             <div class="row">
                 <form class="col s12 ">
                     <div class="row">
@@ -175,19 +206,20 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+</div>
+        <table class="striped" ng-controller="mensaje">
             <thead>
                 <td>tipo</td>
                 <td>nombre</td>
                 <td>mensaje</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in mensaje">
                 <tr>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input type="button" value="borrar"></td>
-                    <td><input type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
