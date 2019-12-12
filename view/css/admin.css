@@ -1,8 +1,55 @@
 .header{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-between ;
 }
+.header > label{
+    font-size: 20px;
+}
+.anadirJugador{
+    display: grid;
+    grid-template-columns: "auto auto auto";
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas: "nombre apellido nickname"
+    "dni fecha rol "
+    "direccion email numTel"
+    "boton boton boton";
+    grid-gap: 0px 10px;
+}
+select{
+    display: block;
+}
+#nombre{
+    grid-area: nombre;
+}
+#apellido{
+    grid-area:apellido;
+}
+#rol{
+    grid-area: rol;
+}
+#nickname{
+    grid-area:nickname;
+}
+#dni{
+    grid-area: dni;
+}
+.fecha{
+    grid-area: fecha;
+}
+#numTel{
+    grid-area: numTel;
+}
+#direccion{
+    grid-area: direccion;
+}
+#email{
+    grid-area:email;
+}
+#boton{
+    grid-area:boton;
+}
+
 .header>*{
     align-self: flex-end;
 }
@@ -11,10 +58,11 @@
     justify-content: center;
 }
 table{
-    width: 1250px;
-
+    max-width: 1250px;
+    max-height: 750px;
     overflow: scroll;
 }
+
 
 
 

@@ -6,16 +6,36 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
 $login = new usuarioModel();
 $login->setList();
 
+$login->getList();
+//$listaUsuarios=;
+
+//Comprobar que exista
+
+
+//Nombre
 $nombre=filter_input(INPUT_GET, 'nombre');
+$login->setNombre($nombre);
+
+//Apellido
 $apellido=filter_input(INPUT_GET, 'apellido');
+$login->setApellido($apellido);
+
+//Contraseña
 $contrasenia=filter_input(INPUT_GET, 'contrasenia');
+$login->setContrasena($contrasenia);
+
+//Usuario
 $usuario=filter_input(INPUT_GET, 'usuario');
+$login->setUsuario($usuario);
+echo $usuario;
+
+//Email
 $email=filter_input(INPUT_GET, 'email');
-$tipo=1;
+$login->setEmail($email);
 
+//Tipo
+$login->setTipo('1');
 
-$login->insertUser($nombre,$apellido,$contrasenia,$usuario,$email,$tipo);
-
-//$result="No insertado";
-
+//Ejecuta el insert
+$result=$login->insertUser();
 echo $result;

@@ -69,17 +69,18 @@
 	$('#btnRegistrar').click(function(){
 		
 		//Datos a insertar
-		var nombre = $("#nombre").val();
+		var usuario= $("#usuarioReg").val();
+		var nombre = $("#nombreReg").val();
 		var apellido= $("#apellidoReg").val();
 		var contrasenia= $("#passReg").val();
-		var usuario= $("usuarioReg").val();
 		var email =$("#emailReg").val();
 		
+		alert(usuario);
 
 		$.ajax({
 			type:"GET",
 			data: {"nombre":nombre,"apellido":apellido, "contrasenia":contrasenia, "usuario":usuario, "email":email},
-			url: "../controller/Usuario/cInsertUsuario.php", 
+			url: "../reto4/controller/cInsertUsuario.php", 
 			datatype: "json",  //type of the result
 	   	
 			success: function(result){  
@@ -115,7 +116,7 @@
 					 
 					 console.log(result);
 					 
-					 $('#username').text(result);
+					 //$('#username').text(result);
 					 
 				}
 					 
