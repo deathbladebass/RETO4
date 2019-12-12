@@ -3,7 +3,43 @@
   $(document).ready(function(){
 	  //session nav
 	  
-	  
+	  $.ajax({
+			 type:"GET",
+
+			 url: "../Reto4/controller/cNav.php", 
+			 dataType: "json",  //type of the result
+			    
+			 success: function(sessionData){
+				 console.log(sessionData);
+				 
+				 htmlLogin="";
+				 htmlRegister="";
+				 htmlAdminNav="";
+				 
+				 if(sessionData.tipoUsu==0){
+					 htmlRegister+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>'
+					 htmlLogin+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
+						 $('.registerNav').html(htmlRegister);
+				 }else{
+					 htmlLogin+='<li>Bienvenido <b>'+sessionData.username+'</b></li>'						
+				 }
+				 
+				 $('.loginNav').html(htmlLogin);
+				 
+				 
+				 
+				 if(sessionData.tipoUsu==2){
+					 htmlAdminNav+='<li><a href="view/admin.php">Panel Admin</a></li>'
+						 $('.adminNav').show();
+				 }else{
+					 $('.adminNav').hide();
+				 }
+				 
+				 $('.adminNav').html(htmlAdminNav);
+				 
+			}
+				 
+		});
 	  
 	  
 	  
@@ -117,18 +153,44 @@
 			$.ajax({
 				 type:"GET",
 				 data:{'usuario':usu, 'pass':pass},
-				 url: "/controller/cLogin.php", 
-				 dataType: "text",  //type of the result
+				 url: "../Reto4/controller/cLogin.php", 
+				 dataType: "json",  //type of the result
 				    
 				 success: function(result){
 					 
-					 console.log(result);
+					 console.log(sessionData);
 					 
-//					 $('#username').text(result);
+					 htmlLogin="";
+					 htmlRegister="";
+					 htmlAdminNav="";
+					 
+					 if(sessionData.tipoUsu==0){
+						 htmlRegister+='<li><a class="waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>'
+						 htmlLogin+='<li><a class="waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
+							 $('.registerNav').html(htmlRegister);
+					 }else{
+						 htmlLogin+='<li>Bienvenido <b>'+sessionData.username+'</b></li>'						
+					 }
+					 
+					 $('.loginNav').html(htmlLogin);
+					 
+					 
+					 
+					 if(sessionData.tipoUsu==2){
+						 htmlAdminNav+='<li><a href="view/admin.php">Panel Admin</a></li>'
+							 $('.adminNav').show();
+					 }else{
+						 $('.adminNav').hide();
+					 }
+					 
+					 $('.adminNav').html(htmlAdminNav);
+					 
+					 
 					 
 				}
 					 
 			});
+			location.reload(true);
 		}
 	});
 	

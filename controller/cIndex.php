@@ -8,10 +8,6 @@ $equipos->setEquipos();
 
 $listaEquiposJson=$equipos->getListStringEquipos();
 
-$_SESSION["username"]="";
-$_SESSION["idUsu"]="";
-$_SESSION["tipoUsu"]=0;
-
 echo $listaEquiposJson;
 
 unset ($equipos);
