@@ -13,7 +13,7 @@
     grid-template-areas: "nombre apellido nickname"
     "dni fecha rol "
     "direccion email numTel"
-    "boton boton boton";
+    "botonAgregar botonAgregar botonCancelar";
     grid-gap: 0px 10px;
 }
 select{
@@ -46,8 +46,16 @@ select{
 #email{
     grid-area:email;
 }
-#boton{
-    grid-area:boton;
+#botonAgregar{
+    grid-area:botonAgregar;
+    grid-column-start: 1;
+    grid-column-end: 2  ;
+}
+#botonCancelar{
+    grid-area:botonCancelar;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    
 }
 
 .header>*{

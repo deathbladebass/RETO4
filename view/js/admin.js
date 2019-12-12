@@ -31,17 +31,27 @@ miAplicacion.controller('jugador', function ($scope, $http) {
         $scope.aniadirJugador=true ;   
     }
     $scope.aniadir= function(){
-        var insertDatos= {nombre:$scope.nombre,nickname:$scope.nickname, apellido:$scope.apellido,dni:$scope.dni,fechaNacimiento:$scope.fechaNacimiento, numTel:$scope.numTel, rol:$scope.rol,direccion:$scope.direccion,email:$scope.email,activo:0};
+        var idEquipo=-1;
+        if ($scope.rol=="Top laner" || $scope.rol=="Jungler" || $scope.rol=="Mid laner" || $scope.rol=="Bot laner" || $scope.rol=="Support"){
+            idEquipo=1;
+        }else if ($scope.rol=="AWPer" || $scope.rol=="Rifle"  ){
+            idEquipo=2;
+        }else{
+            idEquipo=3
+        }
+        var insertDatos= {nombre:$scope.nombre,nickname:$scope.nickname, apellido:$scope.apellido,dni:$scope.dni,fechaNacimiento:$scope.fechaNacimiento, numTel:$scope.numTel, rol:$scope.rol,direccion:$scope.direccion,email:$scope.email,activo:0, idEquipo:idEquipo};
         //En la llamada de http para el insert en params llamarlo dataJugador
         var insertJson=JSON.stringify(insertDatos);
-        alert($scope.rol);
         $http({
             method: "get",
             url: "../controller/cInsertJugador.php",
             params:{dataJugador:insertJson}
-        }).then(function(response){
-            $scope.jugador.push({nombre:$scope.nombre,nickname:$scope.nickname,apellido:$scope.apellido,dni:$scope.dni,fechaNacimiento:$scope.fechaNacimiento,numTel:$scope.numTel,rol:$scope.rol,direccion:$scope.direccion,email:$scope.email});
+        }).then(function(){
+            //location.reload();
         });
+    }
+    $scope.cancelar= function(){
+        $scope.aniadirJugador=false;
     }
 });
 

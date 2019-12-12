@@ -50,14 +50,14 @@
                     <td>{{item.nombreEquipo}}</td>
                     <td>{{item.objCategoria.nombre}}</td>
                     <td>{{item.objCategoria.abreviatura}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
 <div ng-controller="jugador">
         <div class="header"><label>Jugadores</label>
-        <input class="waves-effect waves-light btn blue darken-4" type="button" value="añadir jugador" ng-click="btnAniadir()">
+        <input class="waves-effect waves-light btn blue darken-3" type="button" value="añadir jugador" ng-click="btnAniadir()">
         <div class="buscador">   
         <div class="row">
                 <form class="col s12 ">
@@ -97,8 +97,8 @@
                     <td>{{item.direccion}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.activo}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
@@ -123,7 +123,8 @@
                 </select>
             <input type="text" placeholder="dirección..." ng-model="direccion" id="direccion">
             <input type="text" placeholder="email..." ng-model="email" id="email">
-            <input type="button" value="Añadir jugador" ng-click="aniadir()" class="waves-effect waves-light btn blue darken-4" id="boton">
+            <input type="button" value="Añadir jugador" ng-click="aniadir()" class="waves-effect waves-light btn blue darken-3" id="botonAgregar">
+            <input type="button" value="cancelar" ng-click="cancelar()" class="waves-effect waves-light btn blue darken-3" id="botonCancelar">
         </div>
     </div>
         <div class="header"><label>cuerpo técnico</label>
@@ -160,8 +161,8 @@
                     <td>{{item.rol}}</td>
                     <td>{{item.direccion}}</td>
                     <td>{{item.email}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
@@ -188,8 +189,8 @@
                 <tr>
                     <td>{{item.nombreCategoria}}</td>
                     <td>{{item.abreviatura}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>
@@ -218,8 +219,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="borrar"></td>
-                    <td><input class="waves-effect waves-light btn blue darken-4" type="button" value="modificar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
         </table>

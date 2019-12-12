@@ -74,7 +74,23 @@ class jugadorModel extends jugadorClass{
     }
     
     public function insertPlayer(){
+        $this->OpenConnect();
+        $nickname='"'.$this->getNickname().'"';
+        $nombre='"'.$this->getNombre().'"';
+        $apellido='"'.$this->getApellido().'"';
+        $fechaNacimiento=$this->getFechaNacimiento();
+        $dni='"'.$this->getDni().'"';
+        $numTel=$this->getNumtel();
+        $rol='"'.$this->getRol().'"';
+        $idEquipo=$this->getIdEquipo();
+        $direccion='"'.$this->getDireccion().'"';
+        $email='"'.$this->getEmail().'"';
+        $activo=$this->getActivo();
         
+        $sql= 'CALL spInstertJugador('.$nickname.', '.$nombre.', '.$apellido.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$idEquipo.', '.$direccion.', '.$email.', '.$activo.')';
+        echo ($sql);
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
     }
     public function getListString(){
         $arr=array();
