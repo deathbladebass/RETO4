@@ -1,6 +1,14 @@
 
 //Jquery
   $(document).ready(function(){
+	  //session nav
+	  
+	  
+	  
+	  
+	  
+	  
+	  
 	//Materialize
 	//Hace que el carrousel se mueva
 	$('.carousel').carousel({
@@ -109,14 +117,14 @@
 			$.ajax({
 				 type:"GET",
 				 data:{'usuario':usu, 'pass':pass},
-				 url: "../reto4/controller/cLogin.php", 
+				 url: "/controller/cLogin.php", 
 				 dataType: "text",  //type of the result
 				    
 				 success: function(result){
 					 
 					 console.log(result);
 					 
-					 //$('#username').text(result);
+//					 $('#username').text(result);
 					 
 				}
 					 
