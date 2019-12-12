@@ -66,10 +66,11 @@ class equipoModel extends equipoClass{
         $categoria = new categoriaModel();
         $categoria->setIdCategoria($row['idCategoria']);
         $temp=$categoria->findIdCategoria();
-        print_r($new);
+        print_r ($new);
         $new->setObjCategoria($temp);
         array_push($this->list, $new);
     }
+    
     mysqli_free_result($result);
     $this->CloseConnect();
     }
@@ -79,19 +80,55 @@ class equipoModel extends equipoClass{
         $arr=array();
         foreach ($this->list as $object)
         {
-        $vars = get_object_vars($object);
-        $objCategoria=$object->getObjCategoria()->getObjectVars($object);
+
+        $objCategoria=$object->getObjCategoria()->getObjectVars();
+        
             $vars['objCategoria']=$objCategoria; 
-           // print_r($object);
-        $vars = $this->getObjectVars($object);
-        //print_r($vars);
-       // $objCategoria=$object->getObjCategoria()->getObjectVars();
-         //   $vars['objCategoria']=$objCategoria; 
+            
+           $vars= $object->getObjectVars($object);
         array_push($arr, $vars);
         }
         //echo(json_encode($arr));
         //print_r($arr);
         
+        return json_encode($arr);
+    }
+    
+    //Datos para el index
+    public function setEquipos(){
+        
+        $this->OpenConnect();
+        
+        $sql="call spEquipos()";
+        $result=$this->link->query($sql);
+        
+        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+            $equipoNuevo= new equipoModel();
+            $equipoNuevo->setIdEquipo($row['idEquipo']);
+            $equipoNuevo->setNombreEquipo($row['nombreEquipo']);
+            $equipoNuevo->setImagen($row['imagenEquipo']);
+            
+            //print_r($equipoNuevo);
+            
+            array_push($this->list, $equipoNuevo);
+        }
+        $this->CloseConnect();
+    }
+    
+    //Insert Equipo
+    
+    
+    
+    public function getListStringEquipos(){
+           
+        $arr=array();
+        
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            array_push($arr, $vars);
+        }
         return json_encode($arr);
     }
     

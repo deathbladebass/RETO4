@@ -34,9 +34,22 @@ class categoriaModel extends categoriaClass{
         return $this->list;
     }
 
-    public function setList($list)
+    public function setList()
     {
-        $this->list = $list;
+        $this->OpenConnect();
+        $sql='select * from categorias';
+        $result=$this->link->query($sql);
+        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+            $new=new categoriaModel();
+            $new->setIdCategoria($row['idCategoria']);
+            $new->setAbreviatura($row['abreviatura']);
+            $new->setNombreCategoria($row['nombre']);
+            
+            array_push($this->list, $new);
+        }
+        
+        mysqli_free_result($result);
+        $this->CloseConnect();  
     }
 
     public function cargarCategorias(){
