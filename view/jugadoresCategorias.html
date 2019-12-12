@@ -22,16 +22,6 @@
         <li><a class="white-text" href="#!">Registrarse</a></li>
         <li><a class="white-text waves-effect waves-light btn modal-trigger" href="#modalLogin">Log in</a></li>
     	<li>
-        <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
-        </li>
-        </ul>
-        <!-- Dropdown Menu -->
-        <ul id='dropdown1' class='dropdown-content'>
-    		<li><a href="#!">Jugadores</a></li>
-    		<li><a href="#!">Categorias</a></li>		
-    		<li><a href="view/contacto.php">Sugerencias</a></li>
-      	</ul>
-
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Navbar Link</a></li>
       </ul>
@@ -64,7 +54,7 @@
     <h3 class="header">{{x.nombre}} "{{x.nickname}}" {{x.apellido}}</h3>
     <div class="card horizontal">
       <div class="card-image">
-        <img src="https://lorempixel.com/100/190/nature/6">
+        <img src="{{x.imagen}}">
       </div>
       <div class="card-stacked">
         <div class="card-content">
@@ -88,7 +78,6 @@
 </div>
 </div>
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
->>>>>>> branch 'master' of https://github.com/deathbladebass/RETO4.git
 	
 	
 	</div>

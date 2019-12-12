@@ -49,7 +49,7 @@ class jugadorModel extends jugadorClass{
     public function setList()
     {
         $this->OpenConnect();
-        $sql="select idJugador,nombre,nickname,apellido,fechaNacimiento,dni,numeroTelefono,rol,idEquipo,direccion,email,activo from jugadores";
+        $sql="select idJugador,nombre,nickname,apellido,fechaNacimiento,dni,numeroTelefono,rol,idEquipo,direccion,email,activo,img from jugadores";
         $result=$this->link->query($sql);
 
         while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -66,6 +66,7 @@ class jugadorModel extends jugadorClass{
             $new->setDireccion($row['direccion']);
             $new->setEmail($row['email']);
             $new->setActivo($row['activo']);
+            $new->setImagen($row['img']);
             
             array_push($this->list, $new);
         }

@@ -23,7 +23,7 @@ foreach ($usuarios as $object){
 
 //     echo " Contraseña ".$object->getContrasena();
 //     echo " USuario ". $object->getUsuario();
-    //print_r( $object);
+//     print_r( $object);
     
     if ($object->getUsuario()==$user && $object->getContrasena()==$userContr) {
         
