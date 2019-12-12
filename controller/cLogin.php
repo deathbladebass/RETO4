@@ -12,27 +12,27 @@ $user=filter_input(INPUT_GET, 'usuario');
 $userContr=filter_input(INPUT_GET, 'pass');
 
 
-//echo $contrasena;
+// //echo $contrasena;
 
-echo "Insertado: ".$user;
-echo "Insertado: ".$userContr;
+// echo "Insertado: ".$user;
+// echo "Insertado: ".$userContr;
+
+$resultado="Usuario o Contraseña incorrectos";
+
 foreach ($usuarios as $object){
 
-    echo " Contraseña ".$object->getContrasena();
-    echo " USuario ". $object->getUsuario();
+//     echo " Contraseña ".$object->getContrasena();
+//     echo " USuario ". $object->getUsuario();
     //print_r( $object);
     
     if ($object->getUsuario()==$user && $object->getContrasena()==$userContr) {
+        
         $_SESSION["username"]= $object->getUsuario();
-        $_SESSION["idUsu"]=$object->getUsuario();
+        $_SESSION["idUsu"]=$object->getIdUsuario();
         $_SESSION["tipoUsu"]=$object->getTipo();
         
-        echo "Login Correcto";
-        return true;
-    }else{
-        $resultado="Usuario o Contraseña incorrectos";
+        $resultado=$_SESSION["username"];
     }
-   
 }
 
 echo $resultado;

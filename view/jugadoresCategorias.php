@@ -17,7 +17,7 @@
 <body>
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
-      <a id="logo-container" href="#" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
+      <a id="logo-container" href="../index.html" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
         <li><a class="white-text" href="#!">Registrarse</a></li>
         <li><a class="white-text waves-effect waves-light btn modal-trigger" href="#modalLogin">Log in</a></li>
@@ -49,8 +49,11 @@
     <li><a class="subheader">Links</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
-<!-- trigger sidenav -->
 
+  
+ 
+
+<!-- trigger sidenav -->
 
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
   
@@ -63,7 +66,7 @@
 <div class="jugadores" ng-controller="jugadores">
 <div ng-repeat="x in jugador">
 <div class="col s12 m7">
-    <h2 class="header">{{x.nombre}} {{x.apellido}}</h2>
+    <h3 class="header">{{x.nombre}} "{{x.nickname}}" {{x.apellido}}</h3>
     <div class="card horizontal">
       <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">

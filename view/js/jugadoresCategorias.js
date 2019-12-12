@@ -6,7 +6,7 @@ $scope.jugador = [];
 	url: "../controller/cJugadoresCategoriasJ.php",
 }).then(function mySuccess(result){
 	console.log(result);
-	$scope.jugador=result;
+	$scope.jugador=result.data;
 
 }, function myError(response) {
         $scope.jugador = response.statusText;
@@ -22,7 +22,7 @@ miAplicacion.controller('equipos', function ($scope, $http) {
 		url: "../controller/cJugadoresCategoriasE.php",
 	}).then(function mySuccess(result){
 		console.log(result);
-		$scope.equipo=result;
+		$scope.equipo=result.data;
 	
 	}, function myError(response) {
 			$scope.equipo = response.statusText;

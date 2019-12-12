@@ -66,6 +66,35 @@
 		 },
   		});
 	
+	$('#btnRegistrar').click(function(){
+		
+		//Datos a insertar
+		var usuario= $("#usuarioReg").val();
+		var nombre = $("#nombreReg").val();
+		var apellido= $("#apellidoReg").val();
+		var contrasenia= $("#passReg").val();
+		var email =$("#emailReg").val();
+		
+		alert(usuario);
+
+		$.ajax({
+			type:"GET",
+			data: {"nombre":nombre,"apellido":apellido, "contrasenia":contrasenia, "usuario":usuario, "email":email},
+			url: "../reto4/controller/cInsertUsuario.php", 
+			datatype: "json",  //type of the result
+	   	
+			success: function(result){  
+				//alert(result);
+				console.log(result);
+				alert(result);
+				//location.reload(true)
+	   
+			},
+			error : function(xhr) {
+				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+			}
+		}); 
+	});
 	
 	$('#btnLogin').click(function(){
 		var usu=$('#usuario').val();
@@ -86,12 +115,13 @@
 				 success: function(result){
 					 
 					 console.log(result);
-				 
-					 }
 					 
-				 });
-			window.location.reload();
-		  	}
-		});
-	
+					 //$('#username').text(result);
+					 
+				}
+					 
+			});
+		}
 	});
+	
+});
