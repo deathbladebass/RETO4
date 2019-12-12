@@ -1,11 +1,12 @@
 <?php
-include_once 'connect_data.php';
-include_once 'categoriaClass.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/categoriaClass.php';
 
 class categoriaModel extends categoriaClass{
     
     private $list=array();
     private $listEquipos=array();
+    private $link;
     
 
     public function OpenConnect()
@@ -38,6 +39,23 @@ class categoriaModel extends categoriaClass{
         $this->list = $list;
     }
 
+    public function cargarCategorias(){
+        $this->OpenConnect();
+        $sql='select * from categorias';
+        $result=$this->link->query($sql);
+
+        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
+            $new=new equipoModel();
+            $new->setIdCategoria($row['idCategoria']);
+            $new->setNombreCategoria($row['abreviatura']);
+            $new->setAbreviatura($row['nombre']);
+            
+            array_push($this->list, $new);
+        }
+        mysqli_free_result($result);
+        $this->CloseConnect();
+    }
+
     public function findIdCategoria(){
         $this->OpenConnect();
         $id=$this->getIdCategoria();
@@ -49,5 +67,17 @@ class categoriaModel extends categoriaClass{
        $this->CloseConnect();
 
        return $row;
+    }
+
+    public function getListString(){
+        $arr=array();
+
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            array_push($arr, $vars);
+        }
+        return json_encode($arr);
     }
 }

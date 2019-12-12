@@ -151,13 +151,15 @@
                 </form>
             </div>
         </div>
-        <table class="striped">
+        <table class="striped" ng-controller="categoria">
             <thead>
                 <td>nombre</td>
+                <td>abreviatura</td>
             </thead>
-            <tbody ng-repeat="item in lista| filter:TEXTObusqueda">
+            <tbody ng-repeat="item in categoria">
                 <tr>
-                    <td></td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.abreviatura}}</td>
                     <td><input type="button" value="borrar"></td>
                     <td><input type="button" value="modificar"></td>
                 </tr>

@@ -27,3 +27,18 @@ miAplicacion.controller('jugador', function ($scope, $http) {
 
     });
 });
+
+miAplicacion.controller('categoria', function ($scope, $http) {
+    $scope.categoria = [];
+    $http({
+        method: "get",
+        url: "../controller/cAdminCategoria.php",
+    }).then(function mySucces(result) {
+        console.log(result);
+        //alert(result.data);
+        $scope.categoria = result.data;
+    }, function myError(response) {
+        $scope.categoria = response.statusText;
+
+    });
+});
