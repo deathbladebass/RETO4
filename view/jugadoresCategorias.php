@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="miAplicacion">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -10,6 +11,7 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
+  <script src="lib/angular.min.js" type="text/javascript"></script>
   <link rel="shortcut icon" type="image/png" href="view/img/paradox.png"/>
 </head>
 <body>
@@ -49,13 +51,46 @@
   </ul>
 <!-- trigger sidenav -->
 
+
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
   
  
   
 <!--   contenido -->
 	<div class="container">
-	
+
+<div class="container" >
+<div class="jugadores" ng-controller="jugadores">
+<div ng-repeat="x in jugador">
+<div class="col s12 m7">
+    <h2 class="header">{{x.nombre}} {{x.apellido}}</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="https://lorempixel.com/100/190/nature/6">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small bits of information.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="equipos" ng-controller="equipos">
+<div ng-repeat="x in jugador">
+</div>
+</div>
+<div class="categorias" ng-controller="categorias">
+<div ng-repeat="x in jugador">
+</div>
+</div>
+</div>
+  <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+
 	
 	</div>
 	

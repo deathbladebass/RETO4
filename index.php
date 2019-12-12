@@ -24,17 +24,29 @@ session_start();
     <div class="nav-wrapper container ">
       <a id="logo-container" href="#" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>
+      <?php if ($_SESSION["tipoUsu"]==0) {
+          ?>
+          <li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>
         <li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>
+          <?php 
+      }else{?>
+      	<li><p class="white-text"><?php echo $_SESSION["username"]; ?></p></li>
+      <?php }?>
+      
+        
     	<li>
         <a class="white-text dropdown-trigger waves-effect waves-light " href="#" data-target='dropdown1'>Opciones</a>
         </li>
         </ul>
         <!-- Dropdown Menu -->
         <ul id='dropdown1' class='dropdown-content'>
-    		<li><a href="#!">Jugadores</a></li>
-    		<li><a href="#!">Categorias</a></li>		
+    		<li><a href="view/jugadoresCategorias.php">Jugadores</a></li>
+    		<li><a href="view/jugadoresCategorias.php">Categorias</a></li>		
     		<li><a href="view/contacto.php">Sugerencias</a></li>
+    		<?php if($_SESSION["tipoUsu"]==2){?>
+    		    <li><a href="view/admin.php">Panel Admin</a></li>
+    		    
+    		<?php }?>
       	</ul>
 
       <ul id="nav-mobile" class="sidenav">
