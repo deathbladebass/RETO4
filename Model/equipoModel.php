@@ -115,7 +115,13 @@ class equipoModel extends equipoClass{
     
     //Insert Equipo
     
-    
+    public function deleteEquipo(){
+        $this->OpenConnect();
+        $id=$this->getIdEquipo();
+        $sql= 'Call spDeleteEquipo('.$id.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
     
     public function getListStringEquipos(){
            

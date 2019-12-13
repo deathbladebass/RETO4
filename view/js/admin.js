@@ -11,6 +11,21 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         $scope.equipo = response.statusText;
     });
     
+    $scope.borrar= function(x){
+        console.log(x);
+        
+         $http({
+            method: "get",
+            url: "../controller/cBorrarEquipo.php",
+            params: {id:x}
+        }).then(function(){
+            //location.reload();
+        }, function myError(response) {
+            $scope.jugador = response.statusText;
+    
+        }); 
+    }
+
 
 });
 miAplicacion.controller('jugador', function ($scope, $http) {
@@ -47,9 +62,28 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             url: "../controller/cInsertJugador.php",
             params:{dataJugador:insertJson}
         }).then(function(){
-            //location.reload();
+            location.reload();
+        }, function myError(response) {
+            $scope.jugador = response.statusText;
+    
         });
     }
+
+    $scope.borrar= function(x){
+        console.log(x);
+        
+         $http({
+            method: "get",
+            url: "../controller/cBorrarJugador.php",
+            params: {id:x}
+        }).then(function(){
+            location.reload();
+        }, function myError(response) {
+            $scope.jugador = response.statusText;
+    
+        }); 
+    }
+
     $scope.cancelar= function(){
         $scope.aniadirJugador=false;
     }

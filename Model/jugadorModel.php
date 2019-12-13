@@ -92,6 +92,16 @@ class jugadorModel extends jugadorClass{
         $result=$this->link->query($sql);
         $this->CloseConnect();
     }
+
+    public function deletePlayer(){
+        $this->OpenConnect();
+        $id=$this->getId();
+        $sql = 'CALL spDeleteJugador('.$id.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
+
+
     public function getListString(){
         $arr=array();
 

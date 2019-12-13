@@ -50,7 +50,7 @@
                     <td>{{item.nombreEquipo}}</td>
                     <td>{{item.objCategoria.nombre}}</td>
                     <td>{{item.objCategoria.abreviatura}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" ng-click="borrar(item.idEquipo)"type="button" value="borrar"></td>
                     <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
@@ -97,7 +97,7 @@
                     <td>{{item.direccion}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.activo}}</td>
-                    <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                    <td><input class="waves-effect waves-light btn blue darken-3" ng-click="borrar(item.id)" type="button" value="borrar"></td>
                     <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar"></td>
                 </tr>
             </tbody>
