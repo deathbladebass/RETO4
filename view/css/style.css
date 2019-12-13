@@ -1,4 +1,4 @@
-
+/* --------- 			index.html 			------------ */
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -55,12 +55,23 @@ footer.page-footer {
 		display: none;
 	}
 }
-.card .card-action{
-	
-white-space: nowrap;
+.card .card-action{	
+	white-space: nowrap;
+}
+.sidenav li > a {
+    color: rgba(0, 0, 0, 0.87) !important;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
 }
 
-/* --------- Contacto.php ------------ */
+
+
+
+/* --------- 			Contacto.html 			------------ */
 
 .background-contacto{
 	background-image: url("../img/bgContacto.png");
@@ -153,7 +164,8 @@ textarea {
 	font-size:80px;
 }
 
-/* Jugadores Categorias */
+
+/* 				JugadoresCategorias.html				 */
 .sidenavBoton{
 	margin:20px;
 	float:left;
@@ -190,4 +202,84 @@ textarea {
     'mensaje mensaje mensaje mensaje mensaje mensaje'
     'submit submit submit submit submit submit';
   }
+}
+
+/* 		------ HeaderJugadores ------		*/
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
+html,body{
+  margin:0;
+  height:120%;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+a{
+  text-decoration:none
+}
+#header{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  height:50vw;
+  min-height:400px;
+  max-height:550px;
+  min-width:300px;
+  color:#eee;
+}
+#header:after{
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:-1;
+ background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+}
+#header:before{
+  content:"";
+  width:100%;
+  height:200%;
+  position:absolute;
+  top:0;
+  left:0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0); backface-visibility: hidden;
+  scale(1.0, 1.0);
+    transform: translateZ(0);
+  background:#1B2030 url(../img/headerJugadores.jpg) 50% 0 no-repeat;
+  background-size:100%;
+  background-attachment:fixed;
+  animation: grow 360s  linear 10ms infinite;
+  transition:all 0.4s ease-in-out;
+  z-index:-2
+}
+#header a{
+  color:#eee
+}
+
+.info{
+  flex: 0 0 auto;
+  width:50%
+}
+.info{
+  width:100%;
+  padding:15% 10% 0 10%;
+  text-align:center;
+  text-shadow:0 2px 3px rgba(0,0,0,0.2)
+}
+
+.info h4, .meta{
+  font-size:0.7em
+}
+.meta{
+  font-style:italic;
+}
+@keyframes grow{
+  0% { transform: scale(1) translateY(0px)}
+  50% { transform: scale(1.2) translateY(-400px)}
 }

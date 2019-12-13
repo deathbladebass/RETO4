@@ -22,6 +22,16 @@
         <li><a class="white-text" href="#!">Registrarse</a></li>
         <li><a class="white-text waves-effect waves-light btn modal-trigger" href="#modalLogin">Log in</a></li>
     	<li>
+        <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
+        </li>
+        </ul>
+        <!-- Dropdown Menu -->
+        <ul id='dropdown1' class='dropdown-content'>
+    		<li><a href="#!">Jugadores</a></li>
+    		<li><a href="#!">Categorias</a></li>		
+    		<li><a href="view/contacto.php">Sugerencias</a></li>
+      	</ul>
+
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Navbar Link</a></li>
       </ul>
@@ -39,26 +49,27 @@
     <li><a class="subheader">Links</a></li>
     <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
   </ul>
+
+  
+ 
+
 <!-- trigger sidenav -->
 
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
   
-
+ 
+  
 <!--   contenido -->
 	<div class="container">
-		<div id="header">
-  			<div class="info">
-    		<h1>Nuestros jugadores</h1>
-  			</div>
-		</div>
-		<div class="container" >
+
+<div class="container" >
 <div class="jugadores" ng-controller="jugadores">
-<div ng-repeat="jugador in jugadores">
+<div ng-repeat="x in jugador">
 <div class="col s12 m7">
-    <h3 class="header">{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h3>
+    <h3 class="header">{{x.nombre}} "{{x.nickname}}" {{x.apellido}}</h3>
     <div class="card horizontal">
       <div class="card-image">
-        <img src="{{jugador.imagen}}">
+        <img src="https://lorempixel.com/100/190/nature/6">
       </div>
       <div class="card-stacked">
         <div class="card-content">
@@ -73,48 +84,16 @@
 </div>
 </div>
 <div class="equipos" ng-controller="equipos">
-<div ng-repeat="equipo in equipos">
-<div class="col s12 m7">
-    <h3 class="header">{{equipo.nombreEquipo}}  {{equipo.apellido}}</h3>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="../view/{{equipo.imagen}}">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div ng-repeat="x in jugador">
 </div>
 </div>
 <div class="categorias" ng-controller="categorias">
-<div ng-repeat="categoria in categorias">
-<div class="col s12 m7">
-    <h3 class="header">{{categoria.nombreCategoria}} </h3>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="{{categoria.imagen}}">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+<div ng-repeat="x in jugador">
 </div>
 </div>
 </div>
-  <!-- <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a> -->
-	
+  <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a>
+
 	
 	</div>
 	
