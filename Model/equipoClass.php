@@ -40,11 +40,11 @@ class equipoClass{
     public function setObjCategoria($objCategoria){
         $this->objCategoria=$objCategoria;
     }
-    function getObjectVars($object)
+    function getObjectVars()
     {
-        //$vars = get_object_vars($this);
-        $vars = get_object_vars($object);
+        $vars = get_object_vars($this);
         return  $vars;
     }
+
 
 }
