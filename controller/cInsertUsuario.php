@@ -6,11 +6,10 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
 $login = new usuarioModel();
 $login->setList();
 
-$login->getList();
-//$listaUsuarios=;
-
-//Comprobar que exista
-
+//Usuario
+$usuario=filter_input(INPUT_GET, 'usuario');
+$login->setUsuario($usuario);
+//echo $usuario;
 
 //Nombre
 $nombre=filter_input(INPUT_GET, 'nombre');
@@ -24,10 +23,7 @@ $login->setApellido($apellido);
 $contrasenia=filter_input(INPUT_GET, 'contrasenia');
 $login->setContrasena($contrasenia);
 
-//Usuario
-$usuario=filter_input(INPUT_GET, 'usuario');
-$login->setUsuario($usuario);
-echo $usuario;
+
 
 //Email
 $email=filter_input(INPUT_GET, 'email');
@@ -36,6 +32,19 @@ $login->setEmail($email);
 //Tipo
 $login->setTipo('1');
 
-//Ejecuta el insert
-$result=$login->insertUser();
+$existe=false;
+//Comprobar que exista
+foreach ($login->getList() as $usu) {
+    if ($usuario==$usu.$usuario) {
+        $existe=true;
+    }
+}
+
+if (!$existe) {
+    //Ejecuta el insert
+    $result=$login->insertUser();
+}else {
+    $result="Usuario existente";
+}
+
 echo $result;
