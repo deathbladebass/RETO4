@@ -85,7 +85,7 @@ class equipoModel extends equipoClass{
         
             $vars['objCategoria']=$objCategoria; 
             
-           $vars= $object->getObjectVars($object);
+           $vars= $object->getObjectVars();
         array_push($arr, $vars);
         }
         
