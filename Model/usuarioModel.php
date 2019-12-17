@@ -87,12 +87,11 @@ class usuarioModel extends usuarioClass{
          echo "sql=".$sql; 
          $result=$this->link->query($sql); 
          
-         if ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-             echo "Insertado";
-         }else {
-             echo "Error al insertar";
+         if ($this->link->affected_rows  >=1){
+             return "Insertado";
+         } else {
+             return "error";
          }
-         
          $this->CloseConnect();
         }
         

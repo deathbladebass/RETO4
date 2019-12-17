@@ -14,13 +14,11 @@
   <script src="lib/angular.min.js" type="text/javascript"></script>
   <link rel="shortcut icon" type="image/png" href="img/paradox.png"/>
 </head>
-<body>
+<body >
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
       <a id="logo-container" href="../index.html" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="white-text" href="#!">Registrarse</a></li>
-        <li><a class="white-text waves-effect waves-light btn modal-trigger" href="#modalLogin">Log in</a></li>
     	<li>
       <ul id="nav-mobile" class="sidenav">
         <li><a href="#">Navbar Link</a></li>
@@ -33,19 +31,14 @@
   <ul id="slide-out" class="sidenav ">
   <div width="100%" class="center-align blue darken-4">  <img src="img/paradox.png" width="130px"></div>
 
-    <li><a class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
-    <li><a class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
-    <li><a class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Links</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    <li><a ng-click="showJugadores()"class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
+    <li><a ng-click="showCategorias()" class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
+    <li><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
   </ul>
-  
-  <!-- trigger sidenav -->
+<!-- trigger sidenav -->
 
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
   <!-- fin trigger sidenav -->
-
 
 <!--   contenido -->
 	<div class="container">
@@ -54,18 +47,19 @@
     		<h1>Nuestros jugadores</h1>
   			</div>
 		</div>
-		<div class="container" >
-<div class="jugadores" ng-controller="jugadores">
-<div ng-repeat="jugador in jugadores">
-<div class="col s12 m7">
-    <h3 class="header">{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h3>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="{{jugador.imagen}}">
-      </div>
-      <div class="card-stacked">
+		<div class="header" >
+		<div ng-show="jugadoresCards=='true'" class="jugadores" ng-controller="jugadores">
+		<div ng-repeat="jugador in jugadores">
+		<div class="col s12 m7">
+    	<h3 class="header">{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h3>
+    	<div class="card horizontal">
+      		<div class="card-image">
+        	<img src="{{jugador.imagen}}">
+      	</div>
+      	<div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+          <p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
+          <p>Rol:  {{jugador.rol}}</p>
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>
@@ -75,27 +69,47 @@
   </div>
 </div>
 </div>
-<div class="equipos" ng-controller="equipos">
-<div ng-repeat="equipo in equipos">
-<div class="col s12 m7">
-    <h3 class="header">{{equipo.nombreEquipo}}  {{equipo.apellido}}</h3>
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="../view/{{equipo.imagen}}">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div>
-  </div>
+
+	<!-- Equipos -->
+<div ng-show="equiposCards=='true'" class="equipos" ng-controller="equipos">
+	<div ng-repeat="equipo in equipos">
+		<div class="col s12 m7">
+   		<h3 class="header">{{equipo.nombreEquipo}}</h3>
+    		<div class="card horizontal">
+      			<div class="card-image">
+        			<img src="../view/{{equipo.imagen}}">
+      			<div class="card-stacked">
+        			<div class="card-content">
+        			
+        				<!-- Datos jugadores -->
+          				<div class="jugadores" ng-controller="jugadores">
+							<div ng-repeat="jugador in jugadores">
+							<!-- id equipo{{equipo.idEquipo}} equipoid{{jugador.idEquipo}} -->
+	
+								<div ng-if="equipo.idEquipo==jugador.idEquipo" class="col s3 m3">
+    								<h4>{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h4>
+    								<div class="card horizontal">
+      									<div class="card-image">
+        									<img src="{{jugador.imagen}}">
+      									</div>
+      									<div class="card-stacked">
+        									<div class="card-content">
+          										<p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
+          										<p>Rol:  {{jugador.rol}}</p>
+        									</div>
+      									</div>
+    								</div>
+  								</div>
+							</div>
+						</div>
+        			</div>
+      			</div>
+   			</div>
+  		</div>
+	</div>
 </div>
-</div>
-<div class="categorias" ng-controller="categorias">
+<!-- Fin Equipos -->
+<div ng-show="categoriaCards=='true'" class="categorias" ng-controller="categorias">
 <div ng-repeat="categoria in categorias">
 <div class="col s12 m7">
     <h3 class="header">{{categoria.nombreCategoria}} </h3>
@@ -105,10 +119,10 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+          <p>{{categoria.descripcion}}</p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="{{categoria.direccion}}">Pagina oficial de la liga</a>
         </div>
       </div>
     </div>
@@ -117,7 +131,7 @@
 </div>
 </div>
   <!-- <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a> -->
-	
+	 
 	
 	</div>
 	<!--   Fin contenido -->
@@ -156,7 +170,7 @@
 <!--   Fin Footer -->
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/jugadoresCategorias.js"></script>

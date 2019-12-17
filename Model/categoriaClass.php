@@ -3,6 +3,8 @@ class categoriaClass{
     protected $idCategoria;
     protected $nombreCategoria;
     protected $abreviatura;
+    protected $direccion;
+    protected $descripcion;
     
 
     public function getIdCategoria(){
@@ -20,11 +22,7 @@ class categoriaClass{
     public function setNombreCategoria($nombreCategoria){
         $this->nombreCategoria = $nombreCategoria;
     }
-    function getObjectVars()
-    {
-        $vars = get_object_vars($this);
-        return  $vars;
-    }
+
     public function getAbreviatura(){
         return $this->abreviatura;
     }
@@ -32,6 +30,25 @@ class categoriaClass{
     public function setAbreviatura($abreviatura){
         $this->abreviatura = $abreviatura;
     }
+    
+    public function getDireccion(){
+        return $this->abreviatura;
+    }
+    
+    public function setDireccion($direccion){
+        $this->direccion = $direccion;
+    }
+    public function getDescripcion(){
+        return $this->descripcion;
+    }
+    
+    public function setDescripcion($descripcion){
+        $this->descripcion = $descripcion;
+    }
 
-
+    function getObjectVars()
+    {
+        $vars = get_object_vars($this);
+        return  $vars;
+    }
 }
