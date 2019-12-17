@@ -46,7 +46,7 @@
                         <td>abreviatura</td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-repeat="item in equipo">
                     <tr>
                         <td>{{item.nombreEquipo}}</td>
                         <td>{{item.objCategoria.nombre}}</td>

@@ -61,7 +61,6 @@ class equipoModel extends equipoClass{
         $new->setNombreEquipo($row['nombreEquipo']);
         $new->setImagen($row['imagenEquipo']);
         $new->setIdCategoria($row['idCategoria']);
-        echo "llega";
         $categoria = new categoriaModel();
         $categoria->setIdCategoria($row['idCategoria']);
         $temp=$categoria->findIdCategoria();
@@ -79,12 +78,7 @@ class equipoModel extends equipoClass{
         foreach ($this->list as $object)
         {
         $vars = get_object_vars($object);
-        $objCategoria=$object->getObjCategoria()->getObjectVars();
         
-            $vars['objCategoria']=$objCategoria; 
-            
-           $vars= $object->getObjectVars($object);
-        echo ($arr);
         array_push($arr, $vars);
         }
         

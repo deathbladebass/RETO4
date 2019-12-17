@@ -6,8 +6,8 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         method: "get",
         url: "../controller/cAdminEquipo.php",
     }).then(function mySucces(result) {
-        console.log(result);
         $scope.equipo = result.data;
+        console.log($scope.equipo);
     }, function myError(response) {
         $scope.equipo = response.statusText;
     });
