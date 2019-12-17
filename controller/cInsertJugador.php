@@ -4,8 +4,8 @@ include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/jugadorModel.php';
 
 $jugador=json_decode($_GET['dataJugador']);
 //Recibir los datos
-$newPlayer= new jugadorModel();
- print_r ($jugador);  
+
+$newPlayer= new jugadorModel(); 
 //Nombre
 $newPlayer->setNombre($jugador->nombre);
 //Apellido
@@ -28,7 +28,7 @@ $newPlayer->setEmail($jugador->email);
 $newPlayer->setActivo(0);
 $newPlayer->setIdEquipo($jugador->idEquipo);
 
-print_r($newPlayer);
+
 //Ejecutar el insert
 $newPlayer->insertPlayer();
 

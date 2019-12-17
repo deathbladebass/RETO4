@@ -86,8 +86,8 @@ class jugadorModel extends jugadorClass{
         $direccion='"'.$this->getDireccion().'"';
         $email='"'.$this->getEmail().'"';
         $activo=$this->getActivo();
-        
-        $sql= 'CALL spInstertJugador('.$nickname.', '.$nombre.', '.$apellido.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$idEquipo.', '.$direccion.', '.$email.', '.$activo.')';
+        $sql = 'Call spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+      //  $sql= 'CALL spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
         echo ($sql);
         $result=$this->link->query($sql);
         $this->CloseConnect();

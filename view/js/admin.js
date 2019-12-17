@@ -46,9 +46,11 @@ miAplicacion.controller('jugador', function ($scope, $http) {
 
     });
     $scope.btnAniadir=function(){
-        $scope.aniadirJugador=true ;   
+        $scope.aniadirJugador=true ;
+        $scope.modificarJugadorDiv=false;   
     }
     $scope.aniadir= function(){
+        var fechaString ="";
         var idEquipo=-1;
         if ($scope.rol=="Top laner" || $scope.rol=="Jungler" || $scope.rol=="Mid laner" || $scope.rol=="Bot laner" || $scope.rol=="Support"){
             idEquipo=1;
@@ -57,6 +59,10 @@ miAplicacion.controller('jugador', function ($scope, $http) {
         }else{
             idEquipo=3
         }
+        //for (i=0;i<= 9;i++ ){
+            //fechaString += $scope.fechaNacimiento;
+        //}
+        
         var insertDatos= {nombre:$scope.nombre,nickname:$scope.nickname, apellido:$scope.apellido,dni:$scope.dni,fechaNacimiento:$scope.fechaNacimiento, numTel:$scope.numTel, rol:$scope.rol,direccion:$scope.direccion,email:$scope.email,activo:0, idEquipo:idEquipo};
         //En la llamada de http para el insert en params llamarlo dataJugador
         var insertJson=JSON.stringify(insertDatos);
@@ -64,15 +70,18 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             method: "get",
             url: "../controller/cInsertJugador.php",
             params:{dataJugador:insertJson}
-        }).then(function(){
-            location.reload();
+        }).then(function(response){
+            console.log(response);
+           // $scope.jugador.push(id:response.id)
+            //location.reload();
         }, function myError(response) {
             $scope.jugador = response.statusText;
-    
+            console.log(response.statusText);
         });
     }
 
     $scope.modificar= function (item){
+        $scope.aniadirJugador=false;
         $scope.datos=[];
         $scope.modificarJugadorDiv=true;
         console.log(item);
@@ -119,7 +128,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
 
     $scope.cancelar= function(){
         $scope.aniadirJugador=false;
-        $scope.modificarJugador=false;
+        $scope.modificarJugadorDiv=false;
     }
 });
 

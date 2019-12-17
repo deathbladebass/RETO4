@@ -118,8 +118,7 @@
                 <input type="text" id="apellido" placeholder="apellido..." ng-model="apellido">
                 <input type="text" id="dni" placeholder="DNI..." ng-model="dni">
                 <div class="fecha">
-                    <label>Fecha de Nacimiento</label>
-                    <input type="date" id="fecha" name="trip-start" ng-model="fechaNacimiento">
+                    <input type="text" id="fecha" name="trip-start" placeholder="YYYY-MM-DD" ng-model="fechaNacimiento">
                 </div>
                 <input type="text" id="numTel" placeholder="número teléfono..." ng-model="numTel">
                 <select ng-model="rol" id="rol">
@@ -145,8 +144,7 @@
                 <input type="text" id="apellido" ng-model="datos.apellido">
                 <input type="text" id="dni" ng-model="datos.dni">
                 <div class="fecha">
-                    <label>Fecha de Nacimiento</label>
-                    <input type="date" id="fecha" name="trip-start" ng-model="fechaNacimiento">
+                    <input type="text" id="fecha" name="trip-start" ng-model="fechaNacimiento">
                 </div>
                 <input type="text" id="numTel" ng-model="datos.numTel">
                 <select ng-model="datos.rol" id="rol">
