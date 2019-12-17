@@ -36,13 +36,15 @@ class categoriaModel extends categoriaClass{
     public function setList()
     {
         $this->OpenConnect();
-        $sql='select * from categorias';
+        $sql='call spCategorias()';
         $result=$this->link->query($sql);
         while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
             $new=new categoriaModel();
             $new->setIdCategoria($row['idCategoria']);
             $new->setAbreviatura($row['abreviatura']);
             $new->setNombreCategoria($row['nombre']);
+            $new->setDireccion($row['direccion']);
+            $new->setDescripcion($row['descripcion']);
             
             array_push($this->list, $new);
         }
