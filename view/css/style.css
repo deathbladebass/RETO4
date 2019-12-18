@@ -283,3 +283,46 @@ a{
   0% { transform: scale(1) translateY(0px)}
   50% { transform: scale(1.2) translateY(-400px)}
 }
+
+.card.horizontal .card-image {
+    max-width: 100%;
+}
+@media only screen and (max-width: 601px){
+	.row .col.m3 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+	}   
+    .row .col.s3 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+	}
+	h6 {
+    font-size: 1.40rem;
+    line-height: 110%;
+    margin: 0.7666666667rem 0 0.46rem 0;
+	}
+}
+@media only screen and (max-width: 800px){
+	.card.horizontal .card-image {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+	}
+}
+.card.horizontal .card-image #imagenEquipo{
+    width: 60%;
+    margin: auto;
+}
+.row .col.s6 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+
+}

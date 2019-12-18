@@ -27,18 +27,19 @@
     </div>
   </nav>
 <!-- sidenav -->
-  <ul id="slide-out" class="sidenav ">
+  <ul id="slide-out" class="sidenav">
   <div width="100%" class="center-align blue darken-4">  <img src="img/paradox.png" width="130px"></div>
 
-    <li><a ng-click="showJugadores()"class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
-    <li><a ng-click="showCategorias()" class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
-    <li><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
+    <li ng-controller="jugadores"><a ng-click="showJugadores()"class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
+    <li ng-controller="categorias"><a ng-click="showCategorias()"class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
+    <li ng-controller="equipos"><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
   </ul>
 <!-- trigger sidenav -->
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
   
   
 <!--   contenido -->
+
 	<div class="container">
 		<div id="header">
   			<div class="info">
@@ -46,6 +47,46 @@
   			</div>
 		</div>
 		<div class="header" >
+		<!-- Equipos -->
+<div ng-show="equiposCards=='true'" class="equipos" ng-controller="equipos">
+	<div ng-repeat="equipo in equipos">
+		<div class="col s12 m6">
+   		<h3 class="header">{{equipo.nombreEquipo}}</h3>
+    		<div class="card horizontal">
+      			<div class="card-image">
+        			<img id="imagenEquipo" src="../view/{{equipo.imagen}}">
+      			<div class="row card-stacked">
+        			<div class="card-content ">
+        			
+        				<!-- Datos jugadores -->
+          				<div class="jugadores row" ng-controller="jugadores">
+							<div class="col s12 m6" ng-repeat="jugador in jugadores">
+							<!-- id equipo{{equipo.idEquipo}} equipoid{{jugador.idEquipo}} -->
+	
+								<div ng-if="equipo.idEquipo==jugador.idEquipo" class="col s12">
+    								<h6>{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h6>
+    								<div class="row card horizontal">
+      									<div class="card-image col s5 m5">
+        									<img src="{{jugador.imagen}}">
+      									</div>
+      									<div class="card-stacked col s7 m7">
+          										<p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
+          										<p>Rol:  {{jugador.rol}}</p>
+      									</div>
+    								</div>
+  								</div>
+							</div>
+						</div>
+        			</div>
+      			</div>
+   			</div>
+  		</div>
+	</div>
+</div>
+</div>
+<!-- Fin Equipos -->
+
+<!-- Jugadores -->
 		<div ng-show="jugadoresCards=='true'" class="jugadores" ng-controller="jugadores">
 		<div ng-repeat="jugador in jugadores">
 		<div class="col s12 m7">
@@ -66,47 +107,10 @@
   </div>
 </div>
 </div>
+<!-- Fin Jugadores -->
 
-	<!-- Equipos -->
-<div ng-show="equiposCards=='true'" class="equipos" ng-controller="equipos">
-	<div ng-repeat="equipo in equipos">
-		<div class="col s12 m7">
-   		<h3 class="header">{{equipo.nombreEquipo}}</h3>
-    		<div class="card horizontal">
-      			<div class="card-image">
-        			<img src="../view/{{equipo.imagen}}">
-      			<div class="card-stacked">
-        			<div class="card-content">
-        			
-        				<!-- Datos jugadores -->
-          				<div class="jugadores" ng-controller="jugadores">
-							<div ng-repeat="jugador in jugadores">
-							<!-- id equipo{{equipo.idEquipo}} equipoid{{jugador.idEquipo}} -->
-	
-								<div ng-if="equipo.idEquipo==jugador.idEquipo" class="col s3 m3">
-    								<h4>{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h4>
-    								<div class="card horizontal">
-      									<div class="card-image">
-        									<img src="{{jugador.imagen}}">
-      									</div>
-      									<div class="card-stacked">
-        									<div class="card-content">
-          										<p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
-          										<p>Rol:  {{jugador.rol}}</p>
-        									</div>
-      									</div>
-    								</div>
-  								</div>
-							</div>
-						</div>
-        			</div>
-      			</div>
-   			</div>
-  		</div>
-	</div>
-</div>
-<!-- Fin Equipos -->
-<div ng-show="categoriaCards=='true'" class="categorias" ng-controller="categorias">
+<!--  categorias -->
+<div ng-show="categoriasCards=='true'" class="categorias" ng-controller="categorias">
 <div ng-repeat="categoria in categorias">
 <div class="col s12 m7">
     <h3 class="header">{{categoria.nombreCategoria}} </h3>
@@ -127,8 +131,7 @@
 </div>
 </div>
 </div>
-  <!-- <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger" data-target="slide-out"><i class="material-icons">menu</i></a> -->
-	 
+<!--  Fin categorias --> 
 	
 	</div>
 	
@@ -140,10 +143,7 @@
           <p class="grey-text text-lighten-4">
           	Paradox es un club de deportes electronicos de alta categoria, nos dedicamos a gestionar equipos en diferentes plataformas y videojuegos.
           	Forjamos nuestras victorias.
-          
-          
           </p>
-
 
         </div>
         <div class="col l6 s12">
@@ -165,13 +165,11 @@
       </div>
     </div>
   </footer>
-
-
+  
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/jugadoresCategorias.js"></script>
-
   </body>
 </html>

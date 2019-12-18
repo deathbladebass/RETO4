@@ -29,7 +29,7 @@
 				 
 				 
 				 if(sessionData.tipoUsu==2){
-					 htmlAdminNav+='<li><a href="view/admin.php">Panel Admin</a></li>'
+					 htmlAdminNav+='<li><a href="view/admin.html">Panel Admin</a></li>'
 						 $('.adminNav').show();
 				 }else{
 					 $('.adminNav').hide();
