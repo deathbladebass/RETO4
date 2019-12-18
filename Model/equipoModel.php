@@ -128,4 +128,14 @@ class equipoModel extends equipoClass{
         }
         return json_encode($arr);
     }
+    public function modificarEquipo(){
+        $this->OpenConnect();
+        $categoria=$this->getIdCategoria();
+        $id=$this->getIdEquipo();
+        $equipo='"'.$this->getNombreEquipo().'"';
+        $sql='call spModificarEquipo('.$id.', '.$equipo.', '.$categoria.')';
+        echo $sql;
+        $result=$this->link->Query($sql);
+        $this->CloseConnect();
+    }
 }

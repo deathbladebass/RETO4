@@ -28,6 +28,7 @@
         </div>
     </nav>
     <div class="container">
+    <!-- Tabla Equipos-->
         <div ng-controller="equipo">
             <div class="header"><label>Equipo</label>
                 <form class="col s12 ">
@@ -53,11 +54,22 @@
                         <td>{{item.objCategoria.abreviatura}}</td>
                         <td><input class="waves-effect waves-light btn blue darken-3" ng-click="borrar(item.idEquipo)"
                                 type="button" value="borrar"></td>
-                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar">
+                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar" ng-click="modificar(item)">
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <!-- Modificar Equipos -->
+            <div ng-show="modificarEquipoDiv" class="modificarEquipo">
+                <input type="text" class="nombreEquipo" ng-model="nombre">
+                <select ng-model="nombreCategoria" class="categoriaEquipo">
+                <option ng-repeat="item in categoria">{{item.nombreCategoria}}</option>
+                </select>
+                <input type="button" value="modificar equipo" ng-click="modificarEquipo()"
+                    class="waves-effect waves-light btn blue darken-3 modificarEquipo" >
+                <input type="button" value="cancelar" ng-click="cancelar()"
+                    class="waves-effect waves-light btn blue darken-3 cancelarEquipo" >
+            </div>
         </div>
         <!-- Jugadores -->
         <div ng-controller="jugador">
@@ -76,7 +88,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Tabla Usuarios -->
             <table class="striped">
                 <thead>
                     <tr>
@@ -118,7 +129,7 @@
                 <input type="text" class="apellido" placeholder="apellido..." ng-model="apellido">
                 <input type="text" class="dni" placeholder="DNI..." ng-model="dni">
                     <input type="date" class="fecha" name="trip-start"  ng-model="fechaNacimiento">
-                <input type="text" class="numTel" placeholder="número teléfono..." ng-model="numTel">
+                <input type="text" class="numTel" placeholder="número teléfono..." ng-model="numTel"  onkeypress="return validar(event)">
                 <select ng-model="rol" class="rol">
                     <option value="Top laner">Top laner</option>
                     <option value="Jungler">Jungler</option>
@@ -141,8 +152,8 @@
                 <input type="text" class="nickname" ng-model="datos.nickname">
                 <input type="text" class="apellido" ng-model="datos.apellido">
                 <input type="text" class="dni" ng-model="datos.dni">
-                <input type="date" class="fecha" name="trip-start">
-                <input type="text" class="numTel" ng-model="datos.numTel">
+                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento">
+                <input type="text" class="numTel" ng-model="datos.numTel"  onkeypress="return validar(event)">
                 <select  class="rol" ng-model="datos.rol">
                     <option value="Top laner">Top laner</option>
                     <option value="Jungler">Jungler</option>
@@ -153,9 +164,9 @@
                     <option value="AWPer">AWPer</option>
                 </select>
                 <input type="text" ng-model="datos.direccion" class="direccion">
-                <input type="text" ng-model="datos.email" class="email">
+                <input type="text" ng-model="datos.email" class="email" onblur="validateEmail()">
                 <div class="activo">
-                <input type="checkbox">
+                <input type="radio">
                 </div>
                 <input type="button" value="modificar jugador" ng-click="modificarJugador()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
@@ -229,13 +240,14 @@
                     <option value="AWPer">AWPer</option>
                 </select>
                 <input type="text" ng-model="datos.numTel">
-                <input type="text" ng-model="datos.email">
+                <input type="text" class="email" ng-model="datos.email" onblur="validateEmail()">
                 <input type="button" value="modificar jugador" ng-click="modificarJugador()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
                 <input type="button" value="cancelar" ng-click="cancelar()"
                     class="waves-effect waves-light btn blue darken-3" id="botonCancelar">
             </div>
         </div>
+        <!-- Tabla Categoria -->
         <div ng-controller="categoria">
             <div class="header"><label>Categorías</label>
                 <div class="buscador">
@@ -261,11 +273,20 @@
                         <td>{{item.abreviatura}}</td>
                         <td><input ng-click="borrar(item.idCategoria)"
                                 class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
-                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar">
+                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="modificar" ng-click="modificar(item)">
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <!-- Modificar Categoria -->
+            <div class="modificarCategoriaDiv" ng-show="modificarCategoriaDiv">
+                <input type="text" ng-model="nombre">
+                <input type="text" ng-model="abreviatura">
+                <input type="button" value="modificar jugador" ng-click="modificarCategoria()"
+                    class="waves-effect waves-light btn blue darken-3" id="botonModificar">
+                <input type="button" value="cancelar" ng-click="cancelar()"
+                    class="waves-effect waves-light btn blue darken-3" id="botonCancelar">
+            </div>
         </div>
         <div ng-controller="mensaje">
             <div class="header"><label>Comentarios</label>
