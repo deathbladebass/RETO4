@@ -2,12 +2,14 @@
 include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/JugadorModel.php';
 
 $jugador= new jugadorModel();
-$jugador->setNombre();
-$jugador->setApellido();
-$jugador->setNickname();
-$jugador->setEmail();
-$jugador->setNumTel();
-$jugador->setDni();
-$jugador->fechaNacimiento();
-$jugador->setRol();
-$jugador->setDireccion();
+$jugador->setId($_GET['id']);
+$jugador->setNombre($_GET['nombre']);
+$jugador->setApellido($_GET['apellido']);
+$jugador->setNickname($_GET['nickname']);
+$jugador->setEmail($_GET['email']);
+$jugador->setNumTel($_GET['numTel']);
+$jugador->setDni($_GET['dni']);
+$jugador->fechaNacimiento($_GET['fechaNacimiento']);
+$jugador->setRol($_GET['rol']);
+$jugador->setDireccion($_GET['rol']);
+$jugador->modificarJugador();

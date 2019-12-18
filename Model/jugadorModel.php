@@ -78,7 +78,7 @@ class jugadorModel extends jugadorClass{
         $nickname='"'.$this->getNickname().'"';
         $nombre='"'.$this->getNombre().'"';
         $apellido='"'.$this->getApellido().'"';
-        $fechaNacimiento=$this->getFechaNacimiento();
+        $fechaNacimiento='"'.$this->getFechaNacimiento().'"';
         $dni='"'.$this->getDni().'"';
         $numTel=$this->getNumtel();
         $rol='"'.$this->getRol().'"';
@@ -86,8 +86,8 @@ class jugadorModel extends jugadorClass{
         $direccion='"'.$this->getDireccion().'"';
         $email='"'.$this->getEmail().'"';
         $activo=$this->getActivo();
-        
-        $sql= 'CALL spInstertJugador('.$nickname.', '.$nombre.', '.$apellido.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$idEquipo.', '.$direccion.', '.$email.', '.$activo.')';
+        $sql = 'Call spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+      //  $sql= 'CALL spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
         echo ($sql);
         $result=$this->link->query($sql);
         $this->CloseConnect();
@@ -99,6 +99,23 @@ class jugadorModel extends jugadorClass{
         $sql = 'CALL spDeleteJugador('.$id.')';
         $result=$this->link->query($sql);
         $this->CloseConnect();
+    }
+
+    public function modificarJugador(){
+        $this->OpenConnect();
+        $id=$this->getId();
+        $nombre='"'.$this->getNombre().'"';
+        $apellido='"'.$this->getApellido().'"';
+        $nickname='"'.$this->getNickname().'"';
+        $email='"'.$this->getEmail().'"';
+        $numTel=$this->getNumTel();
+        $dni='"'.$this->getDni().'"';
+        $fechaNacimiento='"'.$this->getFechaNacimiento().'"';
+        $rol='"'.$this->getRol().'"';
+        $direccion='"'.$this->getDireccion().'"';
+        $idEquipo=$this->getIdEquipo();
+        $activo=$this->getActivo();
+        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$email.', '.$numTel.', '.$dni.','.$fechaNacimiento.', '.$rol.', '.$direccion.', '.$id.', '.$idEquipo.', '.$activo.')';
     }
 
 

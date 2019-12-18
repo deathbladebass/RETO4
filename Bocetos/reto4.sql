@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2019 a las 10:27:40
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.1.32
+-- Tiempo de generación: 18-12-2019 a las 14:51:47
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +23,30 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `reto4` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 USE `reto4`;
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteCategoria` (IN `pId` INT)  NO SQL
+DELETE FROM categorias WHERE idCategoria=pId$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteEquipo` (IN `p_id` INT)  NO SQL
+delete from `equipos` where idEquipo=p_id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteJugador` (IN `p_id` INT)  NO SQL
+DELETE FROM `jugadores` WHERE idJugador=p_id$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteMensaje` (IN `pId` INT)  NO SQL
+DELETE FROM mensajes WHERE idMensaje=pId$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertJugador` (IN `p_nombre` VARCHAR(40), IN `p_apellido` VARCHAR(40), IN `p_nickname` VARCHAR(40), IN `p_fechaNacimiento` DATE, IN `p_dni` VARCHAR(9), IN `p_numTel` INT(9), IN `p_rol` VARCHAR(40), IN `p_direccion` VARCHAR(40), IN `p_email` VARCHAR(40), IN `p_activo` TINYINT, IN `p_idEquipo` INT)  NO SQL
+insert into jugadores( nickname, nombre, apellido, fechaNacimiento, dni, numeroTelefono, rol, idEquipo, direccion, email, activo) values ( p_nickname, p_nombre, p_apellido, p_fechaNacimiento, p_dni, p_numTel, p_rol, p_idEquipo, p_direccion, p_email, p_activo)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarJugador` (IN `pnombre` VARCHAR(40), IN `papellido` VARCHAR(40), IN `pnickname` VARCHAR(40), IN `pemail` VARCHAR(40), IN `pnumTel` INT, IN `pdni` VARCHAR(40), IN `pfechaNacimiento` DATE, IN `prol` VARCHAR(40), IN `pdireccion` VARCHAR(40), IN `pid` INT, IN `pidEquipo` INT, IN `pactivo` TINYINT)  NO SQL
+UPDATE jugadores SET nickname=nickname,nombre=nombre,apellido=apellido,fechaNacimiento=fechaNacimiento,dni=dni,numeroTelefono=numTel,rol=rol,idEquipo=idEquipo,direccion=direccion,email=email,activo=activo WHERE idJugador=id$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -46,7 +70,8 @@ INSERT INTO `categorias` (`idCategoria`, `abreviatura`, `nombre`) VALUES
 (3, 'EAS', 'E-Sports Amateur Series'),
 (4, 'LCS', 'League Of Legends Championship Series'),
 (5, 'LPL', 'League Of Legends Pro League'),
-(6, 'LVP', 'Liga de Videojuegos Profesional');
+(6, 'LVP', 'Liga de Videojuegos Profesional'),
+(7, 'fdkjsaf', 'kfjhdsalf');
 
 -- --------------------------------------------------------
 
@@ -133,7 +158,8 @@ INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNa
 (9, 'S1mple', 'Oleksandr', 'Kostyliev', '1997-10-02', '125647895E', 656999999, 'Rifle', 2, 'Plaza Molotov', 'oKostyliev@gmail.com', 1, ''),
 (10, 'Guardian', 'Ladislav', 'Kovacs', '1991-07-09', '658748985T', 656111222, 'Rifle', 2, 'Plaza Kalasnikov', 'lKovacs@gmail.com', 1, ''),
 (11, 'Glalve', 'Lukas', 'Rossander', '1995-06-07', '987548621I', 656111333, 'Rifle', 2, 'Calle Gaben', 'gLukas@gmail.com', 1, ''),
-(12, 'Xyp9x', 'Andreas', 'Hojsleth', '1995-09-11', '125478695T', 656111444, 'Rifle', 2, 'Avenida Steam', 'aHojsleth', 0, '');
+(36, 'a', 'a', 'a', '0000-00-00', 'a', 1, 'Jungler', 1, 'a', 'a', 0, ''),
+(37, 'a', 'a', 'a', '1212-12-12', 'a', 1, 'Top laner', 1, 'a', 'a', 0, '');
 
 -- --------------------------------------------------------
 
@@ -149,6 +175,13 @@ CREATE TABLE `mensajes` (
   `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`idMensaje`, `tipo`, `nombre`, `mensaje`, `email`, `fecha`) VALUES
+(2, '', '', '', '', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -207,6 +240,12 @@ ALTER TABLE `jugadores`
   ADD KEY `idEquipo` (`idEquipo`);
 
 --
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`idMensaje`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -220,7 +259,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `cuerpostecnicos`
@@ -232,13 +271,19 @@ ALTER TABLE `cuerpostecnicos`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

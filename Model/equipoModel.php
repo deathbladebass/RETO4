@@ -49,24 +49,21 @@ class equipoModel extends equipoClass{
     //Datos para el admin.php
     public function setList()
     {
-        return $this->link;
+        
         $this->OpenConnect();
 
         //$sql="call spSelectEquipos()";
         $sql="select * from equipos";
         $result=$this->link->query($sql);
-
        while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
         $new=new equipoModel();
         $new->setIdEquipo($row['idEquipo']);
         $new->setNombreEquipo($row['nombreEquipo']);
         $new->setImagen($row['imagenEquipo']);
         $new->setIdCategoria($row['idCategoria']);
-
         $categoria = new categoriaModel();
         $categoria->setIdCategoria($row['idCategoria']);
         $temp=$categoria->findIdCategoria();
-        print_r ($new);
         $new->setObjCategoria($temp);
         array_push($this->list, $new);
     }
@@ -80,12 +77,8 @@ class equipoModel extends equipoClass{
         $arr=array();
         foreach ($this->list as $object)
         {
-
-        $objCategoria=$object->getObjCategoria()->getObjectVars();
+        $vars = get_object_vars($object);
         
-            $vars['objCategoria']=$objCategoria; 
-            
-           $vars= $object->getObjectVars();
         array_push($arr, $vars);
         }
         
