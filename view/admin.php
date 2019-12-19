@@ -30,13 +30,7 @@
     <div class="container">
         <div ng-controller="equipo">
             <div class="header"><label>Equipo</label>
-                <form class="col s12 ">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input type="search" class="validate" placeholder="buscar Equipo...">
-                        </div>
-                    </div>
-                </form>
+                
             </div>
             <table class="striped">
                 <thead>
@@ -64,17 +58,6 @@
             <div class="header"><label>Jugadores</label>
                 <input class="waves-effect waves-light btn blue darken-3" type="button" value="añadir jugador"
                     ng-click="btnAniadir()">
-                <div class="buscador">
-                    <div class="row">
-                        <form class="col s12 ">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input type="search" class="validate" placeholder="buscar...">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
             <!-- Tabla Usuarios -->
             <table class="striped">
@@ -169,18 +152,8 @@
 
         <!-- cuerpo técnico -->
         <div ng-controller="cuerpoTecnico">
-            <div class="header"><label>cuerpo técnico</label>
-                <div class="buscador">
-                    <div class="row">
-                        <form class="col s12 ">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input type="search" class="validate" placeholder="buscar...">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="header">
+            <label>cuerpo técnico</label>
             </div>
             <table class="striped">
                 <thead>
@@ -238,17 +211,7 @@
         </div>
         <div ng-controller="categoria">
             <div class="header"><label>Categorías</label>
-                <div class="buscador">
-                    <div class="row">
-                        <form class="col s12 ">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input type="search" class="validate" placeholder="buscar...">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+               
             </div>
             <table class="striped">
                 <thead>
