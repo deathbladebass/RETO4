@@ -156,7 +156,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
                 var insertDatos = {
                     nombre: $scope.nombre,
                     nickname: $scope.nickname,
-                    apellido: $scope.apellido, dni: $scope.dni, fechaNacimiento: fecha, numTel: $scope.numTel, rol: $scope.rol, direccion: $scope.direccion, email: $scope.email, activo: 0, idEquipo: idEquipo
+                    apellido: $scope.apellido, dni: $scope.dni, fechaNacimiento: fecha, numTel: $scope.numTel, rol: $scope.rol, direccion: $scope.direccion, email: $scope.email, idEquipo: idEquipo
                 };
                 //En la llamada de http para el insert en params llamarlo dataJugador
                 var insertJson = JSON.stringify(insertDatos);
@@ -238,7 +238,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             fechaElegida = new Date($scope.fechaNacimiento);
             fechaActual = new Date();
             diff = new Date(fechaActual - fechaElegida);
-            alert( (fechaActual+" - "+fechaElegida));
+            alert((fechaActual + " - " + fechaElegida));
             años = (days = diff / 1000 / 60 / 60 / 24 / 30 / 12);
             diffint = parseInt(años);
             mes = fechaElegida.getMonth() + 1;
@@ -248,22 +248,24 @@ miAplicacion.controller('jugador', function ($scope, $http) {
                 alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, no pongas la fecha actual o que vayas a nacer");
             } else if (diffint < 16) {
                 alert("No fichamos a menores de 16 años");
-            } else if (diffint>=100){
+            } else if (diffint >= 100) {
                 alert("Eres demasiado mayor");
-            }else{
+            } else {
                 $http({
                     method: "get",
                     url: "../controller/cModificarJugador.php",
                     params: { id: $scope.datos.id, nombre: $scope.datos.nombre, nickname: $scope.datos.nickname, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: fecha, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email, idEquipo: idEquipo }
                 }).then(function () {
-                   // location.reload();
+                    // location.reload();
                 }, function myError(response) {
                     $scope.jugador = resopnse.statusText;
                 });
             }
         }
 
+        
     }
+
 
 
     $scope.borrar = function (x) {
@@ -340,12 +342,12 @@ miAplicacion.controller('categoria', function ($scope, $http) {
 });
 
 miAplicacion.controller('mensaje', function ($scope, $http) {
-    $scope.id="";
-    $scope.nombre="";
-    $scope.tipo="";
-    $scope.mensajeAngular="";
-    $scope.email="";
-    $scope.asunto="";
+    $scope.id = "";
+    $scope.nombre = "";
+    $scope.tipo = "";
+    $scope.mensajeAngular = "";
+    $scope.email = "";
+    $scope.asunto = "";
     $scope.mensaje = [];
     $http({
         method: "get",
@@ -372,32 +374,38 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
 
         });
     }
-    $scope.modificar= function(x){
-        $scope.modificarMensajeDiv=true;
-        $scope.id=x.idMensaje;
-        $scope.nombre=x.nombre;
-        $scope.tipo=x.tipo;
-        $scope.mensajeAngular=x.mensaje;
-        $scope.email=x.email;
-        $scope.asunto=x.asunto;
+    $scope.modificar = function (x) {
+        $scope.modificarMensajeDiv = true;
+        $scope.id = x.idMensaje;
+        $scope.nombre = x.nombre;
+        $scope.tipo = x.tipo;
+        $scope.mensajeAngular = x.mensaje;
+        $scope.email = x.email;
+        $scope.asunto = x.asunto;
     }
-    $scope.cancelar= function(){
-        $scope.modificarMensajeDiv=false;
+    $scope.cancelar = function () {
+        $scope.modificarMensajeDiv = false;
     }
-    $scope.modificarMensaje= function(){
-        fecha= new Date($scope.fecha);
-        dia=fecha.getDate()+1;
-        fechaString=fecha.getFullYear()+"-"+fecha.getMonth()+"-"+dia;
-        $http({
-            method:"get",
-            url: "../controller/cModificarMensaje.php",
-            params: {id:$scope.id, nombre:$scope.nombre, tipo:$scope.tipo, mensaje:$scope.mensajeAngular,email:$scope.email,fecha:fechaString, asunto:$scope.asunto},
-        }).then(function(){
-            
-        }, function myError(response) {
-            $scope.jugador = response.statusText;
+    $scope.modificarMensaje = function () {
+        fecha = new Date($scope.fecha);
+        dia = fecha.getDate() + 1;
+        alert(dia);
+        fechaString = fecha.getFullYear() + "-" + fecha.getMonth() + "-" + dia;
+        alert(fechaString);
+        if ($scope.asunto == "") {
+            alert("Tienes que rellenar el asunto");
+        } else {
+            $http({
+                method: "get",
+                url: "../controller/cModificarMensaje.php",
+                params: { id: $scope.id, nombre: $scope.nombre, tipo: $scope.tipo, mensaje: $scope.mensajeAngular, email: $scope.email, fecha: fechaString, asunto: $scope.asunto },
+            }).then(function () {
 
-        });
+            }, function myError(response) {
+                $scope.jugador = response.statusText;
+
+            });
+        }
     }
 });
 
@@ -451,9 +459,9 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             alert("Escribe tu email por favor");
         /*} else if (re.test($scope.datos.email)) {
             alert("Tu email no es correcto, vuelve a intentarlo");
-         */}  else {
+         */} else {
             fechaElegida = new Date($scope.fechaNacimiento);
-            
+
             fechaActual = new Date();
             alert(fechaActual);
             diff = new Date(fechaActual - fechaElegida);
@@ -483,21 +491,7 @@ function validar(e) {
     var key = window.Event ? e.which : e.keyCode
     return (key >= 48 && key <= 57)
 }
-/* function validateEmail() {
-    var re = /\S+@\S+\.\S+/;
-
-    var email = document.getElementsByClassName("email");
-    for (i in email) {
-        if (email[i] !== "") {
-            alert(email[i]);
-        }
-    }
-
-    if (re.test(email)) {
-
-    } else {
-        alert("Escribe tu email correctamente");
-        $(".email").val() = "";
-    }
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
 }
- */
