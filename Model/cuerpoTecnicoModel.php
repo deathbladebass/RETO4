@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
-    include_once $_SERVER['DOCUMENT_ROOT'].'model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data_server.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/cuerpoTecnicoClass.php';
 }else {
     include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/cuerpoTecnicoClass.php';
 }
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/cuerpoTecnicoClass.php';
 
 class cuerpoTecnicoModel extends cuerpoTecnicoClass{
     
