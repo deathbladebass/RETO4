@@ -2,7 +2,16 @@ var miAplicacion = angular.module('miAplicacion', []);
 	
 miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 
-	
+	//tipo usu
+	$http({
+		method: "get",
+		url: "../controller/cNav.php",
+		responseType:'json'
+	}).then(function mySuccess(result){
+//		console.log(result);
+		$scope.tipo=result.data.tipoUsu;
+	});
+
 	//EquiposJugadores
 	$http({
 		method: "get",
@@ -28,7 +37,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 		method: "get",
 		url: "../controller/cJugadoresCategoriasJ.php",
 	}).then(function mySuccess(result){
-		//console.log(result);
+		console.log(result);
 		$scope.jugadores=result.data;
 
 	

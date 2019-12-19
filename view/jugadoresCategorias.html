@@ -72,8 +72,11 @@
         									<img src="{{jugador.imagen}}">
       									</div>
       									<div class="card-stacked col s7 m7">
-          										<p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
-          										<p>Rol:  {{jugador.rol}}</p>
+          										<p><b>Fecha de nacimiento:</b> {{jugador.fechaNacimiento}}</p>
+          										<p><b>Rol:</b>  {{jugador.rol}}</p>
+          										<p ng-if="tipo==2 || tipo==3"><b>DNI:</b>  {{jugador.dni}}</p>
+          										<p ng-if="tipo==2 || tipo==3"><b>Telefono:</b>  {{jugador.numTel}}</p>
+          										<p ng-if="tipo==2 || tipo==3"><b>Direccion:</b>  {{jugador.direccion}}</p>
       									</div>
     								</div>
   								</div>
@@ -99,8 +102,12 @@
       	</div>
       	<div class="card-stacked">
         <div class="card-content">
-          <p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
-          <p>Rol:  {{jugador.rol}}</p>
+        	<p><b>Fecha de nacimiento:</b> {{jugador.fechaNacimiento}}</p>
+          	<p><b>Rol:</b>  {{jugador.rol}}</p>
+          	<p ng-if="tipo==2 || tipo==3"><b>DNI:</b>  {{jugador.dni}}</p>
+          	<p ng-if="tipo==2 || tipo==3"><b>Telefono:</b>  {{jugador.numTel}}</p>
+          	<p ng-if="tipo==2 || tipo==3"><b>Direccion:</b>  {{jugador.direccion}}</p>
+
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>
