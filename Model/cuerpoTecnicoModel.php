@@ -100,4 +100,12 @@ class cuerpoTecnicoModel extends cuerpoTecnicoClass{
         }
         return json_encode($arr);
     }
+
+    public function deleteCuerpoTecnico(){
+        $this->OpenConnect();
+        $id=$this->getIdCuerpoTecnico();
+        $sql= 'call spDeleteCuerpoTecnico('.$id.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
 }

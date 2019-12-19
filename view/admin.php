@@ -112,7 +112,7 @@
                 <input type="text" class="nickname" placeholder="nickname..." ng-model="nickname">
                 <input type="text" class="apellido" placeholder="apellido..." ng-model="apellido">
                 <input type="text" class="dni" placeholder="DNI..." ng-model="dni">
-                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="2019-10-01">
+                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1900-10-01">
                 <input type="text" class="numTel" placeholder="número teléfono..." ng-model="numTel"
                     onkeypress="return validar(event)">
                 <select ng-model="rol" class="rol">
@@ -125,7 +125,7 @@
                     <option value="AWPer">AWPer</option>
                 </select>
                 <input type="text" placeholder="dirección..." ng-model="direccion" class="direccion">
-                <input type="text" placeholder="email..." ng-model="email" class="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="text" placeholder="email..." ng-model="email" class="email">
                 <input type="button" value="Añadir jugador" ng-click="aniadir()"
                     class="waves-effect waves-light btn blue darken-3" id="botonAgregar">
                 <input type="button" value="cancelar" ng-click="cancelar()"
@@ -137,7 +137,7 @@
                 <input type="text" class="nickname" ng-model="datos.nickname">
                 <input type="text" class="apellido" ng-model="datos.apellido">
                 <input type="text" class="dni" ng-model="datos.dni">
-                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1900-01-01">
+                <input type="date" class="fecha" name="trip-start" min="1900-01-01" ng-model="datos.fechaNacimiento" >
                 <input type="text" class="numTel" ng-model="datos.numTel" onkeypress="return validar(event)">
                 <select class="rol" ng-model="datos.rol">
                     <option value="Top laner">Top laner</option>
@@ -149,7 +149,8 @@
                     <option value="AWPer">AWPer</option>
                 </select>
                 <input type="text" ng-model="datos.direccion" class="direccion">
-                <input type="text" ng-model="datos.email" class="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="text" ng-model="datos.email" class="email">
+                
 
                 <input type="button" value="modificar jugador" ng-click="modificarJugador()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
@@ -187,7 +188,7 @@
                         <td>{{item.rol}}</td>
                         <td>{{item.direccion}}</td>
                         <td>{{item.email}}</td>
-                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"></td>
+                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar" ng-click="borrar(item.idCuerpoTecnico)"></td>
                         <td><input class="waves-effect waves-light btn blue darken-3" type="button"
                                 ng-click="modificar(item)" value="modificar"></td>
                     </tr>
@@ -208,7 +209,7 @@
                     <option value="Analista">Analista</option>
                 </select>
                 <input type="text" ng-model="datos.direccion">
-                <input type="text" class="email" ng-model="datos.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="text" class="email" ng-model="datos.email">
                 <input type="button" value="modificar cuerpo Técnico" ng-click="modificarCuerpoTecnico()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
                 <input type="button" value="cancelar" ng-click="cancelar()"
@@ -278,7 +279,7 @@
             <!-- Modificar Mensaje -->
             <div class="modificarMensajeDiv" ng-show="modificarMensajeDiv">
                 <input type="text" ng-model="nombre">
-                <input type="text" ng-model="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                <input type="text" ng-model="email">
                 <input type="date" class="fecha" name="trip-start" ng-model="fechaMensaje">
                 <input type="text" ng-model="tipo">
                 <input type="text" ng-model="mensajeAngular">
