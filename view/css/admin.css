@@ -1,3 +1,6 @@
+.container>*{
+    margin: 50px 0px;
+}
 .header{
     display: flex;
     flex-wrap: nowrap;
@@ -120,7 +123,9 @@ table{
     max-width: 1250px;
     max-height: 750px;
     overflow: scroll;
+   
 }
+
 
 
 

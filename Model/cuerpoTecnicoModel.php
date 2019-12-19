@@ -76,6 +76,14 @@ class cuerpoTecnicoModel extends cuerpoTecnicoClass{
     public function modificarCuerpoTecnico(){
         $this->OpenConnect();
         $id=$this->getIdCuerpoTecnico();
+        $nombre='"'.$this->getNombre().'"';
+        $apellido='"'.$this->getApellido().'"';
+        $dni='"'.$this->getDni().'"';
+        $fechaNacimiento='"'.$this->getFechaNacimiento().'"';
+        $numTel=$this->getNumtTel();
+        $rol='"'.$this->getRol().'"';
+        $direccion='"'.$this->getDireccion().'"';
+        $email='"'.$this->getEmail().'"';
         $sql='CALL spModificarCuerpoTecnico('.$id.', '.$nombre.', '.$apellido.', '.$dni.', '.$fechaNacimiento.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.')';
         $result= $this->link->query($sql);
         $this->CloseConnect();
@@ -91,5 +99,13 @@ class cuerpoTecnicoModel extends cuerpoTecnicoClass{
             array_push($arr, $vars);
         }
         return json_encode($arr);
+    }
+
+    public function deleteCuerpoTecnico(){
+        $this->OpenConnect();
+        $id=$this->getIdCuerpoTecnico();
+        $sql= 'call spDeleteCuerpoTecnico('.$id.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
     }
 }
