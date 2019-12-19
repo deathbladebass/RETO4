@@ -87,8 +87,6 @@ class jugadorModel extends jugadorClass{
         $email='"'.$this->getEmail().'"';
         $activo=$this->getActivo();
         $sql = 'Call spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
-      //  $sql= 'CALL spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
-        echo ($sql);
         $result=$this->link->query($sql);
         $this->CloseConnect();
     }
@@ -115,7 +113,8 @@ class jugadorModel extends jugadorClass{
         $direccion='"'.$this->getDireccion().'"';
         $idEquipo=$this->getIdEquipo();
         $activo=$this->getActivo();
-        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$email.', '.$numTel.', '.$dni.','.$fechaNacimiento.', '.$rol.', '.$direccion.', '.$id.', '.$idEquipo.', '.$activo.')';
+        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.','.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+        echo($sql);
     }
 
 
