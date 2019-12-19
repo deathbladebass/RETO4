@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="css/admin.css">
     <script src="lib/angular.min.js" type="text/javascript"></script>
     <script src="js/admin.js" type="text/javascript"></script>
+     <link rel="shortcut icon" type="image/png" href="view/img/paradox.png"/>
     <title>Document</title>
 </head>
 
 <body>
     <nav class="blue darken-4" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Logo</a>
+            <a id="logo-container" href="../index.html" class="brand-logo"><img src="../view/img/paradox.png" width="130px"></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#">Navbar Link</a></li>
             </ul>
@@ -153,7 +154,7 @@
                 <input type="text" class="apellido" ng-model="datos.apellido">
                 <input type="text" class="dni" ng-model="datos.dni">
                 <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento">
-                <input type="text" class="numTel" ng-model="datos.numTel"  onkeypress="return validar(event)">
+                <input type="text" class="numTel" ng-model="datos.numTel"  >
                 <select  class="rol" ng-model="datos.rol">
                     <option value="Top laner">Top laner</option>
                     <option value="Jungler">Jungler</option>
