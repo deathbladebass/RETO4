@@ -1,7 +1,13 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioModel.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
+
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioModel.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioModel.php';
+}
+
+//include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
 
 $login = new usuarioModel();
 $login->setList();

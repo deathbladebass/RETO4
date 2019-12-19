@@ -24,7 +24,7 @@
 					 htmlLogin+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
 						 $('.registerNav').html(htmlRegister);
 				 }else{
-					 htmlLogin+='<li>Bienvenido <b>'+sessionData.username+'</b></li>'			
+					 htmlLogin+='<li id="bienvenido">Bienvenido <b>'+sessionData.username+'</b></li>'			
 					 htmlLogOutNav+='<li><a href="../reto4/controller/cLogOut.php">Log Out</a></li>'
 						 $('.logOutNav').show();
 				 }
@@ -77,7 +77,7 @@
 	//Llama al controlador para recivir los datos de los equipos
 	$.ajax({
 		 type:"GET",
-		 url: "../reto4/controller/cIndex.php", 
+		 url: "../Reto4/controller/cIndex.php", 
 		 dataType: "json",  //type of the result
 		    
 		 success: function(result){
@@ -116,7 +116,7 @@
 	$('#LogOutButton').click(function(){
 		$.ajax({
 			type:"GET",
-			url: "../reto4/controller/cLogOut.php", 
+			url: "../Reto4/controller/cLogOut.php", 
 			datatype: "text",  //type of the result
 	   	
 			success: function(result){  				
@@ -144,7 +144,7 @@
 		$.ajax({
 			type:"GET",
 			data: {"nombre":nombre,"apellido":apellido, "contrasenia":contrasenia, "usuario":usuario, "email":email},
-			url: "../reto4/controller/cInsertUsuario.php", 
+			url: "../Reto4/controller/cInsertUsuario.php", 
 			datatype: "json",  //type of the result
 	   	
 			success: function(result){  

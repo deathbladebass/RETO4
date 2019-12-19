@@ -1,6 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/categoriaClass.php';
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/categoriaClass.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/categoriaClass.php';
+}
 
 class categoriaModel extends categoriaClass{
     
