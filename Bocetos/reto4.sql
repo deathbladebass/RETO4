@@ -1,11 +1,11 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2019 a las 14:51:47
+-- Tiempo de generación: 19-12-2019 a las 01:09:33
 -- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.11
+-- Versión de PHP: 7.3.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,8 +43,14 @@ DELETE FROM mensajes WHERE idMensaje=pId$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertJugador` (IN `p_nombre` VARCHAR(40), IN `p_apellido` VARCHAR(40), IN `p_nickname` VARCHAR(40), IN `p_fechaNacimiento` DATE, IN `p_dni` VARCHAR(9), IN `p_numTel` INT(9), IN `p_rol` VARCHAR(40), IN `p_direccion` VARCHAR(40), IN `p_email` VARCHAR(40), IN `p_activo` TINYINT, IN `p_idEquipo` INT)  NO SQL
 insert into jugadores( nickname, nombre, apellido, fechaNacimiento, dni, numeroTelefono, rol, idEquipo, direccion, email, activo) values ( p_nickname, p_nombre, p_apellido, p_fechaNacimiento, p_dni, p_numTel, p_rol, p_idEquipo, p_direccion, p_email, p_activo)$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarCuerpoTecnico` (IN `pId` INT, IN `pNombre` VARCHAR(40), IN `pApellido` VARCHAR(40), IN `pDni` VARCHAR(9), IN `pFechaNacimiento` DATE, IN `pNumTel` INT, IN `pRol` VARCHAR(40), IN `pDireccion` VARCHAR(40), IN `pEmail` VARCHAR(40))  NO SQL
+UPDATE `cuerpostecnicos` SET `Nombre`=pNombre,`Apellido`=pApellido,`Rol`=pRol,`fechaNacimiento`=pFechaNacimiento,`direccion`=pDireccion,`email`=pEmail,`numTel`=pNumTel,`dni`=pDni WHERE cuerpostecnicos.id=pId$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarEquipo` (IN `pIdEquipo` INT, IN `pNombre` VARCHAR(40), IN `pIdCategoria` INT)  NO SQL
+UPDATE `equipos` SET nombreEquipo=pNombre,`idCategoria`=pIdCategoria WHERE equipos.idEquipo=pIdEquipo$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarJugador` (IN `pnombre` VARCHAR(40), IN `papellido` VARCHAR(40), IN `pnickname` VARCHAR(40), IN `pemail` VARCHAR(40), IN `pnumTel` INT, IN `pdni` VARCHAR(40), IN `pfechaNacimiento` DATE, IN `prol` VARCHAR(40), IN `pdireccion` VARCHAR(40), IN `pid` INT, IN `pidEquipo` INT, IN `pactivo` TINYINT)  NO SQL
-UPDATE jugadores SET nickname=nickname,nombre=nombre,apellido=apellido,fechaNacimiento=fechaNacimiento,dni=dni,numeroTelefono=numTel,rol=rol,idEquipo=idEquipo,direccion=direccion,email=email,activo=activo WHERE idJugador=id$$
+UPDATE jugadores SET nickname=pnickname,nombre=pnombre,apellido=papellido,fechaNacimiento=pfechaNacimiento,dni=pdni,numeroTelefono=pnumTel,rol=prol,idEquipo=pidEquipo,direccion=pdireccion,email=pemail,activo=pactivo WHERE idJugador=pid$$
 
 DELIMITER ;
 
@@ -97,7 +103,7 @@ CREATE TABLE `cuerpostecnicos` (
 --
 
 INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`, `idEquipo`, `fechaNacimiento`, `direccion`, `email`, `numTel`, `dni`) VALUES
-(5, 'Francisco', 'Fran', 'Entrenador', 1, '0000-00-00', '', '', '', '');
+(5, 'Francisco', 'Fran', 'Entrenador', 1, '1914-12-13', 'fdsa', 'fdsa', '12', 'fdsa');
 
 -- --------------------------------------------------------
 
@@ -158,8 +164,10 @@ INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNa
 (9, 'S1mple', 'Oleksandr', 'Kostyliev', '1997-10-02', '125647895E', 656999999, 'Rifle', 2, 'Plaza Molotov', 'oKostyliev@gmail.com', 1, ''),
 (10, 'Guardian', 'Ladislav', 'Kovacs', '1991-07-09', '658748985T', 656111222, 'Rifle', 2, 'Plaza Kalasnikov', 'lKovacs@gmail.com', 1, ''),
 (11, 'Glalve', 'Lukas', 'Rossander', '1995-06-07', '987548621I', 656111333, 'Rifle', 2, 'Calle Gaben', 'gLukas@gmail.com', 1, ''),
-(36, 'a', 'a', 'a', '0000-00-00', 'a', 1, 'Jungler', 1, 'a', 'a', 0, ''),
-(37, 'a', 'a', 'a', '1212-12-12', 'a', 1, 'Top laner', 1, 'a', 'a', 0, '');
+(37, 'fdsa', 'fsa', 'dfsa', '2019-12-11', 'fdsa', 123, 'dfsa', 1, 'dsfa', 'fdsa', 1, ''),
+(38, 'fdsa', 'fdsa', 'dsfa', '0154-12-05', 'fdsa', 21, 'Top laner', 1, 'fdsa', 'dfsa', 0, ''),
+(39, 'a', 'a', 'a', '0123-12-12', 'a', 1, 'Top laner', 1, 'a', 'a', 0, ''),
+(40, 'a', 'a', 'a', '0142-12-13', 'a', 1, 'Top laner', 1, 'a', 'fa@.com', 0, '');
 
 -- --------------------------------------------------------
 
@@ -271,13 +279,13 @@ ALTER TABLE `cuerpostecnicos`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
