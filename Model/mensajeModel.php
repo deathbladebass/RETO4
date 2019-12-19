@@ -118,6 +118,7 @@ class mensajeModel extends mensajeClass{
         $fecha='"'.$this->getFecha().'"';
         $asunto='"'.$this->getAsunto().'"';
         $sql= 'Call spModificarMensaje('.$id.', '.$tipo.', '.$nombre.', '.$mensaje.', '.$email.', '.$fecha.', '.$asunto.')';
+        echo $sql;
         $result=$this->link->query($sql);
         $this->CloseConnect();
     }

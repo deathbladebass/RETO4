@@ -112,7 +112,7 @@
                 <input type="text" class="nickname" placeholder="nickname..." ng-model="nickname">
                 <input type="text" class="apellido" placeholder="apellido..." ng-model="apellido">
                 <input type="text" class="dni" placeholder="DNI..." ng-model="dni">
-                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento">
+                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="2019-10-01">
                 <input type="text" class="numTel" placeholder="número teléfono..." ng-model="numTel"
                     onkeypress="return validar(event)">
                 <select ng-model="rol" class="rol">
@@ -137,7 +137,7 @@
                 <input type="text" class="nickname" ng-model="datos.nickname">
                 <input type="text" class="apellido" ng-model="datos.apellido">
                 <input type="text" class="dni" ng-model="datos.dni">
-                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento">
+                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1900-01-01">
                 <input type="text" class="numTel" ng-model="datos.numTel" onkeypress="return validar(event)">
                 <select class="rol" ng-model="datos.rol">
                     <option value="Top laner">Top laner</option>
@@ -149,9 +149,10 @@
                     <option value="AWPer">AWPer</option>
                 </select>
                 <input type="text" ng-model="datos.direccion" class="direccion">
-                <input type="text" ng-model="datos.email" class="email" onblur="validateEmail()">
+                <input type="text" ng-model="datos.email" class="email">
                 <div class="activo">
-                    <input type="radio">
+                <input type="radio" name="gender" value="0"> El jugador está activo<br/>
+                <input type="radio" name="gender" value="1">El jugador no activo
                 </div>
                 <input type="button" value="modificar jugador" ng-click="modificarJugador()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
@@ -202,7 +203,7 @@
                 <input type="text" ng-model="datos.dni">
                 <div class="fecha">
                     <label>Fecha de Nacimiento</label>
-                    <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento">
+                    <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1900-01-01">
                 </div>
                 <input type="text" ng-model="datos.numTel" onkeypress="return validar(event)">
                 <select ng-model="datos.rol" id="rol">
@@ -252,17 +253,7 @@
         <!-- Tabla Mensaje -->
         <div ng-controller="mensaje">
             <div class="header"><label>Comentarios</label>
-                <div class="buscador">
-                    <div class="row">
-                        <form class="col s12 ">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input type="search" class="validate" placeholder="buscar...">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
             <table class="striped">
                 <thead>
@@ -293,7 +284,7 @@
                 <input type="text" ng-model="email">
                 <input type="date" class="fecha" name="trip-start" ng-model="fechaMensaje">
                 <input type="text" ng-model="tipo">
-                <input type="text" ng-model="mensaje">
+                <input type="text" ng-model="mensajeAngular">
                 <input type="text" ng-model="asunto">
                 <input type="button" value="modificar jugador" ng-click="modificarMensaje()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
