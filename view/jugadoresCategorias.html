@@ -14,7 +14,7 @@
   <script src="lib/angular.min.js" type="text/javascript"></script>
   <link rel="shortcut icon" type="image/png" href="img/paradox.png"/>
 </head>
-<body >
+<body ng-controller="jugadoresCategoria">
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
       <a id="logo-container" href="../index.html" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
@@ -30,9 +30,9 @@
   <ul id="slide-out" class="sidenav">
   <div width="100%" class="center-align blue darken-4">  <img src="img/paradox.png" width="130px"></div>
 
-    <li ng-controller="jugadores"><a ng-click="showJugadores()"class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
-    <li ng-controller="categorias"><a ng-click="showCategorias()"class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
-    <li ng-controller="equipos"><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
+    <li><a ng-click="showJugadores()"class="waves-effect" href="#!"><i class="material-icons">account_circle</i>Jugadores</a></li>
+    <li><a ng-click="showCategorias()"class="waves-effect" href="#!"><i class="material-icons">list</i>Categorias</a></li>
+    <li><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
   </ul>
 <!-- trigger sidenav -->
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
@@ -48,7 +48,7 @@
 		</div>
 		<div class="header" >
 		<!-- Equipos -->
-<div ng-show="equiposCards=='true'" class="equipos" ng-controller="equipos">
+<div ng-show="equiposCards=='true'" class="equipos">
 	<div ng-repeat="equipo in equipos">
 		<div class="col s12 m6">
    		<h3 class="header">{{equipo.nombreEquipo}}</h3>
@@ -59,7 +59,7 @@
         			<div class="card-content ">
         			
         				<!-- Datos jugadores -->
-          				<div class="jugadores row" ng-controller="jugadores">
+          				<div class="jugadores row">
 							<div class="col s12 m6" ng-repeat="jugador in jugadores">
 							<!-- id equipo{{equipo.idEquipo}} equipoid{{jugador.idEquipo}} -->
 	
@@ -87,7 +87,7 @@
 <!-- Fin Equipos -->
 
 <!-- Jugadores -->
-		<div ng-show="jugadoresCards=='true'" class="jugadores" ng-controller="jugadores">
+		<div ng-show="jugadoresCards=='true'" class="jugadores">
 		<div ng-repeat="jugador in jugadores">
 		<div class="col s12 m7">
     	<h3 class="header">{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h3>
@@ -110,7 +110,7 @@
 <!-- Fin Jugadores -->
 
 <!--  categorias -->
-<div ng-show="categoriasCards=='true'" class="categorias" ng-controller="categorias">
+<div ng-show="categoriasCards=='true'" class="categorias">
 <div ng-repeat="categoria in categorias">
 <div class="col s12 m7">
     <h3 class="header">{{categoria.nombreCategoria}} </h3>

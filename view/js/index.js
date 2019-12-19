@@ -78,27 +78,24 @@
 			 
 			 console.log(result);
 			 
-			 var equipos= result;
+			 var mensajes= result;
 			 
 			 var newRow="";
 			 
-			 $.each(equipos,function(index,info) {
+			 $.each(mensajes,function(index,info) {
 			
 			 newRow +='<div class="col s12 m6 l4 center">';
 			 	newRow +='<div class="row">';
 			 		newRow +='<div class="col s12">';
 			 			newRow +='<div class="card">';
-			 			newRow +='<div class="card-image">';
-			 				newRow +='<img src="view/'+info.imagen+'">';
-			 			newRow +='</div>';
 			 			newRow +='<div class="card-content ">';
-			 				newRow +='<p >Nuestro equipo '+ info.nombreEquipo +' es un equipo de alto rendimiento en el que tenemos gente de varias edades</p>';
+			 				newRow +='<p > '+ info.asunto +' </p>';
+			 				newRow +='<p > '+ info.fecha +' </p>';
+			 				newRow +='<p > '+ info.nombre +' </p>';
+			 				newRow +='<p > '+ info.mensaje +' </p>';
 			 				newRow +='<br>';
 			 				newRow +='<br>';
 			 				newRow +='<br>';
-			 			newRow +='<div>';
-			 			newRow +='<a class="blue darken-4 card-action white-text" value="'+info.idEquipo+'" href="#">Información de '+info.nombreEquipo+'</a>';
-			 			newRow +='</div>';
 			 			newRow +='</div>';
 			 		newRow +='</div>';
 			 	newRow +='</div>';
@@ -106,7 +103,7 @@
 			 newRow +='</div>';
 			 
 			 });
-			 $("#equipos").append(newRow);
+			 $("#mensajes").append(newRow);
 		 },
   		});
 	

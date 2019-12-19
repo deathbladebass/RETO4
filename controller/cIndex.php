@@ -1,13 +1,13 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/Model/equipoModel.php';
+include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/Model/mensajeModel.php';
 
-$equipos=new equipoModel();
+$mensajes=new mensajeModel();
 
-$equipos->setEquipos();
+$mensajes->setList();
 
-$listaEquiposJson=$equipos->getListStringEquipos();
+$listaMensajesJson=$mensajes->getListString();
 
-echo $listaEquiposJson;
+echo $listaMensajesJson;
 
-unset ($equipos);
+unset ($mensajes);

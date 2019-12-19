@@ -19,13 +19,14 @@ class mensajeModel extends mensajeClass{
         $result=$this->link->query($sql);
 
         while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
-         $new=new equipoModel();
+         $new=new mensajeModel();
          $new->setIdMensaje($row['idMensaje']);
          $new->setTipo($row['tipo']);
+         $new->setAsunto($row['asunto']);
          $new->setNombre($row['nombre']);
          $new->setMensaje($row['mensaje']);
          $new->setEmail($row['email']);
-         $new->setFecha($row['fecha']);
+         $new->setFecha($row['fecha']); 
          //$new->setAsunto($row['asunto']);
  
         
@@ -77,6 +78,7 @@ class mensajeModel extends mensajeClass{
     }
 
     public function getListString(){
+        
         $arr=array();
 
         foreach ($this->list as $object)
