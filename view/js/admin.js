@@ -140,6 +140,8 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             alert("Escribe tu email por favor");
         } else if (re.test($scope.email)) {
             alert("Tu email no es correcto, vuelve a intentarlo");
+        }else if (diffint >= 100) {
+            alert("Eres demasiado mayor");
         } else {
             fechaElegida = new Date($scope.fechaNacimiento);
             fechaActual = new Date();
@@ -454,9 +456,9 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             alert("Escribe tu dirección por favor");
         } else if ($scope.datos.email == "") {
             alert("Escribe tu email por favor");
-        /*} else if (re.test($scope.datos.email)) {
-            alert("Tu email no es correcto, vuelve a intentarlo");
-         */} else {
+        }else if (diffint >= 100) {
+            alert("Eres demasiado mayor");
+        } else {
             fechaElegida = new Date($scope.fechaNacimiento);
 
             fechaActual = new Date();

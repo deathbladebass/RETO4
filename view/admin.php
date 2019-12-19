@@ -31,7 +31,7 @@
         <!-- Tabla Equipos-->
         <div ng-controller="equipo">
             <div class="header"><label>Equipo</label>
-                
+
             </div>
             <table class="striped">
                 <thead>
@@ -112,7 +112,7 @@
                 <input type="text" class="nickname" placeholder="nickname..." ng-model="nickname">
                 <input type="text" class="apellido" placeholder="apellido..." ng-model="apellido">
                 <input type="text" class="dni" placeholder="DNI..." ng-model="dni">
-                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1900-10-01">
+                <input type="date" class="fecha" name="trip-start" ng-model="fechaNacimiento" min="1000-01-01">
                 <input type="text" class="numTel" placeholder="número teléfono..." ng-model="numTel"
                     onkeypress="return validar(event)">
                 <select ng-model="rol" class="rol">
@@ -137,7 +137,7 @@
                 <input type="text" class="nickname" ng-model="datos.nickname">
                 <input type="text" class="apellido" ng-model="datos.apellido">
                 <input type="text" class="dni" ng-model="datos.dni">
-                <input type="date" class="fecha" name="trip-start" min="1900-01-01" ng-model="datos.fechaNacimiento" >
+                <input type="date" class="fecha" name="trip-start" min="1000-01-01" ng-model="datos.fechaNacimiento">
                 <input type="text" class="numTel" ng-model="datos.numTel" onkeypress="return validar(event)">
                 <select class="rol" ng-model="datos.rol">
                     <option value="Top laner">Top laner</option>
@@ -150,7 +150,7 @@
                 </select>
                 <input type="text" ng-model="datos.direccion" class="direccion">
                 <input type="text" ng-model="datos.email" class="email">
-                
+
 
                 <input type="button" value="modificar jugador" ng-click="modificarJugador()"
                     class="waves-effect waves-light btn blue darken-3" id="botonModificar">
@@ -165,7 +165,7 @@
         <!-- cuerpo técnico -->
         <div ng-controller="cuerpoTecnico">
             <div class="header">
-            <label>cuerpo técnico</label>
+                <label>cuerpo técnico</label>
             </div>
             <table class="striped">
                 <thead>
@@ -188,7 +188,8 @@
                         <td>{{item.rol}}</td>
                         <td>{{item.direccion}}</td>
                         <td>{{item.email}}</td>
-                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar" ng-click="borrar(item.idCuerpoTecnico)"></td>
+                        <td><input class="waves-effect waves-light btn blue darken-3" type="button" value="borrar"
+                                ng-click="borrar(item.idCuerpoTecnico)"></td>
                         <td><input class="waves-effect waves-light btn blue darken-3" type="button"
                                 ng-click="modificar(item)" value="modificar"></td>
                     </tr>
@@ -219,7 +220,7 @@
         <!-- Tabla Categoria -->
         <div ng-controller="categoria">
             <div class="header"><label>Categorías</label>
-               
+
             </div>
             <table class="striped">
                 <thead>
@@ -251,7 +252,7 @@
         <!-- Tabla Mensaje -->
         <div ng-controller="mensaje">
             <div class="header"><label>Comentarios</label>
-                
+
             </div>
             <table class="striped">
                 <thead>
