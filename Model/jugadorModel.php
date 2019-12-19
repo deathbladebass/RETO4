@@ -76,36 +76,57 @@ class jugadorModel extends jugadorClass{
     }
     
     public function insertPlayer(){
-        $this->OpenConnect();  // konexio zabaldu  - abrir conexión
+
+        $this->OpenConnect();
         
-        $nombre=$this->getNombre();
-        $apellido=$this->getApellido();
-        $nickname=$this->getNickname();
-        $fechaNacimiento=$this->getFechaNacimiento();
-        $dni=$this->getDni();
-        $numeroTel=$this->getNumTel();
-        $rol=$this->getRol();
-        $equipo=$this->getIdEquipo();
-        $direccion=$this->getDireccion();
-        $email=$this->getEmail();
+        $nickname='"'.$this->getNickname().'"';
+        $nombre='"'.$this->getNombre().'"';
+        $apellido='"'.$this->getApellido().'"';
+        $fechaNacimiento='"'.$this->getFechaNacimiento().'"';
+        $dni='"'.$this->getDni().'"';
+        $numTel=$this->getNumtel();
+        $rol='"'.$this->getRol().'"';
+        $idEquipo=$this->getIdEquipo();
+        $direccion='"'.$this->getDireccion().'"';
+        $email='"'.$this->getEmail().'"';
         $activo=$this->getActivo();
-        $imagen=$this->getImagen();
         
-        
-        //echo "Antesd del insert";
-        $sql="CALL spInsert('$nombre', '$apellido', '$nickname', '$fechaNacimiento', '$dni', '$numeroTel', '$rol', '$equipo', '$direccion', '$email', '$activo', '$imagen')";
-        //echo $sql;
-        //echo "Despues del insert";
-        $status=$this->link->query($sql);
-        
-        if ($this->link->affected_rows  >=1){
-            return "Insertado";
-        } else {
-            return "error";
-        }
-        
+        //Llamada a la BBDD
+        $sql = 'Call spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+        $result=$this->link->query($sql);
         $this->CloseConnect();
     }
+
+    public function deletePlayer(){
+        $this->OpenConnect();
+        $id=$this->getId();
+        $sql = 'CALL spDeleteJugador('.$id.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
+
+    public function modificarJugador(){
+        $this->OpenConnect();
+        
+        $id=$this->getId();
+        $nombre='"'.$this->getNombre().'"';
+        $apellido='"'.$this->getApellido().'"';
+        $nickname='"'.$this->getNickname().'"';
+        $email='"'.$this->getEmail().'"';
+        $numTel=$this->getNumTel();
+        $dni='"'.$this->getDni().'"';
+        $fechaNacimiento='"'.$this->getFechaNacimiento().'"';
+        $rol='"'.$this->getRol().'"';
+        $direccion='"'.$this->getDireccion().'"';
+        $idEquipo=$this->getIdEquipo();
+        $activo=$this->getActivo();
+        
+        //Llamada BBDD
+        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.','.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+        echo($sql);
+    }
+
+
     public function getListString(){
         $arr=array();
 

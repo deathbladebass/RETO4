@@ -73,6 +73,14 @@ class cuerpoTecnicoModel extends cuerpoTecnicoClass{
         $this->CloseConnect();
     }
 
+    public function modificarCuerpoTecnico(){
+        $this->OpenConnect();
+        $id=$this->getIdCuerpoTecnico();
+        $sql='CALL spModificarCuerpoTecnico('.$id.', '.$nombre.', '.$apellido.', '.$dni.', '.$fechaNacimiento.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.')';
+        $result= $this->link->query($sql);
+        $this->CloseConnect();
+    }
+
     public function getListString(){
         $arr=array();
 

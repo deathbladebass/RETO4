@@ -3,53 +3,112 @@
     flex-wrap: nowrap;
     justify-content: space-between ;
 }
+.modificarEquipo{
+    display: grid;
+    grid-gap: 0px 10px;
+}
+.nombreEquipo{
+    grid-area: nombre;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:1;
+    grid-row-end: 2;
+}
+.categoriaEquipo{
+    grid-area:categoria;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start:1;
+    grid-row-end: 2;
+}
+.modificarEquipo{
+    grid-area: agregarEquipo;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start:2;
+    grid-row-end: 3;
+}
+.cancelarEquipo{
+    grid-area: cancelar;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start:2;
+    grid-row-end: 3;
+}
 .header > label{
     font-size: 20px;
 }
 .anadirJugador{
     display: grid;
     grid-template-columns: "auto auto auto";
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto ;
     grid-template-areas: "nombre apellido nickname"
     "dni fecha rol "
     "direccion email numTel"
-    "boton boton boton";
+    "activo botonAgregar botonCancelar";
+    grid-gap: 0px 10px;
+}
+.modificarJugador{
+    display: grid;
+    grid-template-columns: "auto auto auto";
+    grid-template-rows: auto auto auto auto ;
+    grid-template-areas: "nombre apellido nickname"
+    "dni fecha rol"
+    "direccion email numTel"
+    "activo botonModificar botonCancelar";
     grid-gap: 0px 10px;
 }
 select{
     display: block;
 }
-#nombre{
+.nombre{
     grid-area: nombre;
 }
-#apellido{
+.apellido{
     grid-area:apellido;
 }
-#rol{
+.rol{
     grid-area: rol;
 }
-#nickname{
+.nickname{
     grid-area:nickname;
 }
-#dni{
+.dni{
     grid-area: dni;
 }
 .fecha{
     grid-area: fecha;
 }
-#numTel{
+.numTel{
     grid-area: numTel;
 }
-#direccion{
+.direccion{
     grid-area: direccion;
 }
-#email{
+.email{
     grid-area:email;
 }
-#boton{
-    grid-area:boton;
+#botonAgregar{
+    grid-area:botonAgregar;
+    /* grid-column-start: 2;
+    grid-column-end: 3; */
+}
+.botonCancelar{
+    grid-area:botonCancelar;
+    
+    
+}
+#botonModificar{
+    grid-area:botonModificar;
+    
+    
 }
 
+.activo{
+    grid-area:activo;
+    text-align: center;
+    margin-top: 15px;
+}
 .header>*{
     align-self: flex-end;
 }

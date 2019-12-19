@@ -6,7 +6,7 @@ class categoriaModel extends categoriaClass{
     
     private $list=array();
     private $listEquipos=array();
-    
+    private $link;
 
     public function OpenConnect()
     {
@@ -23,6 +23,18 @@ class categoriaModel extends categoriaClass{
         //                  //databasearen artean UTF -8 erabiltzera datuak trukatzeko
     }
     
+    public function getLink()
+    {
+        return $this->link;
+    }
+     /**
+     * @param mysqli $link
+     */
+     public function setLink($link)
+     {
+         $this->link = $link;
+     }
+
     public function CloseConnect()
     {
         mysqli_close ($this->link);
@@ -52,6 +64,14 @@ class categoriaModel extends categoriaClass{
         mysqli_free_result($result);
         $this->CloseConnect();  
     }
+
+    public function deleteCategoria(){
+        $this->OpenConnect();
+        $id=$this->getIdCategoria();
+        $sql= 'call spDeleteCategoria('.$id.')';
+        $result= $this->link->query($sql);
+        $this->CloseConnect();
+    } 
 
     public function findIdCategoria(){
         $this->OpenConnect();

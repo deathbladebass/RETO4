@@ -7,6 +7,18 @@ class mensajeModel extends mensajeClass{
     private $list=array();
     private $link;
 
+    public function getLink()
+    {
+        return $this->link;
+    }
+     /**
+     * @param mysqli $link
+     */
+     public function setLink($link)
+     {
+         $this->link = $link;
+     }
+
     public function getList()
     {
         return $this->list;
@@ -88,6 +100,14 @@ class mensajeModel extends mensajeClass{
             array_push($arr, $vars);
         }
         return json_encode($arr);
+    }
+
+    public function deleteMensaje(){
+        $this->OpenConnect();
+        $id=$this->getIdMensaje();
+        $sql= 'CALL spDeleteMensaje('.$id.')';
+        $result= $this->link->query($sql);
+        $this->CloseConnect();
     }
     
 }
