@@ -8,7 +8,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         method: "get",
         url: "../controller/cAdminCategoria.php",
     }).then(function mySucces(result) {
-        
+
         //alert(result.data);
         $scope.categoria = result.data;
         console.log($scope.categoria);
@@ -53,7 +53,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         $scope.modificarEquipoDiv = false;
     }
     $scope.modificarEquipo = function () {
-        
+
         num = -1
         console.log($scope.categoria);
         for (i in $scope.categoria) {
@@ -252,7 +252,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
                     url: "../controller/cModificarJugador.php",
                     params: { id: $scope.datos.id, nombre: $scope.datos.nombre, nickname: $scope.datos.nickname, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: fecha, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email, idEquipo: idEquipo }
                 }).then(function () {
-                    //location.reload();
+                    location.reload();
                 }, function myError(response) {
                     $scope.jugador = resopnse.statusText;
                 });
@@ -312,26 +312,26 @@ miAplicacion.controller('categoria', function ($scope, $http) {
 
         });
     }
-    $scope.modificar=function(item){
-        $scope.modificarCategoriaDiv=true;
-        $scope.nombre=item.nombreCategoria;
-        $scope.id=item.idCategoria;
-        $scope.abreviatura=item.abreviatura;
+    $scope.modificar = function (item) {
+        $scope.modificarCategoriaDiv = true;
+        $scope.nombre = item.nombreCategoria;
+        $scope.id = item.idCategoria;
+        $scope.abreviatura = item.abreviatura;
     }
-    $scope.modificarCategoria= function(){
-         $http({
-            method:"get",
+    $scope.modificarCategoria = function () {
+        $http({
+            method: "get",
             url: "../controller/cModificarCategoria.php",
-            params: {id: $scope.id, nombre:$scope.nombre, abreviatura:$scope.abreviatura},
-        }).then(function(){
+            params: { id: $scope.id, nombre: $scope.nombre, abreviatura: $scope.abreviatura },
+        }).then(function () {
 
         }, function myError(response) {
             $scope.jugador = response.statusText;
 
         });
     }
-    $scope.cancelar= function(){
-        $scope.modificarCategoriaDiv=false;
+    $scope.cancelar = function () {
+        $scope.modificarCategoriaDiv = false;
     }
 });
 
@@ -363,6 +363,31 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
 
         });
     }
+    $scope.modificar= function(x){
+        $scope.modificarMensajeDiv=true;
+        $scope.id=x.idMensaje;
+        $scope.nombre=x.nombre;
+        $scope.tipo=x.tipo;
+        $scope.mensaje=x.mensaje;
+        $scope.email=x.email;
+        $scope.fechaMensaje=x.fecha;
+        $scope.asunto=x.asunto;
+    }
+    $scope.cancelar= function(){
+        $scope.modificarMensajeDiv=false;
+    }
+    $scope.modificarMensaje= function(){
+        $http({
+            method:"get",
+            url: "../controller/cModificarMensaje.php",
+            params: {id:$scope.id, nombre:$scope.nombre, tipo:$scope.tipo, mensaje:$scope.mensaje,email:$scope.email,fecha:$scope.fechaMensaje, asunto:$scope.asunto},
+        }).then(function(){
+            
+        }, function myError(response) {
+            $scope.jugador = response.statusText;
+
+        });
+    }
 });
 
 miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
@@ -388,7 +413,7 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
         $scope.datos.nombre = item.nombre;
         $scope.datos.apellido = item.apellido;
         $scope.datos.dni = item.dni;
-        $scope.datosfechaNacimiento = item.fechaNacimiento;
+        $scope.fechaNacimiento = item.fecha;
         $scope.datos.numTel = item.numTel;
         $scope.datos.rol = item.rol;
         $scope.datos.direccion = item.direccion;
@@ -396,15 +421,50 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
 
     }
 
-    $scope.btnModificar = function () {
-        $http({
-            method: "get",
-            url: "../controller/cModificarCuerpoTecnico.php",
-            params: { id: $scope.datos.idCuerpoTecnico, nombre: $scope.datos.nombre, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: $scope.datos.fechaNacimiento, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email },
-        }).then(function mySucces() {
-            location.reload();
-        }), function myError(response) {
-            $scope.cuerpoTecnico = response.statusText;
+    $scope.modificarCuerpoTecnico = function () {
+        if ($scope.datos.nombre == "") {
+            alert("Escribe un nombre por favor");
+        } else if ($scope.datos.apellido == "") {
+            alert("escribe un apellido por favor");
+        } else if ($scope.datos.dni == "") {
+            alert("necesitamos tu dni por favor");
+        } else if ($scope.fechaNacimiento == "") {
+            alert("escribe en qué día naciste por favor");
+        } else if ($scope.datos.numTel == "") {
+            alert("necesitamos tu teléfono para contactar contigo");
+        } else if ($scope.datos.rol == "") {
+            alert("tienes que elegir un rol por favor");
+        } else if ($scope.datos.direccion == "") {
+            alert("Escribe tu dirección por favor");
+        } else if ($scope.datos.email == "") {
+            alert("Escribe tu email por favor");
+        /*} else if (re.test($scope.datos.email)) {
+            alert("Tu email no es correcto, vuelve a intentarlo");
+         */}  else {
+            fechaElegida = new Date($scope.fechaNacimiento);
+            
+            fechaActual = new Date();
+            alert(fechaActual);
+            diff = new Date(fechaActual - fechaElegida);
+            años = (days = diff / 1000 / 60 / 60 / 24 / 30 / 12);
+            diffint = parseInt(años);
+            mes = fechaElegida.getMonth() + 1;
+            fecha = fechaElegida.getFullYear() + "-" + mes + "-" + fechaElegida.getDate();
+            if (diffint <= 0) {
+                alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, no pongas la fecha actual o que vayas a nacer");
+            } else if (diffint < 16) {
+                alert("No fichamos a menores de 16 años");
+            } else {
+                $http({
+                    method: "get",
+                    url: "../controller/cModificarCuerpoTecnico.php",
+                    params: { id: $scope.datos.id, nombre: $scope.datos.nombre, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: fecha, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email },
+                }).then(function mySucces() {
+                    location.reload();
+                }), function myError(response) {
+                    $scope.cuerpoTecnico = response.statusText;
+                }
+            }
         }
     }
 });
@@ -412,7 +472,7 @@ function validar(e) {
     var key = window.Event ? e.which : e.keyCode
     return (key >= 48 && key <= 57)
 }
-function validateEmail() {
+/* function validateEmail() {
     var re = /\S+@\S+\.\S+/;
 
     var email = document.getElementsByClassName("email");
@@ -429,4 +489,4 @@ function validateEmail() {
         $(".email").val() = "";
     }
 }
-
+ */
