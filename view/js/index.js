@@ -12,16 +12,21 @@
 			 success: function(sessionData){
 				 console.log(sessionData);
 				 
+				 $('.logOutNav').hide();
+				 
 				 htmlLogin="";
 				 htmlRegister="";
 				 htmlAdminNav="";
+				 htmlLogOutNav="";
 				 
 				 if(sessionData.tipoUsu==0){
 					 htmlRegister+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>'
 					 htmlLogin+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
 						 $('.registerNav').html(htmlRegister);
 				 }else{
-					 htmlLogin+='<li>Bienvenido <b>'+sessionData.username+'</b></li>'						
+					 htmlLogin+='<li>Bienvenido <b>'+sessionData.username+'</b></li>'			
+					 htmlLogOutNav+='<li><a href="../reto4/controller/cLogOut.php">Log Out</a></li>'
+						 $('.logOutNav').show();
 				 }
 				 
 				 $('.loginNav').html(htmlLogin);
@@ -36,6 +41,7 @@
 				 }
 				 
 				 $('.adminNav').html(htmlAdminNav);
+				 $('.logOutNav').html(htmlLogOutNav);
 				 
 			}
 				 
@@ -106,6 +112,23 @@
 			 $("#mensajes").append(newRow);
 		 },
   		});
+	
+	$('#LogOutButton').click(function(){
+		$.ajax({
+			type:"GET",
+			url: "../reto4/controller/cLogOut.php", 
+			datatype: "text",  //type of the result
+	   	
+			success: function(result){  				
+				location.reload(true);
+			},
+			error : function(xhr) {
+				alert("An error occured: " + xhr.status + " " + xhr.statusText);
+			}
+		});
+		
+		
+	});
 	
 	$('#btnRegistrar').click(function(){
 		
