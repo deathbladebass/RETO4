@@ -26,6 +26,7 @@
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
+  
 <!-- sidenav -->
   <ul id="slide-out" class="sidenav">
   <div width="100%" class="center-align blue darken-4">  <img src="img/paradox.png" width="130px"></div>
@@ -35,9 +36,10 @@
     <li><a ng-click="showEquipos()" class="waves-effect" href="#!"><i class="material-icons">supervised_user_circle</i>Equipos</a></li>
   </ul>
 <!-- trigger sidenav -->
+
   <a class="btn-floating btn-large waves-effect waves-light blue darken-4 sidenav-trigger sidenavBoton" data-target="slide-out"><i class="material-icons">menu</i></a>
-  
-  
+  <!-- fin trigger sidenav -->
+
 <!--   contenido -->
 
 	<div class="container">
@@ -97,7 +99,8 @@
       	</div>
       	<div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+          <p>Fecha de nacimiento: {{jugador.fechaNacimiento}}</p>
+          <p>Rol:  {{jugador.rol}}</p>
         </div>
         <div class="card-action">
           <a href="#">This is a link</a>
@@ -134,7 +137,9 @@
 <!--  Fin categorias --> 
 	
 	</div>
+	<!--   Fin contenido -->
 	
+	<!--   Footer -->
   <footer class="page-footer blue darken-4">
     <div class="container">
       <div class="row">
@@ -165,7 +170,8 @@
       </div>
     </div>
   </footer>
-  
+<!--   Fin Footer -->
+
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="js/materialize.js"></script>

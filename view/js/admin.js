@@ -292,7 +292,7 @@ miAplicacion.controller('categoria', function ($scope, $http) {
         console.log(result);
         //alert(result.data);
         $scope.categoria = result.data;
-        categorias.push($scope.categoria.nombreCategoria);
+        //categoria.push($scope.categoria.nombreCategoria);
     }, function myError(response) {
         $scope.categoria = response.statusText;
 
@@ -379,9 +379,6 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
 
     });
 
-<<<<<<< HEAD
-});
-=======
     $scope.modificar = function (item) {
         $scope.datos = [];
         $scope.modificarCuerpoTecnicoDiv = true;
@@ -409,6 +406,8 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             $scope.cuerpoTecnico = response.statusText;
         }
     }
+    
+    
 });
 function validar(e) {
     var key = window.Event ? e.which : e.keyCode
