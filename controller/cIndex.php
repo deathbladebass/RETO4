@@ -1,17 +1,17 @@
 <?php
+session_start();
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+}
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/Model/equipoModel.php';
+$mensajes=new mensajeModel();
 
-$equipos=new equipoModel();
+$mensajes->setList();
 
-$equipos->setEquipos();
+$listaMensajesJson=$mensajes->getListString();
 
-$listaEquiposJson=$equipos->getListStringEquipos();
+echo $listaMensajesJson;
 
-$_SESSION["usuario"]="";
-$_SESSION["idUsu"]="";
-$_SESSION["tipoUsu"]=1;
-
-echo $listaEquiposJson;
-
-unset ($equipos);
+unset ($mensajes);

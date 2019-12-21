@@ -1,7 +1,12 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/jugadorClass.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/equipoClass.php';
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data_server.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioClass.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
+}
+
 
 class jugadorModel extends jugadorClass{
     private $link;
@@ -49,7 +54,7 @@ class jugadorModel extends jugadorClass{
     public function setList()
     {
         $this->OpenConnect();
-        $sql="select idJugador,nombre,nickname,apellido,fechaNacimiento,dni,numeroTelefono,rol,idEquipo,direccion,email,activo from jugadores";
+        $sql="select idJugador,nombre,nickname,apellido,fechaNacimiento,dni,numeroTelefono,rol,idEquipo,direccion,email,activo,img from jugadores";
         $result=$this->link->query($sql);
 
         while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
@@ -66,6 +71,8 @@ class jugadorModel extends jugadorClass{
             $new->setDireccion($row['direccion']);
             $new->setEmail($row['email']);
             $new->setActivo($row['activo']);
+            $new->setImagen($row['img']);
+            
             array_push($this->list, $new);
         }
         mysqli_free_result($result);
@@ -74,7 +81,9 @@ class jugadorModel extends jugadorClass{
     }
     
     public function insertPlayer(){
+
         $this->OpenConnect();
+        
         $nickname='"'.$this->getNickname().'"';
         $nombre='"'.$this->getNombre().'"';
         $apellido='"'.$this->getApellido().'"';
@@ -86,6 +95,8 @@ class jugadorModel extends jugadorClass{
         $direccion='"'.$this->getDireccion().'"';
         $email='"'.$this->getEmail().'"';
         $activo=$this->getActivo();
+        
+        //Llamada a la BBDD
         $sql = 'Call spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
       //  $sql= 'CALL spInsertJugador('.$nombre.', '.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.', '.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
         echo ($sql);
@@ -103,6 +114,7 @@ class jugadorModel extends jugadorClass{
 
     public function modificarJugador(){
         $this->OpenConnect();
+        
         $id=$this->getId();
         $nombre='"'.$this->getNombre().'"';
         $apellido='"'.$this->getApellido().'"';
@@ -115,12 +127,12 @@ class jugadorModel extends jugadorClass{
         $direccion='"'.$this->getDireccion().'"';
         $idEquipo=$this->getIdEquipo();
         $activo=$this->getActivo();
-        //$sql='call spModificarJugador("nombre",'.$apellido.', '.$nickname.', '.$email.', '.$numTel.', '.$dni.',"1840-09-30", '.$rol.', '.$direccion.', '.$id.', '.$idEquipo.', '.$activo.')';
 
-        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$email.', '.$numTel.', '.$dni.','.$fechaNacimiento.', '.$rol.', '.$direccion.', '.$id.', '.$idEquipo.', '.$activo.')';
+        
+        //Llamada BBDD
+        $sql='call spModificarJugador('.$nombre.','.$apellido.', '.$nickname.', '.$fechaNacimiento.', '.$dni.', '.$numTel.','.$rol.', '.$direccion.', '.$email.', '.$activo.', '.$idEquipo.')';
+        echo($sql);
 
-        $result=$this->link->query($sql);
-        echo $sql;
     }
 
 

@@ -1,5 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data_server.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioClass.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
+}
 include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/mensajeClass.php';
 
 class mensajeModel extends mensajeClass{
@@ -34,10 +40,11 @@ class mensajeModel extends mensajeClass{
          $new=new mensajeModel();
          $new->setIdMensaje($row['idMensaje']);
          $new->setTipo($row['tipo']);
+         $new->setAsunto($row['asunto']);
          $new->setNombre($row['nombre']);
          $new->setMensaje($row['mensaje']);
          $new->setEmail($row['email']);
-         $new->setFecha($row['fecha']);
+         $new->setFecha($row['fecha']); 
          //$new->setAsunto($row['asunto']);
  
         
@@ -89,6 +96,7 @@ class mensajeModel extends mensajeClass{
     }
 
     public function getListString(){
+        
         $arr=array();
 
         foreach ($this->list as $object)

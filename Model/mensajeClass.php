@@ -81,12 +81,13 @@ class mensajeClass{
     {
         $this->asunto = $asunto;
     }
-
+    
     function getObjectVars()
     {
         $vars = get_object_vars($this);
         return  $vars;
     }
+
 
 }
 

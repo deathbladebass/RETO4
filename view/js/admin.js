@@ -1,4 +1,3 @@
-var fecha = "", categorias = [];
 var miAplicacion = angular.module('miAplicacion', []);
 miAplicacion.controller('equipo', function ($scope, $http) {
     $scope.equipo = [];
@@ -298,7 +297,7 @@ miAplicacion.controller('categoria', function ($scope, $http) {
         console.log(result);
         //alert(result.data);
         $scope.categoria = result.data;
-        categorias.push($scope.categoria.nombreCategoria);
+        //categoria.push($scope.categoria.nombreCategoria);
     }, function myError(response) {
         $scope.categoria = response.statusText;
 
@@ -497,6 +496,8 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
 
         });
     }
+    
+    
 });
 function validar(e) {
     var key = window.Event ? e.which : e.keyCode

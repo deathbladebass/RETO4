@@ -11,32 +11,134 @@
   <link href="view/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
   <link rel="shortcut icon" type="image/png" href="view/img/paradox.png"/>
+  
 </head>
 <body>
   <nav class="blue darken-4" role="navigation">
     <div class="nav-wrapper container ">
-      <a id="logo-container" href="#" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
+      <a id="logo-container" href="index.html" class="brand-logo"><img src="view/img/paradox.png" width="130px"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="white-text" href="#!">Registrarse</a></li>
-        <li><a class="white-text"href="#!">Log in</a></li>
+      <li class="loginNav ">
+      
+      </li>
+      <li class="registerNav">
+      
+      </li>
+        
     	<li>
-        <a class="white-text dropdown-trigger" href="#" data-target='dropdown1'>Opciones</a>
+        <a class="white-text dropdown-trigger waves-effect waves-light " href="#" data-target='dropdown1'>Opciones</a>
         </li>
         </ul>
         <!-- Dropdown Menu -->
         <ul id='dropdown1' class='dropdown-content'>
-    		<li><a href="#!">Jugadores</a></li>
-    		<li><a href="#!">Categorias</a></li>		
-    		<li><a href="view/contacto.php">Sugerencias</a></li>
+    		<li><a href="view/jugadoresCategorias.html">Datos de los equipos</a></li>
+    		<li><a href="view/contacto.html">Sugerencias</a></li>
+    		<li class="adminNav">
+    		
+    		</li>
+    		<li class="logOutNav">
+    		
+    		</li>
       	</ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
+     	 <div width="100%" class="center-align blue darken-4">  <img src="view/img/paradox.png" width="130px"></div>
+        	<li class="loginNav">
+      
+      	</li>
+      	<li class="registerNav">
+      	</li>
+      	<li><a href="view/jugadoresCategorias.html">Datos de los equipos</a></li>		
+      	<li><a href="view/contacto.html">Sugerencias</a></li>
+      	<li class="adminNav">
+      
+      	</li>
+      	<li class="logOutNav">
+    		
+    		</li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 	
+	 <!-- Modal Login -->
+
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <h4>LOGIN</h4>
+      <p>Introduzca su usuario y contraseña</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuario" type="text" class="validate">
+          <label for="usuario">Usuario</label>
+        </div>
+      </div>
+      <!--  contrasena -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="pass" type="password" class="validate">
+          <label for="pass">Contraseña</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnLogin" class="modal-close waves-effect waves-green btn-flat">Login</button>
+    </div>
+  </div>
+  
+  
+  <!--              Modal Register                  -->
+  
+  <div id="modalRegistrar" class="modal">
+    <div class="modal-content">
+      <h4>REGISTRO</h4>
+      <p>Introduzca sus datos</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuarioReg" type="text" class="validate">
+          <label for="usuarioReg">Usuario</label>
+        </div>
+      </div>
+      <!--  nombre -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="nombreReg" type="text" class="validate">
+          <label for="nombreReg">Nombre</label>
+        </div>
+      </div>
+      <!--  apellido -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apellidoReg" type="text" class="validate">
+          <label for="apellidoReg">Apellido</label>
+        </div>
+      </div>
+      <!--  contraseña -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="passReg" type="password" class="validate">
+          <label for="passReg">Contraseña</label>
+        </div>
+      </div>
+      <!--  email -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="emailReg" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="validate">
+          <label for="emailReg">Email</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnRegistrar" class="modal-close waves-effect waves-green btn-flat">Registrar</button>
+    </div>
+  </div>
+  <!--              Fin Modal Register                  -->
+  
+  
+  
+	<!--              Carrousel                  -->
 	<div class="container">
  		<div class="carousel carousel-slider">
     		<a class="carousel-item" href="#one!"><img class="tamanoImagen" src="view/img/carrousel1.jpg" ></a>
@@ -45,8 +147,11 @@
     		<a class="carousel-item" href="#four!"><img class="tamanoImagen" src="view/img/carrousel4.jpg"></a>
   		</div>
   	</div>
+	<!--             Fin  Carrousel                  -->
 
 
+
+     <!--             Cards datos                  -->
   <div class="container">
     <div class="section">
 
@@ -95,8 +200,9 @@
 
     </div>
   </div>
+  <!--             Fin Cards datos                  -->
 
-
+	<!--             Imagen Con video                  -->
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
@@ -109,70 +215,32 @@
     </div>
     <div class="parallax"><img src="view/img/world.jpg" alt="Unsplashed background img 2"></div>
   </div>
+  <!--             Fin Imagen Con video                  -->
 
+	<!--             Nuestros mensajes                  -->
   <div class="container">
-    <p class="col s12 "><h4 class="center-align light">Nuestros equipos</h4></p>
+    <p class="col s12 "><h4 class="center-align light">Mensajes a Paradox</h4></p>
 
-      <div id="equipos" class="row">
-      
-<!--         <div class="col s12 m4 center"> -->
-<!--           <div class="row"> -->
-<!--     		<div class="col s12"> -->
-<!--       			<div class="card"> -->
-<!--         			<div class="card-image"> -->
-<!--           			<img src="view/img/paradoxNexus.png"> -->
-<!--         		</div> -->
-<!--         	<div class="card-content "> -->
-<!--           		<p >I am a very simple card. I am good at containing small bits of information. -->
-<!--           		I am convenient because I require little markup to use effectively.</p> -->
-<!--           		<br> -->
-<!--           		<div> -->
-<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de ParadoxNexus</a> -->
-<!--         		</div> -->
-<!--         	</div> -->
-        	
-<!--       			</div> -->
-<!--     		</div> -->
-<!--   		</div> -->
-         
-<!--         </div> -->
-        
-<!--           <div class="col s12 m4 center"> -->
-<!--           <div class="row"> -->
-<!--     		<div class="col s12"> -->
-<!--       			<div class="card"> -->
-<!--         			<div class="card-image"> -->
-<!--           			<img src="view/img/paradoxStrike.png"> -->
-<!--         		</div> -->
-<!--         	<div class="card-content"> -->
-<!--           		<p>I am a very simple card. I am good at containing small bits of information. -->
-<!--           		I am convenient because I require little markup to use effectively.</p> -->
-<!--           		<br> -->
-<!--         		<div> -->
-<!--           			<a class="blue darken-4 card-action white-text" href="#">Información de Paradox Strike</a> -->
-<!--         		</div> -->
-<!--         	</div> -->
-<!--       			</div> -->
-<!--     		</div> -->
-<!--   		</div> -->
-<!--           </p> -->
-<!--       </div> -->
-
+      <div id="mensajes" class="row">
     </div>
   </div>
+	<!--             Fin Nuestros mensajes                  -->
 
-
+    <!--             Slogan                  -->
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <h3 class="header col s12 text-pink darken-4">¡En Paradox Forjamos las victorias!</h3>
         </div>
       </div>
     </div>
     <div class="parallax"><img src="view/img/world.jpg" alt="Unsplashed background img 3"></div>
   </div>
+  <!--             Fin Slogan                  -->
 
+
+<!--             Footer                  -->
   <footer class="page-footer blue darken-4">
     <div class="container">
       <div class="row">
@@ -206,6 +274,7 @@
       </div>
     </div>
   </footer>
+  <!--             Fin Footer                  -->
 
 
   <!--  Scripts-->

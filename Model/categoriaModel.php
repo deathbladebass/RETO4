@@ -1,6 +1,11 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
-include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/categoriaClass.php';
+if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data_server.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/categoriaClass.php';
+}else {
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/categoriaClass.php';
+}
 
 class categoriaModel extends categoriaClass{
     
@@ -48,13 +53,15 @@ class categoriaModel extends categoriaClass{
     public function setList()
     {
         $this->OpenConnect();
-        $sql='select * from categorias';
+        $sql='call spCategorias()';
         $result=$this->link->query($sql);
         while($row= mysqli_fetch_array($result,MYSQLI_ASSOC)){
             $new=new categoriaModel();
             $new->setIdCategoria($row['idCategoria']);
             $new->setAbreviatura($row['abreviatura']);
             $new->setNombreCategoria($row['nombre']);
+            $new->setDireccion($row['direccion']);
+            $new->setDescripcion($row['descripcion']);
             
             array_push($this->list, $new);
         }
