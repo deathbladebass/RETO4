@@ -102,4 +102,13 @@ class categoriaModel extends categoriaClass{
         }
         return json_encode($arr);
     }
+    public function modificarCategoria(){
+        $this->OpenConnect();
+        $id=$this->getIdCategoria();
+        $nombre='"'.$this->getNombreCategoria().'"';
+        $abreviatura='"'.$this->getAbreviatura().'"';
+        $sql= 'call spModificarCategoria('.$id.', '.$nombre.', '.$abreviatura.')';
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
 }

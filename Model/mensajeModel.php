@@ -115,5 +115,20 @@ class mensajeModel extends mensajeClass{
         $result= $this->link->query($sql);
         $this->CloseConnect();
     }
+
+    public function modificarMensaje(){
+        $this->OpenConnect();
+        $id=$this->getIdMensaje();
+        $tipo='"'.$this->getTipo().'"';
+        $nombre='"'.$this->getNombre().'"';
+        $mensaje='"'.$this->getMensaje().'"';
+        $email='"'.$this->getEmail().'"';
+        $fecha='"'.$this->getFecha().'"';
+        $asunto='"'.$this->getAsunto().'"';
+        $sql= 'Call spModificarMensaje('.$id.', '.$tipo.', '.$nombre.', '.$mensaje.', '.$email.', '.$fecha.', '.$asunto.')';
+        echo $sql;
+        $result=$this->link->query($sql);
+        $this->CloseConnect();
+    }
     
 }
