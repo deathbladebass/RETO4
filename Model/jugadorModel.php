@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
     include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data_server.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioClass.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/model/jugadorClass.php';
 }else {
     include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/connect_data.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioClass.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/jugadorClass.php';
 }
 
 

@@ -23,7 +23,7 @@ $login->setNombre($nombre);
 $apellido=filter_input(INPUT_GET, 'apellido');
 $login->setApellido($apellido);
 
-//Contraseña
+//Contraseï¿½a
 $contrasenia=filter_input(INPUT_GET, 'contrasenia');
 $login->setContrasena($contrasenia);
 

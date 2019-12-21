@@ -1,3 +1,4 @@
+var fecha = "", categorias = [];
 var miAplicacion = angular.module('miAplicacion', []);
 miAplicacion.controller('equipo', function ($scope, $http) {
     $scope.equipo = [];
@@ -8,7 +9,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         url: "../controller/cAdminCategoria.php",
     }).then(function mySucces(result) {
 
-        //alert(result.data);
+
         $scope.categoria = result.data;
         console.log($scope.categoria);
     }), function myError(response) {
@@ -56,10 +57,8 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         num = -1
         console.log($scope.categoria);
         for (i in $scope.categoria) {
-            alert("entra");
             if ($scope.nombreCategoria == $scope.categoria[i].nombreCategoria) {
                 num = $scope.categoria[i].idCategoria;
-                alert(num);
             }
         }
         if (num != -1) {
@@ -98,7 +97,6 @@ miAplicacion.controller('jugador', function ($scope, $http) {
         url: "../controller/cAdminJugador.php",
     }).then(function mySucces(result) {
         console.log(result);
-        //alert(result.data);
         $scope.jugador = result.data;
     }, function myError(response) {
         $scope.jugador = response.statusText;
@@ -139,8 +137,6 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             alert("Escribe tu email por favor");
         } else if (re.test($scope.email)) {
             alert("Tu email no es correcto, vuelve a intentarlo");
-        }else if (diffint >= 100) {
-            alert("Eres demasiado mayor");
         } else {
             fechaElegida = new Date($scope.fechaNacimiento);
             fechaActual = new Date();
@@ -148,9 +144,11 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             años = (days = diff / 1000 / 60 / 60 / 24 / 30 / 12);
             diffint = parseInt(años);
             if (diffint <= 0) {
-                alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, no pongas la fecha actual o que vayas a nacer");
+                alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, pon tu verdadera fecha de nacimiento");
             } else if (diffint < 16) {
                 alert("No fichamos a menores de 16 años");
+            } else if (diffint >= 100) {
+                alert("Eres demasiado mayor");
             } else {
                 mes = fechaElegida.getMonth() + 1;
                 fecha = fechaElegida.getFullYear() + "-" + mes + "-" + fechaElegida.getDate();
@@ -178,7 +176,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
 
 
 
-        
+
 
 
     }
@@ -199,7 +197,6 @@ miAplicacion.controller('jugador', function ($scope, $http) {
         $scope.datos.direccion = item.direccion;
         $scope.datos.email = item.email;
         $scope.datos.activo = item.activo;
-        alert($scope.datos.fechaNacimiento);
 
     }
 
@@ -241,9 +238,9 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             diffint = parseInt(años);
             mes = fechaElegida.getMonth() + 1;
             fecha = fechaElegida.getFullYear() + "-" + mes + "-" + fechaElegida.getDate();
-            
+
             if (diffint <= 0) {
-                alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, no pongas la fecha actual o que vayas a nacer");
+                alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, pon tu verdadera fecha de nacimiento");
             } else if (diffint < 16) {
                 alert("No fichamos a menores de 16 años");
             } else if (diffint >= 100) {
@@ -261,7 +258,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             }
         }
 
-        
+
     }
 
 
@@ -295,9 +292,8 @@ miAplicacion.controller('categoria', function ($scope, $http) {
         url: "../controller/cAdminCategoria.php",
     }).then(function mySucces(result) {
         console.log(result);
-        //alert(result.data);
         $scope.categoria = result.data;
-        //categoria.push($scope.categoria.nombreCategoria);
+        categorias.push($scope.categoria.nombreCategoria);
     }, function myError(response) {
         $scope.categoria = response.statusText;
 
@@ -352,7 +348,6 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
         url: "../controller/cAdminMensaje.php",
     }).then(function mySucces(result) {
         console.log(result);
-        //alert(result.data);
         $scope.mensaje = result.data;
     }, function myError(response) {
         $scope.mensaje = response.statusText;
@@ -376,7 +371,7 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
         $scope.modificarMensajeDiv = true;
         $scope.id = x.idMensaje;
         $scope.nombre = x.nombre;
-        $scope.fechaMensaje=x.fecha;
+        $scope.fechaMensaje = x.fecha;
         $scope.tipo = x.tipo;
         $scope.mensajeAngular = x.mensaje;
         $scope.email = x.email;
@@ -389,10 +384,15 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
         fecha = new Date($scope.fechaMensaje);
         mes = fecha.getMonth() + 1;
         fechaString = fecha.getFullYear() + "-" + mes + "-" + fecha.getDate();
-        alert(fechaString);
-        if ($scope.asunto == "") {
-            alert("Tienes que rellenar el asunto");
-        } else {
+        fechaActual = new Date();
+        diff = new Date(fechaActual - fecha);
+        años = (days = diff / 1000 / 60 / 60 / 24 / 30 / 12);
+        diffint = parseInt(años);
+        if (fecha.getFullYear()==fechaActual.getFullYear()&&fecha.getMonth()==fechaActual.getMonth()&& fechaActual.getDate()<fecha.getDate()) {
+            alert("Pon una fecha que ya haya pasado por favor");
+        }else if(fechaActual.getFullYear()<fecha.getFullYear()){
+            alert("Pon una fecha que ya haya pasado por favor");
+        }else {
             $http({
                 method: "get",
                 url: "../controller/cModificarMensaje.php",
@@ -415,7 +415,6 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
         url: "../controller/cAdminCuerpoTecnico.php",
     }).then(function mySucces(result) {
         console.log(result);
-        //alert(result.data);
         $scope.cuerpoTecnico = result.data;
     }, function myError(response) {
         $scope.cuerpoTecnico = response.statusText;
@@ -455,13 +454,10 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             alert("Escribe tu dirección por favor");
         } else if ($scope.datos.email == "") {
             alert("Escribe tu email por favor");
-        }else if (diffint >= 100) {
-            alert("Eres demasiado mayor");
         } else {
             fechaElegida = new Date($scope.fechaNacimiento);
 
             fechaActual = new Date();
-            alert(fechaActual);
             diff = new Date(fechaActual - fechaElegida);
             años = (days = diff / 1000 / 60 / 60 / 24 / 30 / 12);
             diffint = parseInt(años);
@@ -471,6 +467,8 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
                 alert("Tu fecha de nacimiento, no concuerda con nuestras exigencias, por favor, no pongas la fecha actual o que vayas a nacer");
             } else if (diffint < 16) {
                 alert("No fichamos a menores de 16 años");
+            } else if (diffint >= 100) {
+                alert("Eres demasiado mayor");
             } else {
                 $http({
                     method: "get",
@@ -484,20 +482,18 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             }
         }
     }
-    $scope.borrar=function(x){
+    $scope.borrar = function (x) {
         $http({
             method: "get",
             url: "../controller/cBorrarCuerpoTecnico.php",
             params: { id: x }
         }).then(function () {
-            //location.reload();
+            location.reload();
         }, function myError(response) {
             $scope.jugador = response.statusText;
 
         });
     }
-    
-    
 });
 function validar(e) {
     var key = window.Event ? e.which : e.keyCode
