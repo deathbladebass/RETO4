@@ -17,7 +17,6 @@ $usuarios=$login->getList();
 $user=filter_input(INPUT_GET, 'usuario');
 $userContr=filter_input(INPUT_GET, 'pass');
 
-
 // //echo $contrasena;
 
 // echo "Insertado: ".$user;

@@ -18,6 +18,7 @@
 				 htmlRegister="";
 				 htmlAdminNav="";
 				 htmlLogOutNav="";
+				 htmlBanner="";
 				 
 				 if(sessionData.tipoUsu==0){
 					 htmlRegister+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>'
@@ -30,11 +31,11 @@
 				 }
 				 
 				 $('.loginNav').html(htmlLogin);
-				 
-				 
+		
 				 
 				 if(sessionData.tipoUsu==2){
 					 htmlAdminNav+='<li><a href="view/admin.html">Panel Admin</a></li>'
+						 
 						 $('.adminNav').show();
 				 }else{
 					 $('.adminNav').hide();

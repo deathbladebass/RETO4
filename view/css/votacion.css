@@ -1,0 +1,36 @@
+@charset "ISO-8859-1";
+/*Con media*/
+@media (min-width: 48rem){
+	.css-1yujr3i {
+    	margin-bottom: 2rem;
+    	margin-left: 2.5rem;
+    	margin-right: 2.5rem;
+    	height: 7.1875rem;
+	}
+	.css-1yujr3i .radio-button {
+    	margin-top: 0px;
+    	-webkit-box-align: center;
+    	align-items: center;
+    	width: 2.75rem;
+	}
+}
+
+/*Sin media*/
+.css-1yujr3i {
+    position: relative;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    margin-bottom: 0.25rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 14.5625rem;
+}
+
+.css-1yujr3i .radio-button {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 3.25rem;
+    margin-top: 3.75rem;
+    flex-shrink: 0;
+}
