@@ -6,7 +6,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 
     $http({
 		method: "get",
-		url: "../controller/cAdminCategoria.php",
+		url: "../controller/cVotacionCategoria.php",
 		responseType:'json'
 	}).then(function mySuccess(result){
 		console.log(result);
@@ -22,7 +22,13 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 		$scope.jugador=result;
     });
     
-    /* $scope.vote=function(){
+    $scope.vote=function(idJugador, idUsuario){
+        $http({
+            method: "get",
+            url: "../controller/cVotar.php",
+        }).then(function mySuccess(){
 
-    }; */
+            location.reload();
+        })
+    }; 
 });
