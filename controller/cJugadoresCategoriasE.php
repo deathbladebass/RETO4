@@ -8,7 +8,7 @@ if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
 
 $equipo=new equipoModel();
 
-$equipo->setEquipos();
+$equipo->setList();
 $equiopList= $equipo->getListStringEquipos();
 
 echo $equiopList;

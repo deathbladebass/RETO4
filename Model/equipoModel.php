@@ -105,6 +105,7 @@ class equipoModel extends equipoClass{
             $equipoNuevo->setNombreEquipo($row['nombreEquipo']);
             $equipoNuevo->setImagen($row['imagenEquipo']);
             
+            
             //print_r($equipoNuevo);
             
             array_push($this->list, $equipoNuevo);
