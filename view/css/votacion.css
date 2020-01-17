@@ -149,14 +149,20 @@ a{
     width: 60%;
     margin: auto;
 }
-.row .col.s6 {
+.row .col {
+	margin:0rem !important;
     width: 100%;
-    margin-left: auto;
-    left: auto;
-    right: auto;
+    padding: 0 0.75rem;
+    
 }
 
 }
 div#votacion{
 	background-imagen:url(../view/img/bannerBC.jpg);
+	
+}
+.card-content{
+  background-image: linear-gradient(#0D47A1, #000428 );
+  padding:25px;
+  border-radius: 5px;
 }
