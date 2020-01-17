@@ -47,8 +47,8 @@
       	</li>
       	<li class="registerNav">
       	</li>
-      	<li><a href="view/jugadoresCategorias.html">Datos de los equipos</a></li>		
-      	<li><a href="view/contacto.html">Sugerencias</a></li>
+      	<li><a href="jugadoresCategorias.html">Datos de los equipos</a></li>		
+      	<li><a href="contacto.html">Sugerencias</a></li>
       	<li class="adminNav">
       
       	</li>
@@ -86,7 +86,7 @@
 								<div class="row card-stacked">
 									<div class="card-content">
 										<div>
-											<h3>MVP de {{equipo.objCategoria.nombre}}</h3>
+											<h3 class="awards white-text">MVP de {{equipo.objCategoria.nombre}}</h3>
 										</div>
 										<!-- Datos jugadores -->
 										<div class="jugadores row">
@@ -95,15 +95,14 @@
 
 												<div ng-if="equipo.idEquipo==jugador.idEquipo"
 													class="col s12">
-													<h6>{{jugador.nombre}} "{{jugador.nickname}}"
-														{{jugador.apellido}}</h6>
 													<div class="row card horizontal">
 														<div class="card-image col s5 m5">
-															<img src="{{jugador.imagen}}">
+															<img src="../view/{{jugador.imagen}}">
 														</div>
 														<div class="card-stacked col s7 m7">
 															<p>
-																<b>Rol:</b> {{jugador.rol}}
+																<h4>{{jugador.nombre}} "{{jugador.nickname}}" {{jugador.apellido}}</h4>
+																<b>Rol: {{jugador.rol}}</b>
 															</p>
 															<p>
 															<div class="row">

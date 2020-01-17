@@ -25,6 +25,12 @@
 					 htmlLogin+='<li><a class="white-text waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
 						 $('.registerNav').html(htmlRegister);
 				 }else{
+					 htmlBanner+='<div class="container">'
+						 htmlBanner+='<a href="../Reto4/view/votacion.html">'
+							 htmlBanner+='<img src="view/img/banner.jpg" alt="" width="100%" height="80px"/>'
+						 htmlBanner+='</a>'
+					 htmlBanner+='</div>'
+		  		
 					 htmlLogin+='<li id="bienvenido">Bienvenido <b>'+sessionData.username+'</b></li>'			
 					 htmlLogOutNav+='<li><a href="../reto4/controller/cLogOut.php">Log Out</a></li>'
 						 $('.logOutNav').show();
@@ -40,7 +46,7 @@
 				 }else{
 					 $('.adminNav').hide();
 				 }
-				 
+				 $('.votaciones').html(htmlBanner);
 				 $('.adminNav').html(htmlAdminNav);
 				 $('.logOutNav').html(htmlLogOutNav);
 				 

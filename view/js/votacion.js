@@ -1,50 +1,74 @@
 var miAplicacion = angular.module('miAplicacion', []);
+var votos=0;
 
 miAplicacion.controller('votacion', function ($scope, $http) {
 	
-	//EquiposJugadores
+	if (votos==3){
+		window.location.replace("../index.html");
+	}
+	//Session
 	$http({
 		method: "get",
-		url: "../../Reto4/controller/cJugadoresCategoriasE.php",
+		url: "../controller/cNav.php",
 	}).then(function mySuccess(result){
-		console.log(result);
-		$scope.equipos=result.data;
-			
-			
-	}, function myError(response) {
-		$scope.equipo = response.statusText;
 		
+		console.log(result);
+		$scope.user=result.data;
+		
+	},function myError(response) {
+		$scope.categoria = response.statusText;
 	});
-	//Fin equiposjugadores
+	//Fin session
 	
 	//Jugadores
 	$http({
 		method: "get",
-		url: "../controller/cJugadoresCategoriasJ.php",
+		url: "../controller/cJugadoresCategoriasE.php",
 	}).then(function mySuccess(result){
+		
 		console.log(result);
-		$scope.jugadores=result.data;
-
+		$scope.equipos=result.data;
+		
+	},function myError(response) {
+		$scope.categoria = response.statusText;
+	});
+	//Fin jugadores
 	
-	}, function myError(response) {
-        $scope.jugador = response.statusText;
+    
+	//Categorias
+		$http({
+			method: "get",
+			url: "../controller/cJugadoresCategoriasJ.php",
+		}).then(function mySuccess(result){
+			
+			console.log(result);
+			$scope.jugadores=result.data;
+			
+		}, function myError(response) {
+				$scope.categoria = response.statusText;
+		});
+	//Fin Categorias
+		
+		//Tener un contador por cada voto suma hasta 3 y luego redirecciona
+		
+		
+		//Insert Voto
+		$scope.votar=function(idJugador){
+			votos++;
+			var datos={usuario:$scope.user.idUsuario};
+			datos.idJugador=idJugador;
+			console.log(datos);
+			$http({
+				method: "GET",
+				params: {data:datos},
+				url: "../controller/cVotar.php",
+			}).then(function mySuccess(){
 
-    });
-	//Fin Jugadores
+				//Ocultar los botones o todo el bloque
+				
+				//location.reload();
+			})
+		}; 
+		//Fin Insert Voto
 	
-	$scope.votar=function(id){
-		alert(id);
-	}	
-});
-//Insert
-    $scope.vote=function(idJugador, idUsuario){
-        $http({
-            method: "get",
-            data: idJugador:"idJugador", idUsuario:"idUsuario",
-            url: "../controller/cVotar.php",
-        }).then(function mySuccess(){
-
-            location.reload();
-        })
-    }; 
 });

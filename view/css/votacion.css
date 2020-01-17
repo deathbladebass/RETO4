@@ -157,6 +157,9 @@ a{
 }
 
 }
+.Categoria {
+    color: white !important;
+}
 div#votacion{
 	background-imagen:url(../view/img/bannerBC.jpg);
 	
