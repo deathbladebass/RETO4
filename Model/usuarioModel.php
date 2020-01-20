@@ -100,5 +100,37 @@ class usuarioModel extends usuarioClass{
          }
          $this->CloseConnect();
         }
+
+        public function findUser(){
+            $this->OpenConnect();
+            $id=$this->getUsuario();
+            $sql='call spFindUser("'.$id.'")';
+            $result =$this->link->query($sql);
+            //print_r($result);
+    
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            //print_r($row);
+            /* $newUser=new usuarioModel();
+            $newUser->setNombre($row['nombre']);
+            $newUser->setApellido($row['apellido']);
+            $newUser->setIdUsuario($row['idUsuario']);
+            $newUser->setContrasena($row['contrasenia']);
+            $newUser->setTipo($row['tipo']);
+            $newUser->setEmail($row['email']); */
+            mysqli_free_result($result);  
+            $this->CloseConnect();
+            return $row;
+        }
+
+        public function update(){
+            $this->OpenConnect();
+            $id=$this->getIdUsuario();
+            $nombre='"'.$this->getNombre().'"';
+            $apellido='"'.$this->getApellido().'"';
+            $nickname='"'.$this->getUsuario().'"';
+            $sql= 'CALL spUpdateUsuario('.$id.','.$nombre.','.$apellido.','.$nickname.')';
+            $result=$this->link->query($sql);
+            $this->CloseConnect();
+        }
         
     }
