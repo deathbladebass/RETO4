@@ -134,6 +134,7 @@ class jugadorModel extends jugadorClass{
         echo($sql);
 
     }
+    
 
 
     public function getListString(){

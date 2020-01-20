@@ -1,6 +1,18 @@
 var fecha = "", categorias = [];
 var miAplicacion = angular.module('miAplicacion', []);
 miAplicacion.controller('equipo', function ($scope, $http) {
+	
+	$http({
+		method: "get",
+		url: "../controller/cNav.php",
+	}).then(function mySuccess(result){
+		var user=result.data;
+		
+		if(user.tipoUsu==0){
+			window.location.replace("../index.html");
+		}
+	});
+	
     $scope.equipo = [];
     $scope.nombre = "";
     $scope.categoria = [];

@@ -71,6 +71,23 @@ class votacionModel extends votacionClass{
         mysql_free_result($result);
         $this->CloseConnect();
     }
+    
+    public function setUserVote(){
+        $this->OpenConnect();
+        $id=$this->getIdUsuario();
+        $sql='call spVotacionUsuario('+$id+')';
+        $result=$this->link->query($sql);
+        
+        if ($row = mysql_fetch_array($result, MYSQLI_ASSOC)){
+            $new= new votacionModel();
+            $new->setIdVotacion($row['idVotacion']);
+            $new->setIdJugador($row['idJugador']);
+            $new->setId($row['idUsuario']);
+            
+        }
+        mysql_free_result($result);
+        $this->CloseConnect();
+    }
 
     public function insert(){
 

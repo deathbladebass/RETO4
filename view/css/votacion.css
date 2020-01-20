@@ -169,3 +169,15 @@ div#votacion{
   padding:25px;
   border-radius: 5px;
 }
+
+.blue.darken-3 {
+    height: 50px;
+    width: 150px;
+    font-size: 25px;
+    float: right;
+    margin-right: 25px;
+}
+b{
+	font-size: 20px;
+}
+}

@@ -15,5 +15,8 @@ include_once "../model/votacionModel.php";
     $voto->setIdUsuario($data->usuario);
     $voto->setIdJugador($data->idJugador);
     
-    $voto->insert();
+    echo $voto->insert();
+    
+    
+    
 ?>
