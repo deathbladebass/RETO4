@@ -34,8 +34,10 @@ foreach ($usuarios as $object){
     if ($object->getUsuario()==$user && $object->getContrasena()==$userContr) {
         
         $_SESSION["username"]= $object->getUsuario();
-        $_SESSION["tipoUsu"]=$object->getTipo();  
-        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"]);   
+        $_SESSION["tipoUsu"]=$object->getTipo();
+        $_SESSION['idUsuario']=$object->getIdUsuario();  
+        
+        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"], 'id'=> $_SESSION['idUsuario']);   
        
     }
 }
