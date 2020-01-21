@@ -129,6 +129,7 @@ class usuarioModel extends usuarioClass{
             $apellido='"'.$this->getApellido().'"';
             $nickname='"'.$this->getUsuario().'"';
             $sql= 'CALL spUpdateUsuario('.$id.','.$nombre.','.$apellido.','.$nickname.')';
+            echo $sql;
             $result=$this->link->query($sql);
             $this->CloseConnect();
         }

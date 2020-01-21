@@ -1,5 +1,7 @@
 $(document).on("ready", function () {
     var input = "";
+    var savedFileBase64;
+    var filename;
     $.ajax({
         method: "get",
         url: "../controller/cUsuarioInfo.php",
@@ -21,10 +23,17 @@ $(document).on("ready", function () {
                 </button>
             </div>
             <div class="modal-body">
-                Nombre:<input type="text" id="editNombre " class="editInput" value="${result.nombre}"><br/><br/>
+                Nombre:<input type="text" id="editNombre" class="editInput" value="${result.nombre}"><br/><br/>
                 apellido: <input type="text" id="editApellido" class="editInput" value="${result.apellido}"><br/><br/>
                 nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}">
-            </div>
+                <img id="cartelUpdate" src="" alt="">
+				<input type="file" id="fitxUpdate" /><br/>
+			</label> <button class="btn btn-primary" type="button" id="uploadUpdate">Preview</button>
+                </div>
+
+                <div id="filmPhoto">
+
+			</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" id="save" class="btn btn-primary">Save changes</button>
@@ -72,16 +81,43 @@ $(document).on("ready", function () {
                     $(this).val(input);
                 }
                 console.log($(this).val());
-            })
+            });
+            $("#fitxUpdate").change(function () {
+
+                let file = $("#fitxUpdate").prop("files")[0];
+                filename = file.name.toLowerCase();
+                console.log(filename);
+
+                if (!new RegExp("(.*?).(jpg|jpeg|png|gif)$").test(filename)) {
+                    alert("Solo se aceptan imágenes JPG, PNG y GIF");
+                }
+                let reader = new FileReader();
+
+                reader.onload = function (e) {
+
+                    let fileBase64 = e.target.result;
+                    console.log(fileBase64);
+                    // Almacenar en variable global para uso posterior
+                    savedFileBase64 = fileBase64;
+                };
+                reader.readAsDataURL(file);
+                
+            });
+            $("#uploadUpdate").click(function () {
+                // Código para previsualizar
+                $("#cartelUpdate").attr("src", savedFileBase64);
+            });
             $("#save").on("click", function () {
-                nombre = $("#editNombre");
-                nick = $("#editNick");
-                apellido = $("#editApellido");
+                nombre = $("#editNombre").val();
+                nick = $("#editNick").val();
+                apellido = $("#editApellido").val();
+
+
                 $.ajax({
                     method: "get",
                     url: "../controller/cEditUsuario.php",
-                    dataType: "json",
-                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": Response.idUsuario},
+                    dataType: "text",
+                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": result.idUsuario },
                     success: function (result) {
                         console.log(result);
                     }, error: function (xhr) {
