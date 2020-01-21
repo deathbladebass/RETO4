@@ -101,7 +101,7 @@ $(document).on("ready", function () {
                     savedFileBase64 = fileBase64;
                 };
                 reader.readAsDataURL(file);
-                
+
             });
             $("#uploadUpdate").click(function () {
                 // Código para previsualizar
