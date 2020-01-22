@@ -1,12 +1,11 @@
-
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2019 a las 10:58:44
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.1.32
+-- Tiempo de generación: 21-01-2020 a las 10:16:14
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -35,9 +34,6 @@ select * from categorias$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteCategoria` (IN `pId` INT)  NO SQL
 DELETE FROM categorias WHERE idCategoria=pId$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteCuerpoTecnico` (IN `pId` INT)  NO SQL
-DELETE FROM `cuerpostecnicos` WHERE id=pId$$
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spDeleteEquipo` (IN `p_id` INT)  NO SQL
 delete from `equipos` where idEquipo=p_id$$
 
@@ -50,6 +46,9 @@ DELETE FROM mensajes WHERE idMensaje=pId$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spEquipos` ()  NO SQL
 SELECT equipos.idEquipo,equipos.nombreEquipo, equipos.imagenEquipo FROM equipos$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spFindUser` (IN `pname` VARCHAR(40))  NO SQL
+select * from usuarios where usuarios.usuario=pname$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsert` (IN `pNombre` VARCHAR(50), IN `pApellido` VARCHAR(50), IN `pNickname` VARCHAR(50), IN `pFechaNacimiento` DATE, IN `pDni` VARCHAR(12), IN `pNumTel` VARCHAR(12), IN `pRol` VARCHAR(50), IN `pEquipo` INT, IN `pDireccion` VARCHAR(50), IN `pActivo` TINYINT(1), IN `pImagen` VARCHAR(100))  NO SQL
 BEGIN
 INSERT INTO jugadores(jugadores.nombre, jugadores.apellido, jugadores.nickname, jugadores.fechaNacimiento, jugadores.dni, jugadores.numeroTelefono, jugadores.rol, jugadores.idEquipo, jugadores.direccion, jugadores.activo, jugadores.img)
@@ -58,7 +57,6 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertJugador` (IN `p_nombre` VARCHAR(40), IN `p_apellido` VARCHAR(40), IN `p_nickname` VARCHAR(40), IN `p_fechaNacimiento` DATE, IN `p_dni` VARCHAR(9), IN `p_numTel` INT(9), IN `p_rol` VARCHAR(40), IN `p_direccion` VARCHAR(40), IN `p_email` VARCHAR(40), IN `p_activo` TINYINT, IN `p_idEquipo` INT)  NO SQL
 insert into jugadores( nickname, nombre, apellido, fechaNacimiento, dni, numeroTelefono, rol, idEquipo, direccion, email, activo) values ( p_nickname, p_nombre, p_apellido, p_fechaNacimiento, p_dni, p_numTel, p_rol, p_idEquipo, p_direccion, p_email, p_activo)$$
-
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertMensaje` (IN `pTipo` VARCHAR(50), IN `pAsunto` VARCHAR(50), IN `pNombre` VARCHAR(50), IN `pMensaje` VARCHAR(200), IN `pEmail` VARCHAR(50))  NO SQL
 INSERT INTO mensajes(mensajes.tipo, mensajes.asunto, mensajes.nombre, mensajes.mensaje, mensajes.email, mensajes.fecha)
@@ -71,12 +69,19 @@ VALUES(pUser, pName, pPassw, pEmail, pApellido, pTipo)$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spMensajes` ()  NO SQL
 SELECT * FROM `mensajes`$$
 
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarJugador` (IN `pnombre` VARCHAR(40), IN `papellido` VARCHAR(40), IN `pnickname` VARCHAR(40), IN `pemail` VARCHAR(40), IN `pnumTel` INT, IN `pdni` VARCHAR(40), IN `pfechaNacimiento` DATE, IN `prol` VARCHAR(40), IN `pdireccion` VARCHAR(40), IN `pid` INT, IN `pidEquipo` INT, IN `pactivo` TINYINT)  NO SQL
-UPDATE jugadores SET nickname=pnickname,nombre=pnombre,apellido=papellido,fechaNacimiento=pfechaNacimiento,dni=pdni,numeroTelefono=pnumTel,rol=prol,idEquipo=pidEquipo,direccion=pdireccion,email=pemail,activo=pactivo WHERE jugadores.idJugador=pid$$
+UPDATE jugadores SET nickname=nickname,nombre=nombre,apellido=apellido,fechaNacimiento=fechaNacimiento,dni=dni,numeroTelefono=numTel,rol=rol,idEquipo=idEquipo,direccion=direccion,email=email,activo=activo WHERE idJugador=id$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spModificarMensaje` (IN `pId` INT, IN `pTipo` VARCHAR(40), IN `pNombre` VARCHAR(40), IN `pMensaje` VARCHAR(200), IN `pEmail` VARCHAR(40), IN `pFecha` DATE, IN `pAsunto` VARCHAR(40))  NO SQL
-UPDATE `mensajes` SET `tipo`=pTipo,`nombre`=pNombre,`mensaje`=pMensaje,`email`=pEmail,`fecha`=pFecha WHERE mensajes.idMensaje=pId$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spShowVotes` ()  NO SQL
+SELECT clasificacion.idJugador, COUNT(clasificacion.idJugador)AS 'Puntuacion', jugadores.nickname, jugadores.nombre, jugadores.apellido, jugadores.rol, jugadores.img, equipos.nombreEquipo, equipos.imagenEquipo
+FROM clasificacion 
+INNER JOIN jugadores ON clasificacion.idJugador = jugadores.idJugador
+INNER JOIN equipos ON jugadores.idEquipo=equipos.idEquipo
+GROUP BY clasificacion.idJugador  
+ORDER BY `Puntuacion`  DESC$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spUpdateUsuario` (IN `pId` INT, IN `pNombre` VARCHAR(40), IN `pApellido` VARCHAR(40), IN `pNickname` VARCHAR(40))  NO SQL
+UPDATE `usuarios` SET `nombre`=pNombre,`apellido`=pApellido,`usuario`=pNickname WHERE idUsuario=pId$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spUsuarios` ()  NO SQL
 SELECT * FROM usuarios$$
@@ -101,7 +106,6 @@ CREATE TABLE `categorias` (
 -- Volcado de datos para la tabla `categorias`
 --
 
-
 INSERT INTO `categorias` (`idCategoria`, `abreviatura`, `nombre`, `direccion`, `descripcion`) VALUES
 (1, 'LEC', 'League Of Legends European Championship', 'https://eu.lolesports.com/es/liga/lec', 'La League of Legends Championship Series Europe (LCS EU) es la liga profesional de League of Legends en Europa. En ella participan los diez mejores equipos europeos.\r\n'),
 (2, 'SLO', 'Super Liga Orange', 'https://www.lvp.es/lol/iberiancup', 'LVP es especialista en la organización de competiciones nacionales. Cuenta con casi una década de experiencia en España, donde actualmente organiza la Superliga Orange de League of Legends.'),
@@ -110,6 +114,30 @@ INSERT INTO `categorias` (`idCategoria`, `abreviatura`, `nombre`, `direccion`, `
 (5, 'LPL', 'League Of Legends Pro League', 'https://esportsamateurseries.com/en/', ' La primera temporada de LPL fue la primavera de 2013. Los tres primeros playoffs ganan automáticamente el Campeonato Mundial de League of Legends'),
 (6, 'LVP', 'Liga de Videojuegos Profesional', 'https://lvp.global/competiciones/cs-go/', 'LVP es especialista en la organización de competiciones nacionales. Cuenta con casi una década de experiencia en España, donde actualmente organiza la Superliga Orange de Counter-Strike: Global Offensive'),
 (7, 'NGE', 'National Gaming Events ', 'https://www.toornament.com/en_GB/tournaments/3069606542087823360/stages/3069608239584149504/', 'Somos un evento de lan y un albergue de liga / torneo en línea ubicado en Nueva Inglaterra que atiende a equipos, jugadores y organizaciones en todo EE. UU. Nos esforzamos por alentar, influir y apoyar a todos y cada uno de los jugadores a diario, mientras mantenemos una relación amistosa, por no mencionar competitiva, medio ambiente!\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clasificacion`
+--
+
+CREATE TABLE `clasificacion` (
+  `idVoto` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `idJugador` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `clasificacion`
+--
+
+INSERT INTO `clasificacion` (`idVoto`, `idUsuario`, `idJugador`) VALUES
+(17, 1, 17),
+(18, 8, 17),
+(19, 3, 3),
+(20, 2, 10),
+(21, 7, 13),
+(22, 25, 17);
 
 -- --------------------------------------------------------
 
@@ -135,7 +163,7 @@ CREATE TABLE `cuerpostecnicos` (
 --
 
 INSERT INTO `cuerpostecnicos` (`id`, `Nombre`, `Apellido`, `Rol`, `idEquipo`, `fechaNacimiento`, `direccion`, `email`, `numTel`, `dni`) VALUES
-(5, 'Francisco', 'Fran', 'Entrenador', 1, '1982-12-13', 'fdsa', 'fdsa', '12', 'fdsa');
+(5, 'Francisco', 'Fran', 'Entrenador', 1, '0000-00-00', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -186,7 +214,6 @@ CREATE TABLE `jugadores` (
 --
 
 INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNacimiento`, `dni`, `numeroTelefono`, `rol`, `idEquipo`, `direccion`, `email`, `activo`, `img`) VALUES
-
 (1, 'Rekkles', 'Martin', 'Larsson', '1996-09-20', '123456789A', 656111111, 'Bot Laner', 1, 'Avenida del backdoor', 'mLarsson@gmail.com', 1, '../view/img/recless.jpg'),
 (2, 'Razork', 'Ivan', 'Martin', '2000-10-07', '64987321A', 656222222, 'Jungler', 1, 'Calle del Baron', 'iMartin@gmail.com', 1, '../view/img/razork.png'),
 (3, 'Deadly', 'Matthew', 'Smith', '1999-08-28', '654258951E', 656333333, 'Bot Lane', 1, 'Calle del Blue', 'mSmith@gmail.com', 0, '../view/img/deadly.png'),
@@ -203,9 +230,7 @@ INSERT INTO `jugadores` (`idJugador`, `nickname`, `nombre`, `apellido`, `fechaNa
 (14, 'Rizraz', 'Ethan', 'Wombell', '1999-07-28', '84956532V', 664555765, 'Roamer', 3, 'Australia', 'Rizraz99@gmail.com', 1, '../view/img/frizraz.jpg'),
 (15, 'Speca', 'Ryan', 'AUSDEN', '1997-05-02', '89453214J', 694852775, 'Support', 3, 'Australia', 'speca97@gmail.com', 1, '../view/img/empty.jpg'),
 (16, 'Lusty', 'Jason', 'CHEN', '1997-12-03', '84571266C', 651243657, 'Flex', 3, 'AUSTRALIA', 'lusty97@gmail.com', 1, '../view/img/lusty.jpg'),
-(17, 'Acez', 'Matthew', 'MC HENRY', '1997-06-24', '78965421K', 651478525, 'Roamer', 3, 'Australia', 'acez97@gmail.com', 1, '../view/img/acez.jpg'),
-(18, 'Magnet', 'Etienne ', 'ROUSSEAU', '1998-06-24', '57483365G', 654321987, 'IGL', 3, 'Australia', 'magnet98@gmail.com', 0, '../view/img/magnet.jpg');
-
+(17, 'Acez', 'Matthew', 'MC HENRY', '1997-06-24', '78965421K', 651478525, 'Roamer', 3, 'Australia', 'acez97@gmail.com', 1, '../view/img/acez.jpg');
 
 -- --------------------------------------------------------
 
@@ -223,7 +248,6 @@ CREATE TABLE `mensajes` (
   `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
 --
 -- Volcado de datos para la tabla `mensajes`
 --
@@ -232,7 +256,8 @@ INSERT INTO `mensajes` (`idMensaje`, `tipo`, `asunto`, `nombre`, `mensaje`, `ema
 (1, 'aa', 'aa', 'aa', 'aa', 'aa', '2019-12-19 00:00:00'),
 (2, 'aaa', 'aaa', 'aa', 'aaaa', 'aa', '2019-12-19 00:00:00'),
 (3, 'aa', 'a', 'aa', 'aa', 'a', '2019-12-19 00:00:00'),
-(4, 'aa', 'a', 'a', 'a', 'a', '2019-12-19 09:02:03');
+(5, 'sugerencia', 'adr', 'sdfsdgg', 'dffd@dfgf.cdfg', 'sdfsd', '2019-12-20 09:19:27'),
+(6, 'queja', 'sdfghjgfds', 'fsdafasd', 'fsfe@ds.com', 'fsda', '2019-12-20 09:28:18');
 
 -- --------------------------------------------------------
 
@@ -252,9 +277,7 @@ CREATE TABLE `tipousuario` (
 INSERT INTO `tipousuario` (`id`, `tipo`) VALUES
 (1, 'normal'),
 (2, 'admin'),
-(3, 'cuerpoTec'),
-(4, 'jugador');
-
+(3, 'cuerpoTec');
 
 -- --------------------------------------------------------
 
@@ -293,6 +316,14 @@ INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido`, `usuario`, `contrasen
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idCategoria`);
+
+--
+-- Indices de la tabla `clasificacion`
+--
+ALTER TABLE `clasificacion`
+  ADD PRIMARY KEY (`idVoto`),
+  ADD UNIQUE KEY `idUsuario` (`idUsuario`),
+  ADD KEY `idJugador` (`idJugador`);
 
 --
 -- Indices de la tabla `cuerpostecnicos`
@@ -345,40 +376,40 @@ ALTER TABLE `categorias`
   MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `clasificacion`
+--
+ALTER TABLE `clasificacion`
+  MODIFY `idVoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT de la tabla `cuerpostecnicos`
 --
 ALTER TABLE `cuerpostecnicos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-
   MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 
 --
 -- AUTO_INCREMENT de la tabla `jugadores`
 --
 ALTER TABLE `jugadores`
-
-  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
+  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `mensajes`
 --
 ALTER TABLE `mensajes`
-
-  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idMensaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipousuario`
 --
 ALTER TABLE `tipousuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -389,6 +420,13 @@ ALTER TABLE `usuarios`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `clasificacion`
+--
+ALTER TABLE `clasificacion`
+  ADD CONSTRAINT `clasificacion_ibfk_1` FOREIGN KEY (`idJugador`) REFERENCES `jugadores` (`idJugador`),
+  ADD CONSTRAINT `clasificacion_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`);
 
 --
 -- Filtros para la tabla `cuerpostecnicos`
