@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin *');
 include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/mensajeModel.php';
 $mensaje=new mensajeModel();
 $mensaje->setIdMensaje($_GET['id']);

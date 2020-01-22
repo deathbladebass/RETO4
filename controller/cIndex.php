@@ -1,4 +1,5 @@
 <?php
+header('Access-Control-Allow-Origin *');
 session_start();
 if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
     include_once $_SERVER['DOCUMENT_ROOT'].'/model/connect_data.php';
