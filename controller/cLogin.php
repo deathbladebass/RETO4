@@ -23,20 +23,21 @@ $userContr=filter_input(INPUT_GET, 'pass');
 // echo "Insertado: ".$user;
 // echo "Insertado: ".$userContr;
 
-$resultado="Usuario o Contraseña incorrectos";
+$resultado="Usuario o Contraseï¿½a incorrectos";
 
 foreach ($usuarios as $object){
 
-//     echo " Contraseña ".$object->getContrasena();
+//     echo " Contraseï¿½a ".$object->getContrasena();
 //     echo " USuario ". $object->getUsuario();
 //     print_r( $object);
     
     if ($object->getUsuario()==$user && $object->getContrasena()==$userContr) {
         
         $_SESSION["username"]= $object->getUsuario();
-        $_SESSION["tipoUsu"]=$object->getTipo();  
+        $_SESSION["tipoUsu"]=$object->getTipo();
+        $_SESSION['idUsuario']=$object->getIdUsuario();  
         
-        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"]);   
+        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"], 'id'=> $_SESSION['idUsuario']);   
        
     }
 }
