@@ -7,6 +7,7 @@ class usuarioClass{
     protected $contrasena;
     protected $tipo;
     protected $email;
+    protected $imagen;
     /**
      * @return mixed
      */
@@ -37,6 +38,10 @@ class usuarioClass{
     public function getUsuario()
     {
         return $this->usuario;
+    }
+
+    public function getImagen(){
+        return $this->imagen;
     }
 
     /**
@@ -119,6 +124,9 @@ class usuarioClass{
         $this->email = $email;
     }
 
+    public function setImagen($imagen){
+        $this->imagen=$imagen;
+    }
     
     
  

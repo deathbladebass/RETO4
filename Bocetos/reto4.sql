@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-01-2020 a las 10:16:14
+-- Tiempo de generación: 22-01-2020 a las 10:17:52
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -63,8 +63,8 @@ INSERT INTO mensajes(mensajes.tipo, mensajes.asunto, mensajes.nombre, mensajes.m
 VALUES(ptipo, pAsunto, pNombre, pMensaje, pEmail, CURRENT_TIMESTAMP())$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertUser` (IN `pUser` VARCHAR(50), IN `pName` VARCHAR(50), IN `pPassw` VARCHAR(50), IN `pEmail` VARCHAR(50), IN `pApellido` VARCHAR(50), IN `pTipo` INT(1))  NO SQL
-INSERT INTO usuarios (usuarios.usuario, usuarios.nombre, usuarios.contrasenia, usuarios.email,  usuarios.apellido,usuarios.tipo)
-VALUES(pUser, pName, pPassw, pEmail, pApellido, pTipo)$$
+INSERT INTO usuarios (usuarios.usuario, usuarios.nombre, usuarios.contrasenia, usuarios.email,  usuarios.apellido,usuarios.tipo, usuario.imagen)
+VALUES(pUser, pName, pPassw, pEmail, pApellido, pTipo, "empty.jpg")$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spMensajes` ()  NO SQL
 SELECT * FROM `mensajes`$$
@@ -80,8 +80,8 @@ INNER JOIN equipos ON jugadores.idEquipo=equipos.idEquipo
 GROUP BY clasificacion.idJugador  
 ORDER BY `Puntuacion`  DESC$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `spUpdateUsuario` (IN `pId` INT, IN `pNombre` VARCHAR(40), IN `pApellido` VARCHAR(40), IN `pNickname` VARCHAR(40))  NO SQL
-UPDATE `usuarios` SET `nombre`=pNombre,`apellido`=pApellido,`usuario`=pNickname WHERE idUsuario=pId$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spUpdateUsuario` (IN `pId` INT, IN `pNombre` VARCHAR(40), IN `pApellido` VARCHAR(40), IN `pNickname` VARCHAR(40), IN `pImagen` VARCHAR(500))  NO SQL
+UPDATE `usuarios` SET `nombre`=pNombre,`apellido`=pApellido,`usuario`=pNickname, imagen=pImagen WHERE idUsuario=pId$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `spUsuarios` ()  NO SQL
 SELECT * FROM usuarios$$
@@ -292,20 +292,21 @@ CREATE TABLE `usuarios` (
   `usuario` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `contrasenia` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `tipo` int(1) NOT NULL,
-  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `imagen` varchar(500) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido`, `usuario`, `contrasenia`, `tipo`, `email`) VALUES
-(1, 'Adrian', 'Lopez', 'aLopez', '123', 2, 'alopez@gmail.com'),
-(2, 'Ibai', 'Acha', 'iAcha', '123', 2, 'iacha@gmail.com'),
-(3, 'Ekaitz', 'Gomez', 'eGomez', '123', 2, 'egomez@gmail.com'),
-(7, 'Markel', 'Rodriguez', 'mRodriguez', '123', 3, 'mRodri97@gmail.com'),
-(8, 'Bogdan', 'Bergie', 'bBergie', '123', 1, 'bergie@gmail.com'),
-(25, 'markel', 'Jodri', 'mRodri', '123', 1, 'aa@aa.ee');
+INSERT INTO `usuarios` (`idUsuario`, `nombre`, `apellido`, `usuario`, `contrasenia`, `tipo`, `email`, `imagen`) VALUES
+(1, 'Adrian', 'Lopez', 'aLopez', '123', 2, 'alopez@gmail.com', ''),
+(2, 'Ibai', 'Acha', 'iAcha', '123', 2, 'iacha@gmail.com', ''),
+(3, 'Ekaitz', 'Gomez', 'eGomez', '123', 2, 'egomez@gmail.com', 'hipopotamo.jpg'),
+(7, 'Markel', 'Rodriguez', 'mRodriguez', '123', 3, 'mRodri97@gmail.com', ''),
+(8, 'Bogdan', 'Bergie', 'bBergie', '123', 1, 'bergie@gmail.com', ''),
+(25, 'markel', 'Jodri', 'mRodri', '123', 1, 'aa@aa.ee', '');
 
 --
 -- Índices para tablas volcadas
