@@ -1,7 +1,7 @@
 $(document).on("ready", function () {
     var input = "";
     var savedFileBase64;
-    var filename;
+    var filename="";
     $.ajax({
         method: "get",
         url: "../controller/cUsuarioInfo.php",
@@ -25,15 +25,13 @@ $(document).on("ready", function () {
             <div class="modal-body">
                 Nombre:<input type="text" id="editNombre" class="editInput" value="${result.nombre}"><br/><br/>
                 apellido: <input type="text" id="editApellido" class="editInput" value="${result.apellido}"><br/><br/>
-                nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}">
+                nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}"><br/><br/>
                 <img id="cartelUpdate" src="" alt="">
 				<input type="file" id="fitxUpdate" /><br/>
 			</label> <button class="btn btn-primary" type="button" id="uploadUpdate">Preview</button>
                 </div>
 
-                <div id="filmPhoto">
-
-			</div>
+               
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" id="save" class="btn btn-primary">Save changes</button>
@@ -49,7 +47,7 @@ $(document).on("ready", function () {
                    <div class="well well-sm">
                        <div class="row">
                            <div class="col-sm-6 col-md-4">
-                               <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                               <img src="img/${result.imagen}" alt="" class="img-rounded img-responsive" />
                            </div>
                            <div class="col-sm-6 col-md-8">
                                <h4>
@@ -114,12 +112,13 @@ $(document).on("ready", function () {
 
 
                 $.ajax({
-                    method: "get",
+                    type: "Post",
                     url: "../controller/cEditUsuario.php",
                     dataType: "text",
-                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": result.idUsuario },
+                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": result.idUsuario ,"imagen":filename, 'savedFileBase64': savedFileBase64},
                     success: function (result) {
                         console.log(result);
+                        location.reload();
                     }, error: function (xhr) {
                         alert("An error occured: " + xhr.status + " " + xhr.statusText);
                     }
