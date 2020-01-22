@@ -75,17 +75,22 @@ class votacionModel extends votacionClass{
     public function setUserVote(){
         $this->OpenConnect();
         $id=$this->getIdUsuario();
-        $sql='call spVotacionUsuario('+$id+')';
+        
+        $sql='call spVotacionUsuario('.$id.')';
+        //echo $sql;
         $result=$this->link->query($sql);
         
-        if ($row = mysql_fetch_array($result, MYSQLI_ASSOC)){
-            $new= new votacionModel();
-            $new->setIdVotacion($row['idVotacion']);
-            $new->setIdJugador($row['idJugador']);
-            $new->setId($row['idUsuario']);
+        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
             
+            $new= new votacionModel();
+            $new->setIdVotacion($row['idVoto']);
+            $new->setIdUsuario($row['idUsuario']);
+            $new->setIdJugador($row['idJugador']);
+            $new->setIdCategoria($row['idCategoria']);
+            
+            array_push($this->list, $new);
         }
-        mysql_free_result($result);
+        mysqli_free_result($result);
         $this->CloseConnect();
     }
 
@@ -101,6 +106,18 @@ class votacionModel extends votacionClass{
         $result=$this->link->query($sql);
 
         $this->CloseConnect();
+    }
+    
+    public function getListString(){
+        $arr=array();
+        
+        foreach ($this->list as $object)
+        {
+            $vars = $object->getObjectVars();
+            
+            array_push($arr, $vars);
+        }
+        return json_encode($arr);
     }
 
 }

@@ -5,6 +5,23 @@ class votacionClass{
         protected $idVotacion;
         protected $idUsuario;
         protected $idJugador;
+        protected $idCategoria;
+        /**
+         * @return mixed
+         */
+        public function getIdCategoria()
+        {
+            return $this->idCategoria;
+        }
+    
+        /**
+         * @param mixed $idCategoria
+         */
+        public function setIdCategoria($idCategoria)
+        {
+            $this->idCategoria = $idCategoria;
+        }
+    
         /**
          * @return mixed
          */
@@ -53,7 +70,11 @@ class votacionClass{
             $this->idJugador = $idJugador;
         }
     
-
+        function getObjectVars()
+        {
+            $vars = get_object_vars($this);
+            return  $vars;
+        }
         
     
     
