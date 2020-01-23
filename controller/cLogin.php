@@ -1,6 +1,8 @@
 <?php
-header('Access-Control-Allow-Origin *');
-session_start();
+header('Access-Control-Allow-Origin: *');
+
+header('Access-Control-Allow-Methods: *');
+//session_start();
 
 if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
     include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioModel.php';
@@ -18,7 +20,18 @@ $usuarios=$login->getList();
 $user=filter_input(INPUT_GET, 'usuario');
 $userContr=filter_input(INPUT_GET, 'pass');
 
+include_once('cIniciarSesion.php'); // session_start();
 
+/*     $ceroEId=array();
+
+    $ceroEId['PHPSESSID']=$PHPSESSID;
+
+    $ceroEId['cero']=0;
+
+    $ceroEId=json_encode($ceroEId);
+
+    $PHPSESSID=session_id();
+ */
 // //echo $contrasena;
 
 // echo "Insertado: ".$user;
@@ -37,10 +50,10 @@ foreach ($usuarios as $object){
         $_SESSION["username"]= $object->getUsuario();
         $_SESSION["tipoUsu"]=$object->getTipo();
         $_SESSION['idUsuario']=$object->getIdUsuario();  
-        
-        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"], 'id'=> $_SESSION['idUsuario']);   
+        $_SESSION['PHPSESSID']=$PHPSESSID;
+        $resultado=array('username' => $_SESSION["username"], 'tipoUsu' => $_SESSION["tipoUsu"], 'id'=> $_SESSION['idUsuario'], 'PHPSESSID'=>$_SESSION['PHPSESSID']);   
        
+        echo json_encode($resultado);
     }
 }
 
-echo json_encode($resultado);

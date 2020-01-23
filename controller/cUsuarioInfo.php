@@ -1,12 +1,12 @@
 <?php
 header('Access-Control-Allow-Origin *');
-session_start();
+
 if ($_SERVER['SERVER_NAME'] == "grupo1.dominios.fpz1920.com") {
     include_once $_SERVER['DOCUMENT_ROOT'].'/model/usuarioModel.php';
 }else {
     include_once $_SERVER['DOCUMENT_ROOT'].'/Reto4/model/usuarioModel.php';
 }
-
+include_once('cIniciarSesion.php');
 $usuario = new usuarioModel();
 //print_r($_SESSION['username']);
 $usuario->setUsuario( $_SESSION['username']);
