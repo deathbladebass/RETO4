@@ -175,30 +175,30 @@ $(document).ready(function () {
 			alert("Rellena la contraseña")
 		} else {
 			/* Comprobar usu y contraseña*/
-			alert("else");
+			
 			
 			$.ajax({
 				type: "GET",
 				data: { 'usuario': usu, 'pass': pass },
 				url: "controller/cLogin.php",
-				dataType: "json",  //type of the result
-
+				dataType: "JSON",  //type of the result
+				
 				success: function (result) {
-
-					console.log(sessionData);
-
+						
+					console.log(result);
+					
 					htmlLogin = "";
 					htmlRegister = "";
 					htmlAdminNav = "";
 
-					if (sessionData.tipoUsu == 0) {
+					if (result.tipoUsu == 0) {
 						htmlRegister += '<li><a class="waves-effect waves-light modal-trigger" href="#modalRegistrar">Registrarse</a></li>'
 						htmlLogin += '<li><a class="waves-effect waves-light modal-trigger" href="#modalLogin">Log in</a></li>'
 						$('.registerNav').html(htmlRegister);
 					} else {
 						htmlLogin += '<li>Bienvenido <b>' + result.username + '</b></li>'
 					}
-
+					alert(result);
 					$('.loginNav').html(htmlLogin);
 					localStorage.setItem("PHPSESSID", result.PHPSESSID);
 					localStorage.setItem("usuario", result.username);

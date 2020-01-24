@@ -2,6 +2,7 @@ $(document).on("ready", function () {
     var input = "";
     var savedFileBase64;
     var filename="";
+
     $.ajax({
         method: "get",
         url: "../controller/cUsuarioInfo.php",
@@ -12,60 +13,41 @@ $(document).on("ready", function () {
             $("body").append(
                 /*html*/ `
                 <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Nombre:<input type="text" id="editNombre" class="editInput" value="${result.nombre}"><br/><br/>
-                apellido: <input type="text" id="editApellido" class="editInput" value="${result.apellido}"><br/><br/>
-                nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}"><br/><br/>
-                <img id="cartelUpdate" src="" alt="">
-				<input type="file" id="fitxUpdate" /><br/>
-			</label> <button class="btn btn-primary" type="button" id="uploadUpdate">Preview</button>
-                </div>
-
-               
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="save" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>`
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>Editar Usuario</h4>
+                        Nombre:<input type="text" id="editNombre" class="editInput" value="${result.nombre}"><br/><br/>
+                        apellido: <input type="text" id="editApellido" class="editInput" value="${result.apellido}"><br/><br/>
+                        nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}"><br/><br/>
+                        <img id="cartelUpdate" src="" alt="">
+			            <input type="file" id="fitxUpdate" /><br/>
+		                </label> <button class="btn btn-primary" type="button" id="uploadUpdate">Preview</button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="save" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>`
             )
-            $('.container').append(
+            $('body >   .container').append(
                /*html*/ `
-               <div class="row">
-               <div class="col-xs-12 col-sm-8 col-md-8">
-                   <div class="well well-sm">
-                       <div class="row">
-                           <div class="col-sm-6 col-md-4">
-                               <img src="img/${result.imagen}" alt="" class="img-rounded img-responsive" />
-                           </div>
-                           <div class="col-sm-6 col-md-8">
-                               <h4>
-                                   ${result.nombre} "${result.usuario}" ${result.apellido}
-                                   </h4>
-                               
-                               <p>
-                                   <i class="glyphicon glyphicon-envelope"></i>${result.email}<br/>
-                                   <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                               <!-- Split button -->
-                                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                       Editar
-                                   </button>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>`
+   <div class="row">
+   <div class="col s9 m6">
+     <div class="card">
+       <div class="card-image">
+         <img src="img/${result.imagen}">
+       </div>
+       <div class="card-content">
+         <ul><li><span>Usuario: ${result.nombre} "${result.usuario}" ${result.apellido}</span></li>
+         <br/>  
+         <li><span>Email:${result.email}</span></li></ul>
+       </div>
+       <div class="card-action">
+         <a class="blue darken-4 btn modal-trigger" href="#modal1">Editar Usuario</a>
+       </div>
+     </div>
+   </div>
+ </div>`
             );
             $(".editInput").on("click", function () {
 
