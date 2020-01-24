@@ -4,7 +4,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
 	
 	$http({
 		method: "get",
-		url: "../controller/cNav.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cNav.php",
 	}).then(function mySuccess(result){
 		var user=result.data;
 		
@@ -18,7 +18,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
     $scope.categoria = [];
     $http({
         method: "get",
-        url: "../controller/cAdminCategoria.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminCategoria.php",
     }).then(function mySucces(result) {
 
 
@@ -32,7 +32,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
     }
     $http({
         method: "get",
-        url: "../controller/cAdminEquipo.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminEquipo.php",
     }).then(function mySucces(result) {
         $scope.equipo = result.data;
         console.log($scope.equipo);
@@ -45,7 +45,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
 
         $http({
             method: "get",
-            url: "../controller/cBorrarEquipo.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cBorrarEquipo.php",
             params: { id: x }
         }).then(function () {
             location.reload();
@@ -76,7 +76,7 @@ miAplicacion.controller('equipo', function ($scope, $http) {
         if (num != -1) {
             $http({
                 method: "get",
-                url: "../controller/cModificarEquipo.php",
+                url: "http://uno.fpz1920.com/Reto4/controller/cModificarEquipo.php",
                 params: { nombre: $scope.nombre, categoria: num, id: $scope.idEquipo }
             }).then(function (response) {
 
@@ -106,7 +106,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
     $scope.jugador = [];
     $http({
         method: "get",
-        url: "../controller/cAdminJugador.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminJugador.php",
     }).then(function mySucces(result) {
         console.log(result);
         $scope.jugador = result.data;
@@ -173,7 +173,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
                 var insertJson = JSON.stringify(insertDatos);
                 $http({
                     method: "get",
-                    url: "../controller/cInsertJugador.php",
+                    url: "http://uno.fpz1920.com/Reto4/controller/cInsertJugador.php",
                     params: { dataJugador: insertJson }
                 }).then(function (response) {
                     console.log(response);
@@ -185,11 +185,6 @@ miAplicacion.controller('jugador', function ($scope, $http) {
                 });
             }
         }
-
-
-
-
-
 
     }
 
@@ -260,7 +255,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
             } else {
                 $http({
                     method: "get",
-                    url: "../controller/cModificarJugador.php",
+                    url: "http://uno.fpz1920.com/Reto4/controller/cModificarJugador.php",
                     params: { id: $scope.datos.id, nombre: $scope.datos.nombre, nickname: $scope.datos.nickname, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: fecha, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email, idEquipo: idEquipo }
                 }).then(function () {
                     location.reload();
@@ -280,7 +275,7 @@ miAplicacion.controller('jugador', function ($scope, $http) {
 
         $http({
             method: "get",
-            url: "../controller/cBorrarJugador.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cBorrarJugador.php",
             params: { id: x }
         }).then(function () {
             location.reload();
@@ -301,7 +296,7 @@ miAplicacion.controller('categoria', function ($scope, $http) {
     $scope.categoria = [];
     $http({
         method: "get",
-        url: "../controller/cAdminCategoria.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminCategoria.php",
     }).then(function mySucces(result) {
         console.log(result);
         $scope.categoria = result.data;
@@ -315,7 +310,7 @@ miAplicacion.controller('categoria', function ($scope, $http) {
 
         $http({
             method: "get",
-            url: "../controller/cBorrarCategoria.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cBorrarCategoria.php",
             params: { id: x }
         }).then(function () {
             location.reload();
@@ -333,7 +328,7 @@ miAplicacion.controller('categoria', function ($scope, $http) {
     $scope.modificarCategoria = function () {
         $http({
             method: "get",
-            url: "../controller/cModificarCategoria.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cModificarCategoria.php",
             params: { id: $scope.id, nombre: $scope.nombre, abreviatura: $scope.abreviatura },
         }).then(function () {
             location.reload();
@@ -357,7 +352,7 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
     $scope.mensaje = [];
     $http({
         method: "get",
-        url: "../controller/cAdminMensaje.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminMensaje.php",
     }).then(function mySucces(result) {
         console.log(result);
         $scope.mensaje = result.data;
@@ -370,7 +365,7 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
 
         $http({
             method: "get",
-            url: "../controller/cBorrarMensaje.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cBorrarMensaje.php",
             params: { id: x }
         }).then(function () {
             location.reload();
@@ -407,7 +402,7 @@ miAplicacion.controller('mensaje', function ($scope, $http) {
         }else {
             $http({
                 method: "get",
-                url: "../controller/cModificarMensaje.php",
+                url: "http://uno.fpz1920.com/Reto4/controller/cModificarMensaje.php",
                 params: { id: $scope.id, nombre: $scope.nombre, tipo: $scope.tipo, mensaje: $scope.mensajeAngular, email: $scope.email, fecha: fechaString, asunto: $scope.asunto },
             }).then(function () {
                 location.reload();
@@ -424,7 +419,7 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
     $scope.cuerpoTecnico = [];
     $http({
         method: "get",
-        url: "../controller/cAdminCuerpoTecnico.php",
+        url: "http://uno.fpz1920.com/Reto4/controller/cAdminCuerpoTecnico.php",
     }).then(function mySucces(result) {
         console.log(result);
         $scope.cuerpoTecnico = result.data;
@@ -484,7 +479,7 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
             } else {
                 $http({
                     method: "get",
-                    url: "../controller/cModificarCuerpoTecnico.php",
+                    url: "http://uno.fpz1920.com/Reto4/controller/cModificarCuerpoTecnico.php",
                     params: { id: $scope.datos.id, nombre: $scope.datos.nombre, apellido: $scope.datos.apellido, dni: $scope.datos.dni, fechaNacimiento: fecha, numTel: $scope.datos.numTel, rol: $scope.datos.rol, direccion: $scope.datos.direccion, email: $scope.datos.email },
                 }).then(function mySucces() {
                     location.reload();
@@ -497,7 +492,7 @@ miAplicacion.controller('cuerpoTecnico', function ($scope, $http) {
     $scope.borrar = function (x) {
         $http({
             method: "get",
-            url: "../controller/cBorrarCuerpoTecnico.php",
+            url: "http://uno.fpz1920.com/Reto4/controller/cBorrarCuerpoTecnico.php",
             params: { id: x }
         }).then(function () {
             location.reload();

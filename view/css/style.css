@@ -53,7 +53,17 @@ footer.page-footer {
 @media only screen and (max-width: 600px) {
 	.carousel{
 		display: none;
-	}
+  }
+  /*li#bienvenido {
+    color: black;
+    margin-left: 10%;*/
+}
+@media only screen and (max-width:990px){
+  li#bienvenido {
+    color: black;
+    margin-left: 10%;
+}
+
 }
 .card .card-action{	
 	white-space: nowrap;

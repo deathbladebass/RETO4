@@ -41,7 +41,7 @@
     		  $.ajax({
     		       	type:"GET",
     		       	data:{'nombre':fnombre, 'email':femail, 'tipo':ftipo, 'asunto':fasunto, 'mensaje':fmensaje},
-    		       	url: "../controller/cMensaje.php", 
+    		       	url: "http://uno.fpz1920.com/Reto4/controller/cMensaje.php", 
     		    	dataType: "text",  //type of the result
     		       	
     		    	success: function(result){  

@@ -5,7 +5,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 	//tipo usu
 	$http({
 		method: "get",
-		url: "../controller/cNav.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cNav.php",
 		responseType:'json'
 	}).then(function mySuccess(result){
 //		console.log(result);
@@ -15,7 +15,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 	//EquiposJugadores
 	$http({
 		method: "get",
-		url: "../controller/cJugadoresCategoriasE.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cJugadoresCategoriasE.php",
 	}).then(function mySuccess(result){
 		//console.log(result);
 		$scope.equipos=result.data;
@@ -35,7 +35,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 	//Jugadores
 	$http({
 		method: "get",
-		url: "../controller/cJugadoresCategoriasJ.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cJugadoresCategoriasJ.php",
 	}).then(function mySuccess(result){
 		console.log(result);
 		$scope.jugadores=result.data;
@@ -51,7 +51,7 @@ miAplicacion.controller('jugadoresCategoria', function ($scope, $http) {
 	//Categoria
 	$http({
 		method: "get",
-		url: "../controller/cJugadoresCategoriasC.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cJugadoresCategoriasC.php",
 	}).then(function mySuccess(result){
 		//console.log(result);
 		$scope.categorias=result.data;
