@@ -10,8 +10,9 @@ color: #999;
    
     max-width: 150px;
 }
-body > .container{
-    
+.card-content>*{
+  font-weight: bold;
+  font-size: 15px;
 }
 
 nav ul a,

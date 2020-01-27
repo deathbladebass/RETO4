@@ -1,24 +1,25 @@
 $(document).on("ready", function () {
     var input = "";
     var savedFileBase64;
-    var filename="";
+    var filename = "";
+    var id = localStorage.getItem("PHPSESSID");
 
     $.ajax({
         method: "get",
-        url: "../controller/cUsuarioInfo.php",
-        dataType: "json",
-
+        url: "http://uno.fpz1920.com/Reto4/controller/cUsuarioInfo.php",
+        dataType: "JSON",
+        data: { "PHPSESSID": id },
         success: function (result) {
             console.log(result);
             $("body").append(
                 /*html*/ `
                 <!-- Modal -->
-                <div id="modal1" class="modal">
+                <div id="modalEditar" class="modal">
                     <div class="modal-content">
                         <h4>Editar Usuario</h4>
-                        Nombre:<input type="text" id="editNombre" class="editInput" value="${result.nombre}"><br/><br/>
-                        apellido: <input type="text" id="editApellido" class="editInput" value="${result.apellido}"><br/><br/>
-                        nickname: <input type="text" id="editNick" class="editInput" value="${result.usuario}"><br/><br/>
+                        Nombre:<input type="text" id="editNombre" class="editInput" value="${result[0].nombre}"><br/><br/>
+                        apellido: <input type="text" id="editApellido" class="editInput" value="${result[0].apellido}"><br/><br/>
+                        nickname: <input type="text" id="editNick" class="editInput" value="${localStorage.getItem("usuario")}"><br/><br/>
                         <img id="cartelUpdate" src="" alt="">
 			            <input type="file" id="fitxUpdate" /><br/>
 		                </label> <button class="btn btn-primary" type="button" id="uploadUpdate">Preview</button>
@@ -35,20 +36,21 @@ $(document).on("ready", function () {
    <div class="col s9 m6">
      <div class="card">
        <div class="card-image">
-         <img src="img/${result.imagen}">
+         <img src="http://uno.fpz1920.com/Reto4/imagenes/${result[0].imagen}">
        </div>
        <div class="card-content">
-         <ul><li><span>Usuario: ${result.nombre} "${result.usuario}" ${result.apellido}</span></li>
+         <ul><li><span>Usuario: ${result[0].nombre} "${localStorage.getItem("usuario")}" ${result[0].apellido}</span></li>
          <br/>  
-         <li><span>Email:${result.email}</span></li></ul>
+         <li><span>Email:${result[0].email}</span></li></ul>
        </div>
        <div class="card-action">
-         <a class="blue darken-4 btn modal-trigger" href="#modal1">Editar Usuario</a>
+         <a class="blue darken-4 btn modal-trigger" href="#modalEditar">Editar Usuario</a>
        </div>
      </div>
    </div>
  </div>`
             );
+            $('.modal').modal();
             $(".editInput").on("click", function () {
 
                 if ($(this).val() != "") {
@@ -95,11 +97,9 @@ $(document).on("ready", function () {
 
                 $.ajax({
                     type: "Post",
-                    url: "../controller/cEditUsuario.php",
-                    dataType: "text",
-                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": result.idUsuario ,"imagen":filename, 'savedFileBase64': savedFileBase64},
-                    success: function (result) {
-                        console.log(result);
+                    url: "http://uno.fpz1920.com/Reto4/controller/cEditUsuario.php",
+                    data: { "nombre": nombre, "apellido": apellido, "nickname": nick, "idUsuario": result[0].idUsuario, "imagen": filename, 'savedFileBase64': savedFileBase64 },
+                    success: function () {
                         location.reload();
                     }, error: function (xhr) {
                         alert("An error occured: " + xhr.status + " " + xhr.statusText);
