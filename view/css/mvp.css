@@ -1,0 +1,122 @@
+body{
+	background: linear-gradient(-45deg, rgb(196, 196, 196), #fff);
+	background-size: 500% 500%;
+    animation: gradient 10s ease infinite;
+}
+
+.containerCards{
+    margin: 10vh !important;
+    width: auto !important;
+}
+
+#banner-main{
+    padding:10px;
+    margin:-1px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.cardVoto{
+    background-image: linear-gradient(white, whitesmoke);
+    margin: 2vh;
+    border-radius: 5px;
+    padding:5px;
+}
+
+.cardVotoMVP{
+    background-color: #1e88e5;
+    background-image: linear-gradient(#1e88e5, #1976d2 );
+    margin: 2vh;
+    border-radius: 5px;
+    padding:5px;
+}
+
+img{
+    width: 16vh;
+    border-radius: 5px;
+    margin-top:1vh;
+}
+
+p{
+    font-size:15px;
+    margin-bottom: 1vh;
+
+}
+
+
+a:hover{
+    text-decoration: none !important;
+}
+
+.divApp{
+    height: 150px;
+    padding: 30px;
+    background: #1e88e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.tituloApp{
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-fill-color: #fff;
+    max-width: 350px;
+    text-transform: uppercase;
+    line-height: .77;
+    
+  }
+
+  h1{
+    font-size: 50px;
+    font-weight: bold !important;
+    -webkit-text-fill-color: black;
+    max-width: 350px  !important;
+    text-transform: uppercase  !important;
+    line-height: .77  !important; 
+  }
+
+
+  h3{
+      color:white;
+      padding:1vh;
+  }
+
+.imgEquipos{
+    width:35px;
+    float:left;
+}
+
+.jugadoresVotosNexus{
+    margin-top:10px;
+}
+
+.imgMenu{
+    width: 500px;
+}
+
+.menuDiv {
+    height: 11vh;
+    
+}
+
+.fontMenu{
+    font-family: 'Oswald', sans-serif;
+}
+
+.jugadorList{
+    color:black;
+    text-shadow: none;
+}
