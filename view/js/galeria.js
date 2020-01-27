@@ -2,20 +2,20 @@ var userType=0;
 $(document).ready(function(){
 	  //Inicia script de imagenes
 	  
-	  
+	var PHPSESSID=localStorage.getItem('PHPSESSID');
 	  
 	  
 	  //Ajax Img
 	  $.ajax({
 			 type:"GET",
-
+			 data: {PHPSESSID:PHPSESSID || ''},
 			 url: "http://uno.fpz1920.com/Reto4/controller/cNav.php", 
 			 dataType: "json",  //type of the result
 			    
 			 success: function(sessionData){
  
 			 userType=sessionData.tipoUsu;
-			
+		
 	
 				 console.log('Tipo: '+userType);
 				 var publico="";
