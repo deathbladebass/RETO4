@@ -49,7 +49,7 @@ $(document).ready(function(){
 							for (var i = 0; i < result.length; i++) {
 								 if (result[i].privada==1) {
 									 privado+='<div class="col l4 m6 s12">'
-										 privado+='<img class="materialboxed imgGaleria" src="http://uno.fpz1920.com/Reto4/imagenes/privadas/'+result[i].ruta+'">'
+										 privado+='<img class="materialboxed imgGaleria" src="http://uno.fpz1920.com/Reto4/imagenes/privadas/'+result[i].ruta+'?PHPSESSID='+PHPSESSID+'">'
 										 privado+='</div>'
 								}
 							}
