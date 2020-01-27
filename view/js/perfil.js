@@ -50,7 +50,18 @@ $(document).on("ready", function () {
    </div>
  </div>`
             );
+            //Hace que el dropdown de opciones se despliegue
+            document.addEventListener('DOMContentLoaded', function () {
+                var elems = document.querySelectorAll('.dropdown-trigger');
+                var instances = M.Dropdown.init(elems, options);
+            });
+            // Or with jQuery
+            $('.dropdown-trigger').dropdown();
+
             $('.modal').modal();
+
+
+            
             $(".editInput").on("click", function () {
 
                 if ($(this).val() != "") {

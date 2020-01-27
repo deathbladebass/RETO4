@@ -68,12 +68,7 @@ $(document).ready(function () {
 	}
 
 	//Hace que el dropdown de opciones se despliegue
-	document.addEventListener('DOMContentLoaded', function () {
-		var elems = document.querySelectorAll('.dropdown-trigger');
-		var instances = M.Dropdown.init(elems, options);
-	});
-	// Or with jQuery
-	$('.dropdown-trigger').dropdown();
+	
 
 	//Muestra todos los modales
 	$('.modal').modal();
