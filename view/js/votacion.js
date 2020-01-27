@@ -2,6 +2,9 @@ var miAplicacion = angular.module('miAplicacion', []);
 
 
 miAplicacion.controller('votacion', function ($scope, $http) {
+	var PHPSESSID=localStorage.getItem('PHPSESSID');
+	//alert(PHPSESSID);
+	//console.log(PHPSESSID);
 	var datos;
 	var votos=0;
 	$scope.equipos;
@@ -10,13 +13,16 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 		window.location.replace("../index.html");
 	}
 	
-	
-	//Session
 	$http({
 		method: "get",
-		url: "../controller/cNav.php",
+		params: {PHPSESSID:PHPSESSID || ''},
+		url: "http://uno.fpz1920.com/Reto4/controller/cNav.php",
 	}).then(function mySuccess(result){
 		
+		if(typeof result.PHPSESSID !== 'undefined'){
+			sessionStorage.setItem('PHPSESSID',result.PHPSESSID);
+		}
+
 		console.log(result);
 		$scope.user=result.data;
 		
@@ -38,7 +44,7 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 	//Equipos Categorias
 	$http({
 		method: "get",
-		url: "../controller/cJugadoresCategoriasE.php",
+		url: "http://uno.fpz1920.com/Reto4/controller/cJugadoresCategoriasE.php",
 	}).then(function mySuccess(result){
 		
 		console.log(result);
@@ -75,7 +81,7 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 	//Categorias
 		$http({
 			method: "get",
-			url: "../controller/cJugadoresCategoriasJ.php",
+			url: "http://uno.fpz1920.com/Reto4/controller/cJugadoresCategoriasJ.php",
 		}).then(function mySuccess(result){
 			
 			console.log(result);
@@ -90,12 +96,17 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 		
 		$scope.usuarioData=function(datos){
 		//Comprobacion si has votado
-			$http({
+		//datos["PHPSESSID"] = (sessionStorage.getItem('PHPSESSID') || '');
+			//alert(datos);
+			$http({	
 				method: "get",
-				params: {data:datos},
-				url: "../controller/cVotacionUsuario.php",
+				params: {'data':datos},
+				url: "http://uno.fpz1920.com/Reto4/controller/cVotacionUsuario.php",
 			}).then(function mySuccess(result){
-			
+				if(typeof result.PHPSESSID !== 'undefined'){
+					sessionStorage.setItem('PHPSESSID',result.PHPSESSID);
+				}
+	 
 				console.log(result);
 				$scope.votacion=result.data;
 				
@@ -116,7 +127,7 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 			$http({
 				method: "GET",
 				params: {data:datos},
-				url: "../controller/cVotar.php",
+				url: "http://uno.fpz1920.com/Reto4/controller/cVotar.php",
 			}).then(function mySuccess(){
 
 				//Ocultar los botones o todo el bloque

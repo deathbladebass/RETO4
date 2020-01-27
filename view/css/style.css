@@ -1,0 +1,340 @@
+/* --------- 			index.html 			------------ */
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+  text-align:justify;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+ }
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+.tamanoImagen{
+	background-position:center !important;
+	background-size: cover !important;
+	height:100%;
+}
+
+.dropdown-content{
+	width: 50px;
+}
+.dropdown-trigger{
+	width: 130px;
+}
+.card-action{
+	border-radius:5px !important;
+}
+.cardTamano{
+	heigth: 25% !important;
+}
+.iconoColor{
+	 fill: green;
+}
+/*Oculta el carousel en moviles*/
+@media only screen and (max-width: 600px) {
+	.carousel{
+		display: none;
+  }
+  /*li#bienvenido {
+    color: black;
+    margin-left: 10%;*/
+}
+@media only screen and (max-width:990px){
+  li#bienvenido {
+    color: black;
+    margin-left: 10%;
+}
+
+}
+.card .card-action{	
+	white-space: nowrap;
+}
+.sidenav li > a {
+    color: rgba(0, 0, 0, 0.87) !important;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+}
+@media only screen and (max-width: 601px){
+	#bienvenido{
+		color:black;
+		margin-left: 30px;
+	}
+}
+
+.
+
+/* --------- 			Contacto.html 			------------ */
+
+.background-contacto{
+	background-image: url("../img/bgContacto.png");
+ 	
+}
+
+.grid-container{
+	display: grid;
+	grid-template-areas:
+    'nombre nombre nombre email email email'
+    'tipo tipo asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
+    border-radius:10px;
+    margin:75px;
+    margin-top:0;
+    padding:15px;
+	background: rgb(13,71,161);
+	background: linear-gradient(0deg, rgba(13,71,161,0) 0%, rgba(13,71,161,0.3113620448179272) 53%, rgba(36,72,159,0.6194852941176471) 100%);
+}
+
+.grid-nombre{
+	grid-area: nombre;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+}
+.grid-email{
+	grid-area: email;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-tipo{
+	grid-area: tipo;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-asunto{
+	grid-area: asunto;
+	margin:10px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+.grid-mensaje{
+	grid-area: mensaje;
+	margin:10px;
+	height:200px;
+	background-color: rgba(255, 255, 255, 0.3);
+	border-radius:10px;
+	padding:10px;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+	}
+	
+textarea {
+	height:84%;
+	border: none;
+	border-bottom: 1px solid lightgray;
+	resize: none;
+	
+}
+.grid-submit{
+	grid-area: submit;
+	margin-top:50px;
+	text-align:center;
+	transition: background-color 1s;
+	webkit-transition: background-color 1s;
+}
+	
+.iconosrrss {
+	margin-right:20px;
+}
+	
+.tituloContacto{
+	font-family: 'Teko', sans-serif;
+	font-size:80px;
+}
+
+
+/* 				JugadoresCategorias.html				 */
+.sidenavBoton{
+	margin:20px;
+	float:left;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+/* Media Query */
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+  
+  .grid-container{	
+    margin:10px;
+    grid-template-areas:
+    'nombre nombre nombre nombre nombre nombre'
+    'email email email email email email'
+    'tipo tipo tipo tipo tipo tipo'
+    'asunto asunto asunto asunto asunto asunto'
+    'mensaje mensaje mensaje mensaje mensaje mensaje'
+    'submit submit submit submit submit submit';
+  }
+}
+
+/* 		------ HeaderJugadores ------		*/
+
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i');
+html,body{
+  margin:0;
+  height:120%;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+a{
+  text-decoration:none
+}
+#header{
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  height:50vw;
+  min-height:400px;
+  max-height:550px;
+  min-width:300px;
+  color:#eee;
+}
+#header:after{
+  content:"";
+  width:100%;
+  height:100%;
+  position:absolute;
+  bottom:0;
+  left:0;
+  z-index:-1;
+ background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
+}
+#header:before{
+  content:"";
+  width:100%;
+  height:200%;
+  position:absolute;
+  top:0;
+  left:0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0); backface-visibility: hidden;
+  scale(1.0, 1.0);
+    transform: translateZ(0);
+  background:#1B2030 url(../img/headerJugadores.jpg) 50% 0 no-repeat;
+  background-size:100%;
+  background-attachment:fixed;
+  animation: grow 360s  linear 10ms infinite;
+  transition:all 0.4s ease-in-out;
+  z-index:-2
+}
+#header a{
+  color:#eee
+}
+
+.info{
+  flex: 0 0 auto;
+  width:50%
+}
+.info{
+  width:100%;
+  padding:15% 10% 0 10%;
+  text-align:center;
+  text-shadow:0 2px 3px rgba(0,0,0,0.2)
+}
+
+.info h4, .meta{
+  font-size:0.7em
+}
+.meta{
+  font-style:italic;
+}
+@keyframes grow{
+  0% { transform: scale(1) translateY(0px)}
+  50% { transform: scale(1.2) translateY(-400px)}
+}
+
+.card.horizontal .card-image {
+    max-width: 100%;
+}
+@media only screen and (max-width: 601px){
+	.row .col.m3 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+	}   
+    .row .col.s3 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+	}
+	h6 {
+    font-size: 1.40rem;
+    line-height: 110%;
+    margin: 0.7666666667rem 0 0.46rem 0;
+	}
+}
+@media only screen and (max-width: 800px){
+	.card.horizontal .card-image {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+	}
+}
+.card.horizontal .card-image #imagenEquipo{
+    width: 60%;
+    margin: auto;
+}
+.row .col.s6 {
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
