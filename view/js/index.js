@@ -32,8 +32,8 @@
 						 htmlBanner+='</a>'
 					 htmlBanner+='</div>'
 		  		
-					 htmlLogin+='<li id="bienvenido">Bienvenido <b>'+sessionData.username+'</b></li>'			
-					 htmlLogOutNav+='<li id="LogOutButton"><a href="#">Log Out</a></li>'
+					 htmlLogin += '<li id="bienvenido"><a href="view/perfil.html">Bienvenido <b>' + sessionData.username + '</b></a></li>'			
+					 htmlLogOutNav+='<li class="LogOutButton"><a href="#">Log Out</a></li>'
 						 $('.logOutNav').show();
 				 }
 				 
@@ -51,12 +51,12 @@
 				 $('.adminNav').html(htmlAdminNav);
 				 $('.logOutNav').html(htmlLogOutNav);
 				 
-				 $('#LogOutButton').click(function(){
+				 $('.LogOutButton').click(function(){
 					alert("LogOut");
 					$.ajax({
 						type:"GET",
 						url: "http://uno.fpz1920.com/Reto4/controller/cLogOut.php", 
-						datatype: "text",  //type of the result
+						data:{'PHPSESSID':PHPSESSID},
 					   
 						success: function(result){  
 							localStorage.removeItem("PHPSESSID");		

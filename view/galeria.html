@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Inicio</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/galeria.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://kit.fontawesome.com/661afcc94b.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Teko:300&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="img/paradox.png"/>
+  
+</head>
+<body>
+  <nav class="blue darken-4" role="navigation">
+    <div class="nav-wrapper container ">
+      <a id="logo-container" href="../index.html" class="brand-logo"><img src="img/paradox.png" width="130px"></a>
+      <ul class="right hide-on-med-and-down">
+      <li class="loginNav ">
+      
+      </li>
+      <li class="registerNav">
+      
+      </li>
+        
+    	<li>
+        <a class="white-text dropdown-trigger waves-effect waves-light " href="#" data-target='dropdown1'>Opciones</a>
+        </li>
+        </ul>
+        <!-- Dropdown Menu -->
+        <ul id='dropdown1' class='dropdown-content'>
+    		<li><a href="jugadoresCategorias.html">Datos de los equipos</a></li>
+    		<li><a href="contacto.html">Sugerencias</a></li>
+    		<li class="adminNav">
+    		
+    		</li>
+    		<li class="logOutNav">
+    		
+    		</li>
+      	</ul>
+
+      <ul id="nav-mobile" class="sidenav">
+     	 <div width="100%" class="center-align blue darken-4">  <img src="img/paradox.png" width="130px"></div>
+        	<li class="loginNav">
+      
+      	</li>
+      	<li class="registerNav">
+      	</li>
+      	<li><a href="jugadoresCategorias.html">Datos de los equipos</a></li>		
+      	<li><a href="contacto.html">Sugerencias</a></li>
+      	<li class="adminNav">
+      
+      	</li>
+      	<li class="logOutNav">
+    		
+    		</li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+	
+	 <!-- Modal Login -->
+
+  <div id="modalLogin" class="modal">
+    <div class="modal-content">
+      <h4>LOGIN</h4>
+      <p>Introduzca su usuario y contraseña</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuario" type="text" class="validate">
+          <label for="usuario">Usuario</label>
+        </div>
+      </div>
+      <!--  contrasena -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="pass" type="password" class="validate">
+          <label for="pass">Contraseña</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnLogin" class="modal-close waves-effect waves-green btn-flat">Login</button>
+    </div>
+  </div>
+  
+  
+  <!--              Modal Register                  -->
+  
+  <div id="modalRegistrar" class="modal">
+    <div class="modal-content">
+      <h4>REGISTRO</h4>
+      <p>Introduzca sus datos</p>
+      <!--  usuario -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="usuarioReg" type="text" class="validate">
+          <label for="usuarioReg">Usuario</label>
+        </div>
+      </div>
+      <!--  nombre -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="nombreReg" type="text" class="validate">
+          <label for="nombreReg">Nombre</label>
+        </div>
+      </div>
+      <!--  apellido -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="apellidoReg" type="text" class="validate">
+          <label for="apellidoReg">Apellido</label>
+        </div>
+      </div>
+      <!--  contraseña -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="passReg" type="password" class="validate">
+          <label for="passReg">Contraseña</label>
+        </div>
+      </div>
+      <!--  email -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="emailReg" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="validate">
+          <label for="emailReg">Email</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="btnRegistrar" class="modal-close waves-effect waves-green btn-flat">Registrar</button>
+    </div>
+  </div>
+  <!--              Fin Modal Register                  -->
+  
+  <!-- Galeria -->
+  <h1 class="center-align tituloContacto">GALERIA PUBLICA</h1>
+  <div class="row" id="publicas">
+
+      
+
+    </div>
+    
+    <h1 class="center-align tituloContacto">GALERIA PRIVADA</h1>
+  <div class="row" id="privadas">
+
+      
+
+    </div>
+  
+  <!-- Fin Galeria -->
+
+<!--             Footer                  -->
+  <footer class="page-footer blue darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Sobre Nosotros</h5>
+          <p class="grey-text text-lighten-4">
+          	Paradox es un club de deportes electronicos de alta categoria, nos dedicamos a gestionar equipos en diferentes plataformas y videojuegos.
+          	Forjamos nuestras victorias.
+          
+          
+          </p>
+
+
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">RRSS</h5>
+          <ul>
+            <a class="white-text iconosrrss" href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.facebook.es/"><i class="fab fa-facebook-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.twitter.com/"><i class="fab fa-twitter-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://www.youtube.es/"><i class="fab fa-youtube-square fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://twitch.tv/"><i class="fab fa-twitch fa-2x"></i></a>
+            <a class="white-text iconosrrss" href="https://discordapp.com/"><i class="fab fa-discord fa-2x"></i></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright blue darken-4">
+      <div class="container center-align">
+      <i class="far fa-copyright"></i>Grupo 1 2019
+      </div>
+    </div>
+  </footer>
+  <!--             Fin Footer                  -->
+
+
+  <!--  Scripts-->
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/index.js"></script>
+  <script src="js/galeria.js"></script>
+
+  </body>
+</html>

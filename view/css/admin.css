@@ -125,6 +125,10 @@ table{
     overflow: scroll;
    
 }
+img{
+    position: absolute;
+    margin-top: -50px;
+}
 
 
 
