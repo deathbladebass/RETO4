@@ -1,5 +1,6 @@
 /* --------- 			index.html 			------------ */
-nav ul ,
+
+nav ul 
 nav .brand-logo {
   color: #444;
 }
@@ -229,7 +230,7 @@ html,body{
 
 }
 a{
-  text-decoration:none
+  text-decoration:none;
 }
 #header{
   position:relative;
