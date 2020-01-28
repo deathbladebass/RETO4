@@ -36,7 +36,7 @@ $(document).on("ready", function () {
    <div class="col s9 m6">
      <div class="card">
        <div class="card-image">
-         <img src="http://uno.fpz1920.com/Reto4/imagenes/${result[0].imagen}">
+         <img id="fotoPerfil" src="http://uno.fpz1920.com/Reto4/imagenes/${result[0].imagen}">
        </div>
        <div class="card-content">
          <ul><li><span>Usuario: ${result[0].nombre} "${localStorage.getItem("usuario")}" ${result[0].apellido}</span></li>
