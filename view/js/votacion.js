@@ -6,12 +6,9 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 	//alert(PHPSESSID);
 	//console.log(PHPSESSID);
 	var datos;
-	var votos=0;
 	$scope.equipos;
 	//Si has votado te redirirecciona al index
-	if (votos==3){
-		window.location.replace("../index.html");
-	}
+
 	
 	$http({
 		method: "get",
@@ -23,16 +20,18 @@ miAplicacion.controller('votacion', function ($scope, $http) {
 			sessionStorage.setItem('PHPSESSID',result.PHPSESSID);
 		}
 
+
 		console.log(result);
 		$scope.user=result.data;
 		
+		if($scope.user.tipoUsu==0){
+			window.location.replace("../index.html");
+		}
 		datos=parseInt($scope.user.idUsuario);
 		//alert(datos);
 		
 		$scope.usuarioData(datos);
-		if($scope.user.tipoUsu==0){
-			window.location.replace("../index.html");
-		}
+
 	},function myError(response) {
 		$scope.categoria = response.statusText;
 	});
@@ -67,7 +66,8 @@ miAplicacion.controller('votacion', function ($scope, $http) {
             }
 
         }
-		if ($scope.equipos.length==0){
+		if ($scope.equipos.length==0){	
+			alert("Has votado todas las categorias");
 			window.location.replace("../index.html");
 		}
 		//alert($scope.equipos.length)

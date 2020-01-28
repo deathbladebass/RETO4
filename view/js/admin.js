@@ -1,9 +1,10 @@
 var fecha = "", categorias = [];
 var miAplicacion = angular.module('miAplicacion', []);
 miAplicacion.controller('equipo', function ($scope, $http) {
-	
+	var PHPSESSID=localStorage.getItem('PHPSESSID');
 	$http({
-		method: "get",
+        method: "get",
+        params: {PHPSESSID:PHPSESSID || ''},
 		url: "http://uno.fpz1920.com/Reto4/controller/cNav.php",
 	}).then(function mySuccess(result){
 		var user=result.data;

@@ -1,0 +1,91 @@
+
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+#cartelUpdate{
+   
+    max-width: 150px;
+}
+.card-content>*{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+  text-align:justify;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+ }
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+.tamanoImagen{
+	background-position:center !important;
+	background-size: cover !important;
+	height:100%;
+}
+
+.dropdown-content{
+	width: 50px;
+}
+.dropdown-trigger{
+	width: 130px;
+}
+.card-action{
+	border-radius:5px !important;
+}
+.cardTamano{
+	heigth: 25% !important;
+}
+.iconoColor{
+	 fill: green;
+}
+/*Oculta el carousel en moviles*/
+@media only screen and (max-width: 600px) {
+	.carousel{
+		display: none;
+	}
+}
+.card .card-action{	
+	white-space: nowrap;
+}
+.sidenav li > a {
+    color: rgba(0, 0, 0, 0.87) !important;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+}
+@media only screen and (max-width: 601px){
+	#bienvenido{
+		color:black;
+		margin-left: 30px;
+	}
+}

@@ -1,7 +1,8 @@
+
 .imgGaleria{
-	width: 500px;
-	height: 500px;
-	margin: 80px;
+	width: 50vh;
+	height: 50vh;
+	margin: 50px;
 	border-radius:10px;
 	object-fit: cover;
 }
@@ -9,7 +10,5 @@
 @media only screen and (max-width: 601px){
 
 	.imgGaleria{
-	width: 400px;
-	height: 400px;
-}
-}
+        width: 40vh;
+        height: 40vh;
